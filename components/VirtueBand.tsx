@@ -21,28 +21,21 @@ export default function VirtueBand() {
             <circle cx="7" cy="7" r="5" stroke="#D4A84B" strokeWidth="0.75"/>
             <circle cx="7" cy="7" r="2" fill="#D4A84B"/>
           </svg>
-          <span className="virtue-name">Self-Knowledge</span>
+          <span className="virtue-name">Human Fulfillment</span>
         </div>
         <div className="virtue-item">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <polygon points="7,2 12,11 2,11" stroke="#D4A84B" strokeWidth="0.75" fill="none"/>
             <circle cx="7" cy="8" r="1.5" fill="#D4A84B"/>
           </svg>
-          <span className="virtue-name">Purpose</span>
+          <span className="virtue-name">Generational Legacy</span>
         </div>
         <div className="virtue-item">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <rect x="2" y="2" width="10" height="10" stroke="#D4A84B" strokeWidth="0.75" transform="rotate(45 7 7)" fill="none"/>
             <circle cx="7" cy="7" r="1.5" fill="#D4A84B"/>
           </svg>
-          <span className="virtue-name">Excellence</span>
-        </div>
-        <div className="virtue-item">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M7 2 Q10 5 10 7 Q10 11 7 12 Q4 11 4 7 Q4 5 7 2Z" stroke="#D4A84B" strokeWidth="0.75" fill="none"/>
-            <circle cx="7" cy="7" r="1.5" fill="#D4A84B"/>
-          </svg>
-          <span className="virtue-name">Service</span>
+          <span className="virtue-name">Economic Ignition</span>
         </div>
       </div>
     </div>
