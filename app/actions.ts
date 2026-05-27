@@ -2,13 +2,13 @@
 
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function submitEmail(_prevState: unknown, formData: FormData) {
   const email = formData.get('email') as string
   if (!email || !email.includes('@')) {
     return { error: 'Please enter a valid email.' }
   }
+
+  const resend = new Resend(process.env.RESEND_API_KEY)
 
   await resend.emails.send({
     from: 'Nivarro <onboarding@resend.dev>',
