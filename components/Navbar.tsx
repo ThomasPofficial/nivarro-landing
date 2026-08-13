@@ -27,7 +27,7 @@ export default function Navbar() {
         <div className="nav-line" />
       </div>
 
-      <button className="btn-nav" onClick={scrollToCTA}>Request access</button>
+      <button className="btn-nav" onClick={scrollToCTA}>Request a demo</button>
     </nav>
   )
 }

@@ -16,8 +16,8 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Nivarro — The platform built for ambitious high schoolers',
-  description: 'Discover internships, competitions, and research programs. Build your identity. Collaborate with people building the same things.',
+  title: 'Nivarro — The alumni engagement & fundraising platform for schools',
+  description: 'Turn your alumni network into ongoing mentorship and reliable annual giving — a private community, AI-generated fundraising pages, and a real-time admin dashboard, funded straight to your school\'s bank account.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

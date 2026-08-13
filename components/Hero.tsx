@@ -164,7 +164,7 @@ export default function Hero() {
       {/* Badge */}
       <div className="badge">
         <div className="badge-dot" />
-        Early access now open
+        Free through your first semester
       </div>
 
       {/* Ornamental rule */}
@@ -174,15 +174,15 @@ export default function Hero() {
 
       {/* Heading */}
       <h1>
-        The platform built for<br />
-        <span className="ac">ambitious</span> <em>high schoolers.</em>
+        The alumni engagement &amp; fundraising<br />
+        platform built <em>for schools.</em>
       </h1>
 
       {/* Body */}
-      <p>Discover internships, competitions, and research programs. Build your identity. Collaborate with people building the same things.</p>
+      <p>Turn your alumni network into ongoing mentorship and reliable annual giving — a private community, AI-generated fundraising pages, and a real-time admin dashboard, funded straight to your school&apos;s bank account.</p>
 
       {/* CTA button */}
-      <button className="btn-hero" onClick={scrollToCTA}>Request access →</button>
+      <button className="btn-hero" onClick={scrollToCTA}>Request a demo →</button>
 
       {/* Bottom sigil */}
       <div className="sigil-wrap">

@@ -7,7 +7,7 @@ function SubmitButton() {
   const { pending } = useFormStatus()
   return (
     <button type="submit" disabled={pending}>
-      {pending ? 'Sending…' : 'Get access'}
+      {pending ? 'Sending…' : 'Request a demo'}
     </button>
   )
 }
@@ -48,7 +48,7 @@ export default function CTA() {
         </svg>
       </div>
 
-      <p className="cta-label">Early access</p>
+      <p className="cta-label">Get in touch</p>
 
       <div className="rule" style={{ marginBottom: '20px' }}>
         <div className="rl" style={{ width: '36px' }} />
@@ -56,8 +56,8 @@ export default function CTA() {
         <div className="rl" style={{ width: '36px' }} />
       </div>
 
-      <h2>Be one of the first.</h2>
-      <p className="sub">Nivarro is in early access. Drop your email and we&apos;ll reach out when your spot is ready.</p>
+      <h2>Bring alumni engagement to your school.</h2>
+      <p className="sub">Free through your first semester — no budget line needed to start. Drop your email and we&apos;ll set up a walkthrough for your advancement office.</p>
 
       {state?.success ? (
         <p className="form-message success">You&apos;re on the list! We&apos;ll be in touch.</p>
@@ -70,7 +70,7 @@ export default function CTA() {
 
       {state?.error && <p className="form-message error">{state.error}</p>}
 
-      <p className="fine">No spam. Just an invite when you&apos;re up.</p>
+      <p className="fine">No spam. Just a reply from our team.</p>
     </section>
   )
 }

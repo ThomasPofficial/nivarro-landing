@@ -18,8 +18,8 @@ export default function Features() {
             <circle cx="44" cy="24" r="1.5" fill="rgba(75,142,245,0.6)"/>
           </svg>
         </div>
-        <h3>Opportunity discovery</h3>
-        <p>Internships, competitions, and research programs — surfaced and matched to who you actually are.</p>
+        <h3>Alumni directory &amp; network</h3>
+        <p>A searchable, private network and group chat connecting students, teachers, and alumni.</p>
         <div className="feat-bg">
           <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
             <circle cx="45" cy="45" r="38" stroke="white" strokeWidth="0.75"/>
@@ -43,8 +43,8 @@ export default function Features() {
             <circle cx="24" cy="24" r="2" fill="rgba(255,255,255,0.9)"/>
           </svg>
         </div>
-        <h3>Your identity layer</h3>
-        <p>Build a profile that reflects who you are — not just your GPA. Your genius type, your goals, your story.</p>
+        <h3>AI-generated fundraising pages</h3>
+        <p>Project-specific donation asks, written for your school — no manual campaign building.</p>
         <div className="feat-bg">
           <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
             <rect x="8" y="8" width="74" height="74" stroke="white" strokeWidth="0.75"/>
@@ -70,8 +70,8 @@ export default function Features() {
             <circle cx="6" cy="36" r="1.5" fill="rgba(75,142,245,0.6)"/>
           </svg>
         </div>
-        <h3>Collaboration</h3>
-        <p>Find teammates, join organizations, and build things with people who are just as driven as you are.</p>
+        <h3>Admin dashboard &amp; donation links</h3>
+        <p>Real-time visibility into projects and campaigns, funded in-app straight into your school&apos;s bank account.</p>
         <div className="feat-bg">
           <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
             <polygon points="45,6 78,64 12,64" stroke="white" strokeWidth="0.75" fill="none"/>

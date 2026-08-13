@@ -32,7 +32,7 @@ export default function Mission() {
             </svg>
             <span className="virtue-name">Human Fulfillment</span>
           </div>
-          <p>Help isolated, frustrated young people find their footing, discover their strengths, and feel true pride in their labor.</p>
+          <p>Give students real mentors, and give alumni a meaningful way to reconnect and give back.</p>
         </div>
 
         <div className="mission-card">
@@ -43,7 +43,7 @@ export default function Mission() {
             </svg>
             <span className="virtue-name">Generational Legacy</span>
           </div>
-          <p>Every placement is a foundation for a young person to confidently provide for their future family.</p>
+          <p>Every alumni gift funds the next program that gives current students the same head start.</p>
         </div>
 
         <div className="mission-card">
@@ -54,7 +54,7 @@ export default function Mission() {
             </svg>
             <span className="virtue-name">Economic Ignition</span>
           </div>
-          <p>Fight underemployment by injecting fresh Gen Z talent directly into the American business and tech ecosystem.</p>
+          <p>Close the gap between what alumni want to give and what schools have the system to receive.</p>
         </div>
 
         <div className="mission-card">
@@ -65,7 +65,7 @@ export default function Mission() {
             </svg>
             <span className="virtue-name">The Flourish Directive</span>
           </div>
-          <p>When our students win, their communities win, and society moves forward.</p>
+          <p>When alumni show up for students, schools thrive and their whole community feels it.</p>
         </div>
       </div>
     </section>
