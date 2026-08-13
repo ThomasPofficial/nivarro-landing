@@ -1,6 +1,5 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
-import DoctrineStrip from '@/components/DoctrineStrip'
 import SectionDivider from '@/components/SectionDivider'
 import Features from '@/components/Features'
 import Mission from '@/components/Mission'
@@ -13,7 +12,6 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
-      <DoctrineStrip />
       <SectionDivider />
       <Features />
       <Mission />
