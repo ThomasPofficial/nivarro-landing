@@ -57,7 +57,7 @@ export default function CTA() {
       </div>
 
       <h2>Bring alumni engagement to your school.</h2>
-      <p className="sub">Free through your first semester — no budget line needed to start. Drop your email and we&apos;ll set up a walkthrough for your advancement office.</p>
+      <p className="sub">Free through your first semester — no budget line needed to start. We only make money when you do: 5% + $0.30 per donation, nothing else. Drop your email and we&apos;ll set up a walkthrough for your advancement office.</p>
 
       {state?.success ? (
         <p className="form-message success">You&apos;re on the list! We&apos;ll be in touch.</p>

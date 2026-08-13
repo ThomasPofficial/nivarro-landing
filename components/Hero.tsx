@@ -179,7 +179,7 @@ export default function Hero() {
       </h1>
 
       {/* Body */}
-      <p>Turn your alumni network into ongoing mentorship and reliable annual giving — a private community, AI-generated fundraising pages, and a real-time admin dashboard, funded straight to your school&apos;s bank account.</p>
+      <p>Schools are underfunded, and their alumni want to help — they just don&apos;t have a way to. Nivarro connects students with alumni mentors, and alumni give back once they see the impact they&apos;ve made.</p>
 
       {/* CTA button */}
       <button className="btn-hero" onClick={scrollToCTA}>Request a demo →</button>
