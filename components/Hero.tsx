@@ -164,7 +164,7 @@ export default function Hero() {
       {/* Badge */}
       <div className="badge">
         <div className="badge-dot" />
-        Free through your first semester
+        Free through your first semester — 5% + 30¢ per donation
       </div>
 
       {/* Ornamental rule */}
