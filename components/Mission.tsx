@@ -20,7 +20,7 @@ export default function Mission() {
       <p className="virtue-band-label mission-eyebrow">Our Mission</p>
 
       <blockquote className="mission-quote">
-        &ldquo;We do not work for money; we work for a generation being left stranded.&rdquo;
+        &ldquo;The day students graduate, schools lose touch with them &mdash; and with them, the mentors and donors the next generation needs.&rdquo;
       </blockquote>
 
       <div className="mission-grid">
