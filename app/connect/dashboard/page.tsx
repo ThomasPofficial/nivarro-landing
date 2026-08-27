@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { isValidDashboardToken, DASHBOARD_COOKIE_NAME } from '@/lib/connect-auth'
-import { getAllSignups, getFunnelStats } from '@/lib/connect-signups'
+import { getAllSignups, computeFunnelStats } from '@/lib/connect-signups'
 import DashboardView from '@/components/connect/DashboardView'
 import './dashboard.css'
 
@@ -16,7 +16,8 @@ export default async function DashboardPage({
     redirect('/connect/dashboard/login')
   }
 
-  const [stats, signups] = await Promise.all([getFunnelStats(), getAllSignups()])
+  const signups = await getAllSignups()
+  const stats = computeFunnelStats(signups)
 
   const filter =
     searchParams.filter === 'complete' || searchParams.filter === 'partial'
