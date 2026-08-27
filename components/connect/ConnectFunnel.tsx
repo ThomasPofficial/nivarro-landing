@@ -42,6 +42,7 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
     await fetch('/api/connect/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+      keepalive: true,
       body: JSON.stringify({
         id: idRef.current,
         step: opts.step,
