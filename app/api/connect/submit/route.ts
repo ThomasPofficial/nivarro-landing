@@ -12,19 +12,24 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'id and step are required' }, { status: 400 })
   }
 
-  const step = Math.min(7, Math.max(0, Math.trunc(Number(body.step))))
+  const step = Math.min(12, Math.max(0, Math.trunc(Number(body.step))))
 
   const input: ConnectSignupInput = {
     id: capString(body.id, 64)!,
     step,
     completed: Boolean(body.completed),
-    gender: capString(body.gender, 500),
-    ageRange: capString(body.ageRange, 500),
-    attendedPrivateSchool: capString(body.attendedPrivateSchool, 500),
-    connectionLevel: capString(body.connectionLevel, 500),
-    mentorInterest: capString(body.mentorInterest, 500),
-    topInterest: capString(body.topInterest, 500),
-    email: capString(body.email, 500),
+    hasMentorshipProgram: capString(body.hasMentorshipProgram, 500),
+    alumniPriority: capString(body.alumniPriority, 500),
+    biggestProblem: capString(body.biggestProblem, 500),
+    wouldPay: capString(body.wouldPay, 500),
+    hesitationReason: capString(body.hesitationReason, 500),
+    hesitationReasonOther: capString(body.hesitationReasonOther, 500),
+    decisionMaker: capString(body.decisionMaker, 500),
+    fairCutPercent: capString(body.fairCutPercent, 500),
+    budgetPerSemester: capString(body.budgetPerSemester, 500),
+    wantsDemoCall: capString(body.wantsDemoCall, 500),
+    demoEmail: capString(body.demoEmail, 500),
+    heardVia: capString(body.heardVia, 500),
     utmSource: capString(body.utmSource, 500),
     utmMedium: capString(body.utmMedium, 500),
     utmCampaign: capString(body.utmCampaign, 500),

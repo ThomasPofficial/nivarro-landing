@@ -12,15 +12,14 @@ export default function ConnectPrivacyPage() {
         <h1>Privacy</h1>
         <div className="connect-privacy-body">
           <p>
-            This page collects the answers you give (gender, age range,
-            school background, and interest in mentoring) and the email
-            address you submit at the end.
+            This page collects the answers you give about your school's
+            alumni engagement, budget, and decision-making process, plus
+            your email address if you opt in to a demo call.
           </p>
           <p>
-            We use this only to reach out about early access to Nivarro's
-            mentorship matching, and to understand how many people are
-            interested before we build out the full experience. If you
-            close the page partway through, we keep whatever you'd already
+            We use this only to understand what schools actually need and,
+            if you're interested, to follow up about a demo. If you close
+            the page partway through, we keep whatever you'd already
             answered, for the same purpose.
           </p>
           <p>

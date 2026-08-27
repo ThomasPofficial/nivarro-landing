@@ -65,13 +65,18 @@ export default function DashboardView({
               <th>Started</th>
               <th>Step</th>
               <th>Complete</th>
-              <th>Gender</th>
-              <th>Age</th>
-              <th>Attended private school</th>
-              <th>Connection</th>
-              <th>Mentor interest</th>
-              <th>Top interest</th>
-              <th>Email</th>
+              <th>Has mentorship program</th>
+              <th>Alumni priority (1-10)</th>
+              <th>Biggest problem</th>
+              <th>Would pay</th>
+              <th>Hesitation reason</th>
+              <th>Hesitation (other)</th>
+              <th>Decision maker</th>
+              <th>Fair cut %</th>
+              <th>Budget/semester</th>
+              <th>Wants demo call</th>
+              <th>Demo email</th>
+              <th>Heard via</th>
               <th>UTM source</th>
               <th>UTM medium</th>
               <th>UTM campaign</th>
@@ -82,15 +87,20 @@ export default function DashboardView({
             {filtered.map((s) => (
               <tr key={s.id}>
                 <td>{new Date(s.started_at).toLocaleString()}</td>
-                <td>{s.current_step}/7</td>
+                <td>{s.current_step}/12</td>
                 <td>{s.completed ? 'Yes' : 'No'}</td>
-                <td>{s.gender ?? '—'}</td>
-                <td>{s.age_range ?? '—'}</td>
-                <td>{s.attended_private_school ?? '—'}</td>
-                <td>{s.connection_level ?? '—'}</td>
-                <td>{s.mentor_interest ?? '—'}</td>
-                <td>{s.top_interest ?? '—'}</td>
-                <td>{s.email ?? '—'}</td>
+                <td>{s.has_mentorship_program ?? '—'}</td>
+                <td>{s.alumni_priority ?? '—'}</td>
+                <td>{s.biggest_problem ?? '—'}</td>
+                <td>{s.would_pay ?? '—'}</td>
+                <td>{s.hesitation_reason ?? '—'}</td>
+                <td>{s.hesitation_reason_other ?? '—'}</td>
+                <td>{s.decision_maker ?? '—'}</td>
+                <td>{s.fair_cut_percent ?? '—'}</td>
+                <td>{s.budget_per_semester ?? '—'}</td>
+                <td>{s.wants_demo_call ?? '—'}</td>
+                <td>{s.demo_email ?? '—'}</td>
+                <td>{s.heard_via ?? '—'}</td>
                 <td>{s.utm_source ?? '—'}</td>
                 <td>{s.utm_medium ?? '—'}</td>
                 <td>{s.utm_campaign ?? '—'}</td>

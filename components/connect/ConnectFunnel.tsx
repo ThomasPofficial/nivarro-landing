@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { FUNNEL_STEPS, validateStepAnswer, type FunnelFieldKey } from './funnelSteps'
+import { FUNNEL_STEPS, validateStepAnswer, nextVisibleStepIndex, type FunnelFieldKey } from './funnelSteps'
 import ConnectIntro from './ConnectIntro'
 
 type Answers = Partial<Record<FunnelFieldKey, string>>
@@ -17,7 +17,7 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
   const [started, setStarted] = useState(false)
   const [stepIndex, setStepIndex] = useState(0)
   const [answers, setAnswers] = useState<Answers>({})
-  const [emailValue, setEmailValue] = useState('')
+  const [inputValue, setInputValue] = useState('')
   const [error, setError] = useState('')
   const [done, setDone] = useState(false)
   const idRef = useRef<string>('')
@@ -47,13 +47,18 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
         id: idRef.current,
         step: opts.step,
         completed: opts.completed,
-        gender: opts.answers.gender,
-        ageRange: opts.answers.ageRange,
-        attendedPrivateSchool: opts.answers.attendedPrivateSchool,
-        connectionLevel: opts.answers.connectionLevel,
-        mentorInterest: opts.answers.mentorInterest,
-        topInterest: opts.answers.topInterest,
-        email: opts.answers.email,
+        hasMentorshipProgram: opts.answers.hasMentorshipProgram,
+        alumniPriority: opts.answers.alumniPriority,
+        biggestProblem: opts.answers.biggestProblem,
+        wouldPay: opts.answers.wouldPay,
+        hesitationReason: opts.answers.hesitationReason,
+        hesitationReasonOther: opts.answers.hesitationReasonOther,
+        decisionMaker: opts.answers.decisionMaker,
+        fairCutPercent: opts.answers.fairCutPercent,
+        budgetPerSemester: opts.answers.budgetPerSemester,
+        wantsDemoCall: opts.answers.wantsDemoCall,
+        demoEmail: opts.answers.demoEmail,
+        heardVia: opts.answers.heardVia,
         utmSource: attribution.utmSource || undefined,
         utmMedium: attribution.utmMedium || undefined,
         utmCampaign: attribution.utmCampaign || undefined,
@@ -65,26 +70,36 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
     })
   }
 
+  function advance(nextAnswers: Answers, fromIndex: number) {
+    const target = nextVisibleStepIndex(fromIndex + 1, nextAnswers)
+    const completed = target >= FUNNEL_STEPS.length
+    void submit({ step: Math.min(target, FUNNEL_STEPS.length), completed, answers: nextAnswers })
+    setInputValue('')
+    setError('')
+    if (completed) {
+      setDone(true)
+    } else {
+      setStepIndex(target)
+    }
+  }
+
   function handleChoice(value: string) {
     const step = FUNNEL_STEPS[stepIndex]
     const nextAnswers = { ...answers, [step.key]: value }
     setAnswers(nextAnswers)
-    setError('')
-    void submit({ step: stepIndex + 1, completed: false, answers: nextAnswers })
-    setStepIndex((i) => i + 1)
+    advance(nextAnswers, stepIndex)
   }
 
-  function handleEmailSubmit(e: React.FormEvent) {
+  function handleInputSubmit(e: React.FormEvent) {
     e.preventDefault()
     const step = FUNNEL_STEPS[stepIndex]
-    if (!validateStepAnswer(step, emailValue)) {
-      setError('Please enter a valid email.')
+    if (!validateStepAnswer(step, inputValue)) {
+      setError(inputMessages[step.type] ?? 'Please enter a valid answer.')
       return
     }
-    const nextAnswers = { ...answers, email: emailValue }
+    const nextAnswers = { ...answers, [step.key]: inputValue }
     setAnswers(nextAnswers)
-    void submit({ step: stepIndex + 1, completed: true, answers: nextAnswers })
-    setDone(true)
+    advance(nextAnswers, stepIndex)
   }
 
   if (!started) {
@@ -95,8 +110,11 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
     return (
       <main className="connect-page">
         <div className="connect-card connect-done">
-          <h1>You&apos;re on the list.</h1>
-          <p>We&apos;ll reach out as soon as mentorship matching opens up for your school.</p>
+          <h1>Thanks for the input.</h1>
+          <p>
+            If it&apos;s a fit, we&apos;ll follow up about a quick demo. Otherwise, this was
+            genuinely just research to help us build something schools would actually use.
+          </p>
         </div>
       </main>
     )
@@ -123,26 +141,58 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
           </div>
         )}
 
-        {step.type === 'email' && (
-          <form className="connect-email-form" onSubmit={handleEmailSubmit}>
-            <input
-              className="connect-email-input"
-              type="email"
-              placeholder="you@example.com"
-              value={emailValue}
-              onChange={(e) => setEmailValue(e.target.value)}
-              autoFocus
-            />
+        {step.type === 'scale' && (
+          <div className="connect-scale">
+            {step.options!.map((option) => (
+              <button key={option} className="connect-scale-option" onClick={() => handleChoice(option)}>
+                {option}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {(step.type === 'text' || step.type === 'percent' || step.type === 'dollar' || step.type === 'email') && (
+          <form className="connect-email-form" onSubmit={handleInputSubmit}>
+            {step.type === 'text' ? (
+              <textarea
+                className="connect-textarea"
+                placeholder="Type your answer..."
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                autoFocus
+                rows={3}
+              />
+            ) : (
+              <div className={step.type === 'percent' || step.type === 'dollar' ? 'connect-affix-input' : undefined}>
+                {step.type === 'dollar' && <span className="connect-affix">$</span>}
+                <input
+                  className="connect-email-input"
+                  type={step.type === 'percent' || step.type === 'dollar' ? 'number' : 'email'}
+                  inputMode={step.type === 'percent' || step.type === 'dollar' ? 'decimal' : undefined}
+                  placeholder={
+                    step.type === 'percent' ? '5' : step.type === 'dollar' ? '2500' : 'you@example.com'
+                  }
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  autoFocus
+                />
+                {step.type === 'percent' && <span className="connect-affix connect-affix-right">%</span>}
+              </div>
+            )}
             {error && <p className="connect-error">{error}</p>}
             <button className="connect-submit-btn" type="submit">
-              Get early access
+              Continue
             </button>
-            <a className="connect-privacy-link" href="/connect/privacy">
-              How we use your info
-            </a>
           </form>
         )}
       </div>
     </main>
   )
+}
+
+const inputMessages: Record<string, string> = {
+  text: 'Please enter an answer.',
+  percent: 'Please enter a number, 0 or higher.',
+  dollar: 'Please enter a number, 0 or higher.',
+  email: 'Please enter a valid email.',
 }

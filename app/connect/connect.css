@@ -172,3 +172,66 @@
 .connect-privacy-body a {
   color: var(--blue-bright);
 }
+
+.connect-scale {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.connect-scale-option {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--navy2);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.connect-scale-option:hover {
+  border-color: var(--blue-bright);
+  background: rgba(37, 99, 235, 0.12);
+}
+
+.connect-textarea {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--navy2);
+  color: var(--white);
+  font-size: 16px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.connect-affix-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.connect-affix-input .connect-email-input {
+  padding-left: 32px;
+}
+
+.connect-affix-input:has(.connect-affix-right) .connect-email-input {
+  padding-left: 20px;
+  padding-right: 32px;
+}
+
+.connect-affix {
+  position: absolute;
+  left: 20px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.connect-affix-right {
+  left: auto;
+  right: 20px;
+}
