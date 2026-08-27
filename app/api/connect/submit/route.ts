@@ -1,29 +1,35 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { upsertSignup, type ConnectSignupInput } from '@/lib/connect-signups'
 
+function capString(value: unknown, max: number): string | undefined {
+  return typeof value === 'string' ? value.slice(0, max) : undefined
+}
+
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null)
 
-  if (!body || typeof body.id !== 'string' || typeof body.step !== 'number') {
+  if (!body || typeof body.id !== 'string' || !Number.isFinite(Number(body.step))) {
     return NextResponse.json({ error: 'id and step are required' }, { status: 400 })
   }
 
+  const step = Math.min(7, Math.max(0, Math.trunc(Number(body.step))))
+
   const input: ConnectSignupInput = {
-    id: body.id,
-    step: body.step,
+    id: capString(body.id, 64)!,
+    step,
     completed: Boolean(body.completed),
-    gender: typeof body.gender === 'string' ? body.gender : undefined,
-    ageRange: typeof body.ageRange === 'string' ? body.ageRange : undefined,
-    attendedPrivateSchool: typeof body.attendedPrivateSchool === 'string' ? body.attendedPrivateSchool : undefined,
-    connectionLevel: typeof body.connectionLevel === 'string' ? body.connectionLevel : undefined,
-    mentorInterest: typeof body.mentorInterest === 'string' ? body.mentorInterest : undefined,
-    topInterest: typeof body.topInterest === 'string' ? body.topInterest : undefined,
-    email: typeof body.email === 'string' ? body.email : undefined,
-    utmSource: typeof body.utmSource === 'string' ? body.utmSource : undefined,
-    utmMedium: typeof body.utmMedium === 'string' ? body.utmMedium : undefined,
-    utmCampaign: typeof body.utmCampaign === 'string' ? body.utmCampaign : undefined,
-    referrer: typeof body.referrer === 'string' ? body.referrer : undefined,
-    userAgent: typeof body.userAgent === 'string' ? body.userAgent : undefined,
+    gender: capString(body.gender, 500),
+    ageRange: capString(body.ageRange, 500),
+    attendedPrivateSchool: capString(body.attendedPrivateSchool, 500),
+    connectionLevel: capString(body.connectionLevel, 500),
+    mentorInterest: capString(body.mentorInterest, 500),
+    topInterest: capString(body.topInterest, 500),
+    email: capString(body.email, 500),
+    utmSource: capString(body.utmSource, 500),
+    utmMedium: capString(body.utmMedium, 500),
+    utmCampaign: capString(body.utmCampaign, 500),
+    referrer: capString(body.referrer, 500),
+    userAgent: capString(body.userAgent, 500),
   }
 
   await upsertSignup(input)
