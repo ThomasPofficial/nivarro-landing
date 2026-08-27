@@ -1,0 +1,109 @@
+.dash-page {
+  min-height: 100vh;
+  background: var(--navy);
+  color: var(--white);
+  padding: 32px 24px;
+  font-family: var(--font-dm-sans), sans-serif;
+}
+
+.dash-stats {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.dash-stat {
+  background: var(--navy2);
+  border-radius: 12px;
+  padding: 16px 20px;
+  min-width: 140px;
+}
+
+.dash-stat-value {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.dash-stat-label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dash-funnel {
+  margin-bottom: 32px;
+}
+
+.dash-funnel-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.dash-funnel-label {
+  width: 220px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dash-funnel-bar-track {
+  flex: 1;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.dash-funnel-bar-fill {
+  height: 100%;
+  background: var(--blue-bright);
+}
+
+.dash-funnel-count {
+  width: 48px;
+  text-align: right;
+  font-size: 13px;
+}
+
+.dash-filters {
+  margin-bottom: 16px;
+  display: flex;
+  gap: 12px;
+}
+
+.dash-filters a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.dash-filters a.active {
+  color: var(--white);
+  background: var(--navy2);
+}
+
+.dash-table-wrap {
+  overflow-x: auto;
+}
+
+.dash-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.dash-table th,
+.dash-table td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
+}
+
+.dash-table th {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
