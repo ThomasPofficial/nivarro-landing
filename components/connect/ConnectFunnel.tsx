@@ -124,7 +124,13 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
   const progressPct = Math.round((stepIndex / FUNNEL_STEPS.length) * 100)
 
   return (
-    <main className="connect-page">
+    <main className="connect-page connect-quiz">
+      <div className="connect-quiz-header">
+        <span className="connect-brand">NIVARRO</span>
+        <span className="connect-step-counter">
+          {stepIndex + 1} / {FUNNEL_STEPS.length}
+        </span>
+      </div>
       <div className="connect-progress">
         <div className="connect-progress-fill" style={{ width: `${progressPct}%` }} />
       </div>
@@ -133,9 +139,10 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
 
         {step.type === 'choice' && (
           <div className="connect-options">
-            {step.options!.map((option) => (
+            {step.options!.map((option, i) => (
               <button key={option} className="connect-option" onClick={() => handleChoice(option)}>
-                {option}
+                <span className="connect-option-badge">{String.fromCharCode(65 + i)}</span>
+                <span className="connect-option-label">{option}</span>
               </button>
             ))}
           </div>
