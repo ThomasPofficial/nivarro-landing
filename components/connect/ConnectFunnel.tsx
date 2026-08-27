@@ -137,6 +137,9 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
             <button className="connect-submit-btn" type="submit">
               Get early access
             </button>
+            <a className="connect-privacy-link" href="/connect/privacy">
+              How we use your info
+            </a>
           </form>
         )}
       </div>

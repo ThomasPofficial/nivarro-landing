@@ -21,6 +21,9 @@ export default function ConnectIntro({ onStart }: { onStart: () => void }) {
         <button className="connect-submit-btn" onClick={onStart}>
           Get started
         </button>
+        <a className="connect-privacy-link" href="/connect/privacy">
+          How we use your info
+        </a>
       </div>
     </main>
   )

@@ -137,3 +137,38 @@
   line-height: 1.5;
   margin-bottom: 24px;
 }
+
+.connect-privacy-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+.connect-privacy-link:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.connect-privacy .connect-card {
+  max-width: 520px;
+  text-align: left;
+}
+
+.connect-privacy h1 {
+  font-family: var(--font-playfair), serif;
+  font-size: 26px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.connect-privacy-body p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.connect-privacy-body a {
+  color: var(--blue-bright);
+}
