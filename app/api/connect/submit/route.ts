@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { upsertSignup, type ConnectSignupInput } from '@/lib/connect-signups'
+import { notifySurveyCompletion } from '@/lib/connect-notify'
 
 function capString(value: unknown, max: number): string | undefined {
   return typeof value === 'string' ? value.slice(0, max) : undefined
@@ -38,6 +39,12 @@ export async function POST(req: NextRequest) {
   }
 
   await upsertSignup(input)
+
+  if (input.completed) {
+    await notifySurveyCompletion(input).catch(() => {
+      // Best-effort: a failed notification email shouldn't fail the submission.
+    })
+  }
 
   return NextResponse.json({ ok: true })
 }
