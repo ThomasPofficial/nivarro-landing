@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 export default function Hero() {
   const scrollToCTA = () => {
     document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })
@@ -183,6 +185,19 @@ export default function Hero() {
 
       {/* CTA button */}
       <button className="btn-hero" onClick={scrollToCTA}>Request a demo →</button>
+
+      {/* Hero photo */}
+      <div className="hero-photo">
+        <div className="hero-photo-frame">
+          <Image
+            src="/connect/lifestyle/hero-students-library.png"
+            alt="A student and an alum reviewing Nivarro together at a library table"
+            fill
+            sizes="(max-width: 767px) 80vw, 360px"
+          />
+        </div>
+        <div className="hero-sticker">Two students. No investors. Just research.</div>
+      </div>
 
       {/* Bottom sigil */}
       <div className="sigil-wrap">
