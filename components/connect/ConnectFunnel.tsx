@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { FUNNEL_STEPS, validateStepAnswer, nextVisibleStepIndex, type FunnelFieldKey } from './funnelSteps'
-import ConnectIntro from './ConnectIntro'
+import ConnectLanding from './ConnectLanding'
 
 type Answers = Partial<Record<FunnelFieldKey, string>>
 
@@ -11,6 +11,18 @@ type Attribution = {
   utmMedium: string
   utmCampaign: string
   referrer: string
+}
+
+const ANSWERS_STORAGE_KEY = 'connect-answers'
+const STEP_STORAGE_KEY = 'connect-step'
+
+function detectDeviceType(): 'mobile' | 'tablet' | 'desktop' {
+  if (typeof window === 'undefined') return 'desktop'
+  const width = window.innerWidth
+  const hasTouch = navigator.maxTouchPoints > 0
+  if (width < 640 && hasTouch) return 'mobile'
+  if (width < 1024 && hasTouch) return 'tablet'
+  return 'desktop'
 }
 
 export default function ConnectFunnel({ attribution }: { attribution: Attribution }) {
@@ -22,6 +34,9 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
   const [done, setDone] = useState(false)
   const idRef = useRef<string>('')
   const startedRef = useRef(false)
+  const deviceTypeRef = useRef<string>('desktop')
+  const stepEnteredAtRef = useRef<number>(Date.now())
+  const timePerQuestionRef = useRef<Record<string, number>>({})
 
   useEffect(() => {
     if (startedRef.current) return
@@ -33,6 +48,21 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
       sessionStorage.setItem('connect-id', id)
     }
     idRef.current = id
+    deviceTypeRef.current = detectDeviceType()
+
+    const savedAnswers = sessionStorage.getItem(ANSWERS_STORAGE_KEY)
+    const savedStep = sessionStorage.getItem(STEP_STORAGE_KEY)
+    if (savedAnswers && savedStep) {
+      const parsed = JSON.parse(savedAnswers) as Answers
+      const stepNum = Number(savedStep)
+      if (stepNum < FUNNEL_STEPS.length) {
+        setAnswers(parsed)
+        setStepIndex(stepNum)
+        setStarted(true)
+        stepEnteredAtRef.current = Date.now()
+        return
+      }
+    }
 
     void submit({ step: 0, completed: false, answers: {} })
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -57,28 +87,47 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
         fairCutPercent: opts.answers.fairCutPercent,
         budgetPerSemester: opts.answers.budgetPerSemester,
         wantsDemoCall: opts.answers.wantsDemoCall,
-        demoEmail: opts.answers.demoEmail,
+        email: opts.answers.email,
         heardVia: opts.answers.heardVia,
         utmSource: attribution.utmSource || undefined,
         utmMedium: attribution.utmMedium || undefined,
         utmCampaign: attribution.utmCampaign || undefined,
         referrer: attribution.referrer || undefined,
         userAgent: navigator.userAgent,
+        deviceType: deviceTypeRef.current,
+        timePerQuestionMs: JSON.stringify(timePerQuestionRef.current),
       }),
     }).catch(() => {
       // Best-effort: a dropped request just means this step isn't recorded.
     })
   }
 
+  function recordTimeForCurrentStep() {
+    const step = FUNNEL_STEPS[stepIndex]
+    if (!step) return
+    const elapsed = Date.now() - stepEnteredAtRef.current
+    timePerQuestionRef.current = { ...timePerQuestionRef.current, [step.key]: elapsed }
+  }
+
+  function persistProgress(nextAnswers: Answers, nextStep: number) {
+    sessionStorage.setItem(ANSWERS_STORAGE_KEY, JSON.stringify(nextAnswers))
+    sessionStorage.setItem(STEP_STORAGE_KEY, String(nextStep))
+  }
+
   function advance(nextAnswers: Answers, fromIndex: number) {
+    recordTimeForCurrentStep()
     const target = nextVisibleStepIndex(fromIndex + 1, nextAnswers)
     const completed = target >= FUNNEL_STEPS.length
     void submit({ step: Math.min(target, FUNNEL_STEPS.length), completed, answers: nextAnswers })
     setInputValue('')
     setError('')
     if (completed) {
+      sessionStorage.removeItem(ANSWERS_STORAGE_KEY)
+      sessionStorage.removeItem(STEP_STORAGE_KEY)
       setDone(true)
     } else {
+      persistProgress(nextAnswers, target)
+      stepEnteredAtRef.current = Date.now()
       setStepIndex(target)
     }
   }
@@ -102,8 +151,12 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
     advance(nextAnswers, stepIndex)
   }
 
+  function handleSkip() {
+    advance(answers, stepIndex)
+  }
+
   if (!started) {
-    return <ConnectIntro onStart={() => setStarted(true)} />
+    return <ConnectLanding onStart={() => setStarted(true)} />
   }
 
   if (done) {
@@ -148,14 +201,18 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
           </div>
         )}
 
-        {step.type === 'scale' && (
-          <div className="connect-scale">
-            {step.options!.map((option) => (
-              <button key={option} className="connect-scale-option" onClick={() => handleChoice(option)}>
-                {option}
-              </button>
-            ))}
-          </div>
+        {step.type === 'slider' && (
+          <SliderQuestion
+            options={step.options!}
+            value={inputValue || answers[step.key] || '5'}
+            onChange={setInputValue}
+            onContinue={() => {
+              const value = inputValue || answers[step.key] || '5'
+              const nextAnswers = { ...answers, [step.key]: value }
+              setAnswers(nextAnswers)
+              advance(nextAnswers, stepIndex)
+            }}
+          />
         )}
 
         {(step.type === 'text' || step.type === 'percent' || step.type === 'dollar' || step.type === 'email') && (
@@ -187,13 +244,56 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
               </div>
             )}
             {error && <p className="connect-error">{error}</p>}
-            <button className="connect-submit-btn" type="submit">
-              Continue
-            </button>
+            <div className="connect-form-actions">
+              <button className="connect-submit-btn" type="submit">
+                Continue
+              </button>
+              {step.optional && (
+                <button type="button" className="connect-skip-btn" onClick={handleSkip}>
+                  Skip
+                </button>
+              )}
+            </div>
           </form>
         )}
       </div>
     </main>
+  )
+}
+
+function SliderQuestion({
+  options,
+  value,
+  onChange,
+  onContinue,
+}: {
+  options: string[]
+  value: string
+  onChange: (value: string) => void
+  onContinue: () => void
+}) {
+  const min = Number(options[0])
+  const max = Number(options[options.length - 1])
+  return (
+    <div className="connect-slider-wrap">
+      <div className="connect-slider-value">{value}</div>
+      <input
+        className="connect-slider"
+        type="range"
+        min={min}
+        max={max}
+        step={1}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      />
+      <div className="connect-slider-scale">
+        <span>Not a priority</span>
+        <span>Urgent priority</span>
+      </div>
+      <button className="connect-submit-btn" type="button" onClick={onContinue}>
+        Continue
+      </button>
+    </div>
   )
 }
 
