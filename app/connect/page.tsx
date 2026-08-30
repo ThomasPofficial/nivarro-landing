@@ -5,7 +5,7 @@ import './connect.css'
 export const metadata = {
   title: 'Quick Survey for Schools | Nivarro',
   description:
-    "11 quick questions for whoever runs alumni relations at your school. No pitch — this shapes what we build before launch.",
+    "10 quick questions for whoever runs alumni relations at your school. No pitch — this shapes what we build before launch.",
 }
 
 export default function ConnectPage({
