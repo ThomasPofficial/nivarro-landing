@@ -71,6 +71,7 @@ export default function ConnectLanding({ onStart }: { onStart: () => void }) {
             />
           </div>
           <div className="cl-sticker">Two students. No investors. Just research.</div>
+          <div className="cl-sticker-2">2 min survey</div>
         </div>
       </section>
 
