@@ -75,25 +75,27 @@ export default function ConnectLanding({ onStart }: { onStart: () => void }) {
       <OrnamentalRule />
 
       <section className="cl-stats">
-        <div className="cl-stat">
-          <div className="cl-stat-value">26%</div>
-          <p className="cl-stat-label">
-            of a school&apos;s operating budget comes from annual giving. Tuition alone
-            doesn&apos;t close the gap.
-          </p>
-        </div>
-        <div className="cl-stat cl-stat-gold">
-          <div className="cl-stat-value">20%</div>
-          <p className="cl-stat-label">
-            of alumni actually give — even though they&apos;re a school&apos;s single largest
-            donor group.
-          </p>
-        </div>
-        <div className="cl-stat">
-          <div className="cl-stat-value">$5.42B</div>
-          <p className="cl-stat-label">
-            raised by U.S. independent schools in 2024 alone. The money is already moving.
-          </p>
+        <div className="cl-stats-row">
+          <div className="cl-stat">
+            <div className="cl-stat-value">26%</div>
+            <p className="cl-stat-label">
+              of a school&apos;s operating budget comes from annual giving. Tuition alone
+              doesn&apos;t close the gap.
+            </p>
+          </div>
+          <div className="cl-stat cl-stat-gold">
+            <div className="cl-stat-value">20%</div>
+            <p className="cl-stat-label">
+              of alumni actually give — even though they&apos;re a school&apos;s single largest
+              donor group.
+            </p>
+          </div>
+          <div className="cl-stat">
+            <div className="cl-stat-value">$5.42B</div>
+            <p className="cl-stat-label">
+              raised by U.S. independent schools in 2024 alone. The money is already moving.
+            </p>
+          </div>
         </div>
         <p className="cl-stats-source">Source: CASE / NAIS, Voluntary Support of Education</p>
       </section>

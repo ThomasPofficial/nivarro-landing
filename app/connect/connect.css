@@ -449,7 +449,7 @@
   position: relative;
   width: 100%;
   max-width: 460px;
-  aspect-ratio: 1536 / 2752;
+  aspect-ratio: 4 / 5;
   margin-top: 40px;
 }
 
@@ -470,6 +470,7 @@
 
 .cl-hero-media img {
   object-fit: cover;
+  object-position: top center;
 }
 
 .cl-sticker {
@@ -493,9 +494,14 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  padding-top: 40px;
+}
+
+.cl-stats-row {
+  display: flex;
+  flex-direction: column;
   gap: 1px;
   background: rgba(255, 255, 255, 0.07);
-  padding-top: 40px;
 }
 
 .cl-stat {
@@ -577,7 +583,7 @@
   position: relative;
   width: 100%;
   max-width: 340px;
-  aspect-ratio: 1536 / 2752;
+  aspect-ratio: 4 / 5;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -587,6 +593,7 @@
 
 .cl-feature-media img {
   object-fit: cover;
+  object-position: top center;
 }
 
 .cl-feature-eyebrow {
@@ -633,7 +640,7 @@
   position: relative;
   width: 100%;
   max-width: 220px;
-  aspect-ratio: 1536 / 2752;
+  aspect-ratio: 4 / 5;
   flex-shrink: 0;
   border-radius: 16px;
   overflow: hidden;
@@ -643,6 +650,7 @@
 
 .cl-why-media img {
   object-fit: cover;
+  object-position: top center;
 }
 
 .cl-why-copy {
@@ -680,7 +688,7 @@
 .cl-closing-media {
   position: relative;
   width: 130px;
-  aspect-ratio: 1536 / 2752;
+  aspect-ratio: 4 / 5;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -690,6 +698,7 @@
 
 .cl-closing-media img {
   object-fit: cover;
+  object-position: top center;
 }
 
 .cl-closing-label {
@@ -767,16 +776,12 @@
     margin-top: 0;
   }
 
-  .cl-stats {
+  .cl-stats-row {
     flex-direction: row;
   }
 
   .cl-stat {
     flex: 1;
-  }
-
-  .cl-stats-source {
-    width: 100%;
   }
 
   .cl-why {
