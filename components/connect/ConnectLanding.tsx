@@ -53,7 +53,7 @@ export default function ConnectLanding({ onStart }: { onStart: () => void }) {
         <button className="cl-cta" onClick={onStart}>
           Take the 2-minute survey
         </button>
-        <p className="cl-hero-note">11 questions. No sales call unless you ask for one.</p>
+        <p className="cl-hero-note">10 questions. No sales call unless you ask for one.</p>
 
         <div className="cl-hero-media">
           <Image
@@ -61,7 +61,7 @@ export default function ConnectLanding({ onStart }: { onStart: () => void }) {
             alt="Two students reviewing Nivarro together on a laptop at a library table"
             fill
             priority
-            sizes="(max-width: 767px) 100vw, 420px"
+            sizes="(max-width: 767px) 90vw, (max-width: 1023px) 440px, 520px"
           />
         </div>
       </section>
@@ -100,7 +100,7 @@ export default function ConnectLanding({ onStart }: { onStart: () => void }) {
               src="/connect/lifestyle/feature-mentorship-courtyard.png"
               alt="A student checking a mentor match on their phone in a school courtyard"
               fill
-              sizes="(max-width: 767px) 100vw, 33vw"
+              sizes="(max-width: 767px) 340px, 33vw"
             />
           </div>
           <span className="cl-feature-eyebrow">Mentorship</span>
@@ -115,7 +115,7 @@ export default function ConnectLanding({ onStart }: { onStart: () => void }) {
               src="/connect/lifestyle/feature-robotics-classroom.png"
               alt="A robotics team working together in a bright classroom"
               fill
-              sizes="(max-width: 767px) 100vw, 33vw"
+              sizes="(max-width: 767px) 340px, 33vw"
             />
           </div>
           <span className="cl-feature-eyebrow">Fundraising pages</span>
@@ -131,7 +131,7 @@ export default function ConnectLanding({ onStart }: { onStart: () => void }) {
               src="/connect/lifestyle/feature-advancement-director.png"
               alt="An advancement director reviewing campaign results on a laptop"
               fill
-              sizes="(max-width: 767px) 100vw, 33vw"
+              sizes="(max-width: 767px) 340px, 33vw"
             />
           </div>
           <span className="cl-feature-eyebrow">Admin dashboard</span>

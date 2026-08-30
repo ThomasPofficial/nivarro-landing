@@ -440,10 +440,10 @@
 .cl-hero-media {
   position: relative;
   width: 100%;
-  max-width: 280px;
+  max-width: 460px;
   aspect-ratio: 1536 / 2752;
-  margin-top: 36px;
-  border-radius: 18px;
+  margin-top: 40px;
+  border-radius: 22px;
   overflow: hidden;
   border: 0.5px solid rgba(75, 142, 245, 0.35);
   box-shadow: 0 0 40px rgba(37, 99, 235, 0.2);
@@ -536,12 +536,12 @@
 .cl-feature-media {
   position: relative;
   width: 100%;
-  max-width: 200px;
+  max-width: 340px;
   aspect-ratio: 1536 / 2752;
-  border-radius: 14px;
+  border-radius: 18px;
   overflow: hidden;
   border: 0.5px solid rgba(75, 142, 245, 0.3);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .cl-feature-media img {
@@ -652,7 +652,33 @@
 
 @media (min-width: 768px) {
   .cl-hero {
-    padding: 72px 40px 56px;
+    padding: 72px 40px 64px;
+    display: grid;
+    grid-template-columns: 1fr 440px;
+    gap: 48px;
+    align-items: center;
+    text-align: left;
+  }
+
+  .cl-badge,
+  .cl-hero-title,
+  .cl-hero-sub,
+  .cl-cta,
+  .cl-hero-note {
+    grid-column: 1;
+  }
+
+  .cl-hero-title,
+  .cl-hero-sub {
+    max-width: none;
+  }
+
+  .cl-hero-media {
+    grid-column: 2;
+    grid-row: 1 / span 5;
+    max-width: 440px;
+    margin-top: 0;
+    justify-self: end;
   }
 
   .cl-stats {
@@ -673,5 +699,19 @@
 
   .cl-feature {
     flex: 1;
+  }
+
+  .cl-feature-media {
+    max-width: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cl-hero {
+    grid-template-columns: 1fr 520px;
+  }
+
+  .cl-hero-media {
+    max-width: 520px;
   }
 }
