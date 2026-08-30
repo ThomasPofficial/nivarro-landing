@@ -8,6 +8,7 @@
   --nv-fog: #edf2f8;
   --nv-text-muted: #7c8da3;
   --nv-text-secondary: #4a5c72;
+  --nv-on-navy-muted: #a9bfd8;
   --nv-error: #b4453a;
   --nv-font-sans: var(--font-inter), system-ui, sans-serif;
   --nv-font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
@@ -357,6 +358,16 @@
   border-bottom: 1px solid var(--nv-border);
 }
 
+.cl-hero-eyebrow {
+  font-family: var(--nv-font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--nv-brass);
+  margin-bottom: 14px;
+}
+
 .cl-hero-title {
   font-size: 30px;
   font-weight: 800;
@@ -401,6 +412,56 @@
   color: var(--nv-text-muted);
 }
 
+.cl-hero-media {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1536 / 2752;
+  margin-top: 32px;
+  overflow: hidden;
+}
+
+.cl-hero-media img {
+  object-fit: cover;
+}
+
+.cl-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px 24px;
+  background: var(--nv-navy);
+  color: var(--nv-white);
+  border-bottom: 1px solid var(--nv-border);
+}
+
+.cl-stat-value {
+  font-family: var(--nv-font-mono);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--nv-white);
+}
+
+.cl-stat-brass .cl-stat-value {
+  color: var(--nv-brass);
+}
+
+.cl-stat-label {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--nv-on-navy-muted);
+  max-width: 420px;
+  margin-top: 6px;
+}
+
+.cl-stats-source {
+  font-family: var(--nv-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7c93b0;
+}
+
 .cl-features {
   display: flex;
   flex-direction: column;
@@ -414,6 +475,19 @@
 
 .cl-feature:last-child {
   border-bottom: none;
+}
+
+.cl-feature-media {
+  position: relative;
+  width: 100%;
+  max-width: 240px;
+  aspect-ratio: 1536 / 2752;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.cl-feature-media img {
+  object-fit: cover;
 }
 
 .cl-feature-eyebrow {
@@ -498,8 +572,26 @@
 }
 
 @media (min-width: 768px) {
+  .cl-hero {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 40px;
+    align-items: start;
+  }
+
   .cl-hero-title {
     font-size: 42px;
+  }
+
+  .cl-hero-media {
+    grid-column: 2;
+    grid-row: 1 / span 5;
+    margin-top: 0;
+  }
+
+  .cl-stats {
+    flex-direction: row;
+    gap: 40px;
   }
 
   .cl-features {
