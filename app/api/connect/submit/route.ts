@@ -29,13 +29,15 @@ export async function POST(req: NextRequest) {
     fairCutPercent: capString(body.fairCutPercent, 500),
     budgetPerSemester: capString(body.budgetPerSemester, 500),
     wantsDemoCall: capString(body.wantsDemoCall, 500),
-    demoEmail: capString(body.demoEmail, 500),
+    email: capString(body.email, 500),
     heardVia: capString(body.heardVia, 500),
     utmSource: capString(body.utmSource, 500),
     utmMedium: capString(body.utmMedium, 500),
     utmCampaign: capString(body.utmCampaign, 500),
     referrer: capString(body.referrer, 500),
     userAgent: capString(body.userAgent, 500),
+    deviceType: capString(body.deviceType, 20),
+    timePerQuestionMs: capString(body.timePerQuestionMs, 4000),
   }
 
   await upsertSignup(input)
