@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'id and step are required' }, { status: 400 })
   }
 
-  const step = Math.min(12, Math.max(0, Math.trunc(Number(body.step))))
+  const step = Math.min(11, Math.max(0, Math.trunc(Number(body.step))))
 
   const input: ConnectSignupInput = {
     id: capString(body.id, 64)!,

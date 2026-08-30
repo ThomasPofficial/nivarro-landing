@@ -147,7 +147,7 @@ export function computeFunnelStats(rows: ConnectSignupRow[]): FunnelStats {
   const totalVisits = rows.length
   const completed = rows.filter((r) => r.completed).length
   const completionRate = totalVisits === 0 ? 0 : Math.round((completed / totalVisits) * 1000) / 10
-  const stepCounts = Array.from({ length: 13 }, (_, step) =>
+  const stepCounts = Array.from({ length: 12 }, (_, step) =>
     rows.filter((r) => r.current_step >= step).length
   )
   return { totalVisits, completed, completionRate, stepCounts }

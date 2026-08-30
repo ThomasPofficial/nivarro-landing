@@ -2,20 +2,19 @@ import { describe, it, expect } from 'vitest'
 import { FUNNEL_STEPS, validateStepAnswer, nextVisibleStepIndex } from './funnelSteps'
 
 describe('funnelSteps', () => {
-  it('has exactly 12 steps in the spec order', () => {
+  it('has the 10 questions plus the "Other" follow-up, in order', () => {
     expect(FUNNEL_STEPS.map((s) => s.key)).toEqual([
       'hasMentorshipProgram',
       'alumniPriority',
-      'decisionMaker',
-      'heardVia',
+      'biggestProblem',
       'wouldPay',
       'hesitationReason',
       'hesitationReasonOther',
-      'wantsDemoCall',
-      'biggestProblem',
+      'decisionMaker',
       'fairCutPercent',
       'budgetPerSemester',
-      'email',
+      'wantsDemoCall',
+      'heardVia',
     ])
   })
 
@@ -27,9 +26,9 @@ describe('funnelSteps', () => {
     }
   })
 
-  it('text/percent/dollar/email steps have no options', () => {
+  it('text/percent/dollar steps have no options', () => {
     for (const step of FUNNEL_STEPS) {
-      if (step.type === 'text' || step.type === 'percent' || step.type === 'dollar' || step.type === 'email') {
+      if (step.type === 'text' || step.type === 'percent' || step.type === 'dollar') {
         expect(step.options).toBeUndefined()
       }
     }
@@ -39,21 +38,6 @@ describe('funnelSteps', () => {
     const step = FUNNEL_STEPS.find((s) => s.key === 'alumniPriority')!
     expect(step.type).toBe('slider')
     expect(step.options).toEqual(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'])
-  })
-
-  it('biggestProblem is optional; every other text/choice/slider step is required', () => {
-    const biggestProblem = FUNNEL_STEPS.find((s) => s.key === 'biggestProblem')!
-    expect(biggestProblem.optional).toBe(true)
-    const required = FUNNEL_STEPS.filter((s) => s.key !== 'biggestProblem')
-    for (const step of required) {
-      expect(step.optional).toBeFalsy()
-    }
-  })
-
-  it('email is unconditional and is the final step', () => {
-    const emailIndex = FUNNEL_STEPS.findIndex((s) => s.key === 'email')
-    expect(emailIndex).toBe(FUNNEL_STEPS.length - 1)
-    expect(FUNNEL_STEPS[emailIndex].showIf).toBeUndefined()
   })
 
   it('validateStepAnswer accepts a listed option for a choice step', () => {
@@ -66,16 +50,9 @@ describe('funnelSteps', () => {
     expect(validateStepAnswer(step, 'Not a real option')).toBe(false)
   })
 
-  it('validateStepAnswer rejects empty text for a required text step', () => {
-    const step = FUNNEL_STEPS.find((s) => s.key === 'hesitationReasonOther')!
-    expect(validateStepAnswer(step, '   ')).toBe(false)
-    expect(validateStepAnswer(step, 'No budget this year')).toBe(true)
-  })
-
-  it('validateStepAnswer accepts empty text for the optional biggestProblem step', () => {
+  it('validateStepAnswer rejects empty text for a text step', () => {
     const step = FUNNEL_STEPS.find((s) => s.key === 'biggestProblem')!
-    expect(validateStepAnswer(step, '')).toBe(true)
-    expect(validateStepAnswer(step, '   ')).toBe(true)
+    expect(validateStepAnswer(step, '   ')).toBe(false)
     expect(validateStepAnswer(step, 'Too many spreadsheets')).toBe(true)
   })
 
@@ -88,17 +65,11 @@ describe('funnelSteps', () => {
     expect(validateStepAnswer(dollarStep, '500')).toBe(true)
   })
 
-  it('validateStepAnswer accepts an email containing @', () => {
-    const step = FUNNEL_STEPS.find((s) => s.key === 'email')!
-    expect(validateStepAnswer(step, 'person@example.com')).toBe(true)
-    expect(validateStepAnswer(step, 'not-an-email')).toBe(false)
-  })
-
   it('nextVisibleStepIndex skips hesitationReason when wouldPay is "Yes, likely"', () => {
     const hesitationIndex = FUNNEL_STEPS.findIndex((s) => s.key === 'hesitationReason')
-    const wantsDemoCallIndex = FUNNEL_STEPS.findIndex((s) => s.key === 'wantsDemoCall')
+    const decisionMakerIndex = FUNNEL_STEPS.findIndex((s) => s.key === 'decisionMaker')
     const result = nextVisibleStepIndex(hesitationIndex, { wouldPay: 'Yes, likely' })
-    expect(result).toBe(wantsDemoCallIndex)
+    expect(result).toBe(decisionMakerIndex)
   })
 
   it('nextVisibleStepIndex shows hesitationReason when wouldPay is not "Yes, likely"', () => {
@@ -109,10 +80,8 @@ describe('funnelSteps', () => {
 
   it('nextVisibleStepIndex skips hesitationReasonOther unless hesitationReason is "Other"', () => {
     const otherIndex = FUNNEL_STEPS.findIndex((s) => s.key === 'hesitationReasonOther')
-    const wantsDemoCallIndex = FUNNEL_STEPS.findIndex((s) => s.key === 'wantsDemoCall')
-    expect(nextVisibleStepIndex(otherIndex, { hesitationReason: 'Budget constraints' })).toBe(
-      wantsDemoCallIndex
-    )
+    const decisionMakerIndex = FUNNEL_STEPS.findIndex((s) => s.key === 'decisionMaker')
+    expect(nextVisibleStepIndex(otherIndex, { hesitationReason: 'Budget' })).toBe(decisionMakerIndex)
     expect(nextVisibleStepIndex(otherIndex, { hesitationReason: 'Other' })).toBe(otherIndex)
   })
 })

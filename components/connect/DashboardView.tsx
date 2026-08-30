@@ -167,7 +167,7 @@ export default function DashboardView({
             {filtered.map((s) => (
               <tr key={s.id}>
                 <td>{new Date(s.started_at).toLocaleString()}</td>
-                <td>{s.current_step}/12</td>
+                <td>{s.current_step}/11</td>
                 <td>{s.completed ? 'Yes' : 'No'}</td>
                 <td>{s.device_type ?? '—'}</td>
                 <td>{s.has_mentorship_program ?? '—'}</td>

@@ -1,71 +1,60 @@
 export type FunnelFieldKey =
   | 'hasMentorshipProgram'
   | 'alumniPriority'
-  | 'decisionMaker'
-  | 'heardVia'
+  | 'biggestProblem'
   | 'wouldPay'
   | 'hesitationReason'
   | 'hesitationReasonOther'
-  | 'wantsDemoCall'
-  | 'biggestProblem'
+  | 'decisionMaker'
   | 'fairCutPercent'
   | 'budgetPerSemester'
-  | 'email'
+  | 'wantsDemoCall'
+  | 'heardVia'
 
-export type FunnelStepType = 'choice' | 'slider' | 'text' | 'percent' | 'dollar' | 'email'
+export type FunnelStepType = 'choice' | 'slider' | 'text' | 'percent' | 'dollar'
 
 export type FunnelStep = {
   key: FunnelFieldKey
   question: string
   type: FunnelStepType
   options?: string[]
-  optional?: boolean
   showIf?: (answers: Partial<Record<FunnelFieldKey, string>>) => boolean
 }
 
 export const FUNNEL_STEPS: FunnelStep[] = [
   {
     key: 'hasMentorshipProgram',
-    question:
-      'Does your school currently have a formal way to connect students with alumni for mentorship?',
+    question: 'Does your school have a formal alumni-student mentorship system?',
     type: 'choice',
     options: ['Yes', 'No', 'Informally'],
   },
   {
     key: 'alumniPriority',
-    question: 'How much of a priority is strengthening alumni engagement at your school right now?',
+    question: 'How much of a priority is alumni engagement at your school right now?',
     type: 'slider',
     options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
   },
   {
-    key: 'decisionMaker',
-    question:
-      'Who would be the actual decision-maker for adopting something like this at your school?',
-    type: 'choice',
-    options: ['You', 'Department head', 'Principal', 'Advancement office', 'Other'],
-  },
-  {
-    key: 'heardVia',
-    question: 'How did you hear about Nivarro?',
-    type: 'choice',
-    options: ['Email', 'Social media', 'A colleague or coworker', 'A student or parent', 'Other'],
+    key: 'biggestProblem',
+    question: "What's the biggest problem at your school that software could maybe solve?",
+    type: 'text',
   },
   {
     key: 'wouldPay',
     question:
-      'If a platform did this well — automated matching, fundraising tools, and admin oversight — would your school consider paying for it?',
+      'Would your school consider paying for a platform that does matching, fundraising, and admin oversight well?',
     type: 'choice',
-    options: ['Yes, likely', 'Possibly, need more info', 'Unlikely'],
+    options: ['Yes, likely', 'Possibly', 'Unlikely'],
   },
   {
     key: 'hesitationReason',
     question: "What's the main reason?",
     type: 'choice',
     options: [
-      'Budget constraints',
+      'Budget',
       'Already have a solution',
-      'Not a priority right now',
-      "Don't trust a new platform with alumni data",
+      'Not a priority',
+      "Don't trust a new platform with data",
       'Other',
     ],
     showIf: (answers) => answers.wouldPay !== 'Yes, likely',
@@ -77,34 +66,33 @@ export const FUNNEL_STEPS: FunnelStep[] = [
     showIf: (answers) => answers.hesitationReason === 'Other',
   },
   {
-    key: 'wantsDemoCall',
-    question: 'Would you be willing to do a 15-minute call to see a live demo?',
+    key: 'decisionMaker',
+    question: "Who's the actual decision-maker for adopting something like this?",
     type: 'choice',
-    options: ['Yes', 'No'],
-  },
-  {
-    key: 'biggestProblem',
-    question:
-      "What's the biggest problem you face at your school that you think could maybe be solved by software?",
-    type: 'text',
-    optional: true,
+    options: ['You', 'Department head', 'Principal', 'Advancement office', 'Other'],
   },
   {
     key: 'fairCutPercent',
     question:
-      "What would you consider a fair cut for us to take on funds raised through the platform, on top of standard payment processing fees (about 2.9% + $0.30 per transaction)?",
+      "What's a fair cut for us to take on funds raised, on top of processing fees (~2.9% + $0.30)?",
     type: 'percent',
   },
   {
     key: 'budgetPerSemester',
-    question:
-      'Roughly how much would your school realistically pay per semester (half the school year) for a platform like this?',
+    question: 'Roughly how much would your school pay per semester for this?',
     type: 'dollar',
   },
   {
-    key: 'email',
-    question: 'Where should we send early access?',
-    type: 'email',
+    key: 'wantsDemoCall',
+    question: 'Would you do a 15-minute call to see a live demo?',
+    type: 'choice',
+    options: ['Yes', 'No'],
+  },
+  {
+    key: 'heardVia',
+    question: 'How did you hear about Nivarro?',
+    type: 'choice',
+    options: ['Email', 'Social media', 'Colleague', 'Student or parent', 'Other'],
   },
 ]
 
@@ -120,11 +108,7 @@ export function nextVisibleStepIndex(
 }
 
 export function validateStepAnswer(step: FunnelStep, value: string): boolean {
-  if (step.type === 'email') {
-    return value.includes('@')
-  }
   if (step.type === 'text') {
-    if (step.optional) return true
     return value.trim().length > 0
   }
   if (step.type === 'percent' || step.type === 'dollar') {

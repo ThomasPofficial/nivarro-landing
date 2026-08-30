@@ -83,8 +83,8 @@ describe('computeFunnelStats', () => {
 
   it('counts completed rows and computes completion rate', () => {
     const rows = [
-      makeRow({ current_step: 12, completed: true }),
-      makeRow({ current_step: 12, completed: true }),
+      makeRow({ current_step: 11, completed: true }),
+      makeRow({ current_step: 11, completed: true }),
       makeRow({ current_step: 2, completed: false }),
     ]
     const stats = computeFunnelStats(rows)
@@ -96,15 +96,15 @@ describe('computeFunnelStats', () => {
     expect(computeFunnelStats([]).completionRate).toBe(0)
   })
 
-  it('computes stepCounts as the count of rows reaching at least that step, length 13', () => {
+  it('computes stepCounts as the count of rows reaching at least that step, length 12', () => {
     const rows = [
       makeRow({ current_step: 0 }),
       makeRow({ current_step: 2 }),
-      makeRow({ current_step: 12, completed: true }),
+      makeRow({ current_step: 11, completed: true }),
     ]
     const stats = computeFunnelStats(rows)
-    expect(stats.stepCounts).toHaveLength(13)
-    expect(stats.stepCounts).toEqual([3, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+    expect(stats.stepCounts).toHaveLength(12)
+    expect(stats.stepCounts).toEqual([3, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1])
   })
 })
 

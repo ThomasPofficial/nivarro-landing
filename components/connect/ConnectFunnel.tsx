@@ -87,7 +87,6 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
         fairCutPercent: opts.answers.fairCutPercent,
         budgetPerSemester: opts.answers.budgetPerSemester,
         wantsDemoCall: opts.answers.wantsDemoCall,
-        email: opts.answers.email,
         heardVia: opts.answers.heardVia,
         utmSource: attribution.utmSource || undefined,
         utmMedium: attribution.utmMedium || undefined,
@@ -151,10 +150,6 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
     advance(nextAnswers, stepIndex)
   }
 
-  function handleSkip() {
-    advance(answers, stepIndex)
-  }
-
   if (!started) {
     return <ConnectLanding onStart={() => setStarted(true)} />
   }
@@ -215,7 +210,7 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
           />
         )}
 
-        {(step.type === 'text' || step.type === 'percent' || step.type === 'dollar' || step.type === 'email') && (
+        {(step.type === 'text' || step.type === 'percent' || step.type === 'dollar') && (
           <form className="connect-email-form" onSubmit={handleInputSubmit}>
             {step.type === 'text' ? (
               <textarea
@@ -227,15 +222,13 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
                 rows={3}
               />
             ) : (
-              <div className={step.type === 'percent' || step.type === 'dollar' ? 'connect-affix-input' : undefined}>
+              <div className="connect-affix-input">
                 {step.type === 'dollar' && <span className="connect-affix">$</span>}
                 <input
                   className="connect-email-input"
-                  type={step.type === 'percent' || step.type === 'dollar' ? 'number' : 'email'}
-                  inputMode={step.type === 'percent' || step.type === 'dollar' ? 'decimal' : undefined}
-                  placeholder={
-                    step.type === 'percent' ? '5' : step.type === 'dollar' ? '2500' : 'you@example.com'
-                  }
+                  type="number"
+                  inputMode="decimal"
+                  placeholder={step.type === 'percent' ? '5' : '2500'}
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   autoFocus
@@ -244,16 +237,9 @@ export default function ConnectFunnel({ attribution }: { attribution: Attributio
               </div>
             )}
             {error && <p className="connect-error">{error}</p>}
-            <div className="connect-form-actions">
-              <button className="connect-submit-btn" type="submit">
-                Continue
-              </button>
-              {step.optional && (
-                <button type="button" className="connect-skip-btn" onClick={handleSkip}>
-                  Skip
-                </button>
-              )}
-            </div>
+            <button className="connect-submit-btn" type="submit">
+              Continue
+            </button>
           </form>
         )}
       </div>
@@ -301,5 +287,4 @@ const inputMessages: Record<string, string> = {
   text: 'Please enter an answer.',
   percent: 'Please enter a number, 0 or higher.',
   dollar: 'Please enter a number, 0 or higher.',
-  email: 'Please enter a valid email.',
 }
