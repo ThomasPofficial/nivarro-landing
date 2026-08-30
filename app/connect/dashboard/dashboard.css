@@ -1,9 +1,9 @@
 .dash-page {
   min-height: 100vh;
-  background: #ffffff;
-  color: #0a1f3c;
+  background: var(--navy);
+  color: var(--white);
   padding: 32px 24px;
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .dash-header {
@@ -14,23 +14,25 @@
 }
 
 .dash-title {
-  font-size: 20px;
+  font-family: var(--font-playfair), serif;
+  font-size: 22px;
   font-weight: 700;
 }
 
 .dash-export-btn {
-  background: #c0873f;
-  color: #0a1f3c;
-  border: 1px solid #c0873f;
-  border-radius: 2px;
-  padding: 10px 18px;
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: 100px;
+  padding: 10px 20px;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 500;
   text-decoration: none;
+  box-shadow: 0 0 16px rgba(37, 99, 235, 0.4);
 }
 
 .dash-export-btn:hover {
-  background: #ab7736;
+  background: #1a52d8;
 }
 
 .dash-stats {
@@ -41,30 +43,31 @@
 }
 
 .dash-stat {
-  background: #edf2f8;
-  border-radius: 2px;
+  background: var(--navy2);
+  border-radius: 12px;
   padding: 16px 20px;
   min-width: 140px;
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
 }
 
 .dash-stat-value {
-  font-family: var(--font-jetbrains-mono), monospace;
+  font-family: var(--font-playfair), serif;
   font-size: 26px;
   font-weight: 700;
 }
 
 .dash-stat-label {
   font-size: 12px;
-  color: #7c8da3;
+  color: rgba(255, 255, 255, 0.5);
   margin-top: 4px;
 }
 
 .dash-section-title {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: #2d4766;
+  color: rgba(255, 255, 255, 0.4);
   margin: 24px 0 12px;
 }
 
@@ -82,26 +85,27 @@
 .dash-funnel-label {
   width: 260px;
   font-size: 13px;
-  color: #4a5c72;
+  color: rgba(255, 255, 255, 0.6);
   flex-shrink: 0;
 }
 
 .dash-funnel-bar-track {
   flex: 1;
   height: 8px;
-  background: #edf2f8;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
   overflow: hidden;
 }
 
 .dash-funnel-bar-fill {
   height: 100%;
-  background: #0a1f3c;
+  background: var(--blue-bright);
+  box-shadow: 0 0 8px rgba(75, 142, 245, 0.5);
 }
 
 .dash-funnel-count {
   width: 40px;
   text-align: right;
-  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 13px;
 }
 
@@ -131,32 +135,33 @@
 .dash-dist-label {
   width: 140px;
   font-size: 13px;
-  color: #4a5c72;
+  color: rgba(255, 255, 255, 0.6);
   flex-shrink: 0;
 }
 
 .dash-dist-bar-track {
   flex: 1;
   height: 8px;
-  background: #edf2f8;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
   overflow: hidden;
 }
 
 .dash-dist-bar-fill {
   height: 100%;
-  background: #c0873f;
+  background: var(--gold);
+  box-shadow: 0 0 8px rgba(212, 168, 75, 0.4);
 }
 
 .dash-dist-count {
   width: 32px;
   text-align: right;
-  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 13px;
 }
 
 .dash-empty {
   font-size: 13px;
-  color: #7c8da3;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .dash-filters {
@@ -166,18 +171,18 @@
 }
 
 .dash-filters a {
-  color: #4a5c72;
+  color: rgba(255, 255, 255, 0.55);
   text-decoration: none;
   font-size: 13px;
-  padding: 6px 12px;
-  border: 1px solid #e2e8f0;
-  border-radius: 2px;
+  padding: 6px 14px;
+  border: 0.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 100px;
 }
 
 .dash-filters a.active {
-  color: #0a1f3c;
-  background: #edf2f8;
-  border-color: #0a1f3c;
+  color: var(--white);
+  background: rgba(37, 99, 235, 0.18);
+  border-color: var(--blue-bright);
 }
 
 .dash-table-wrap {
@@ -194,15 +199,14 @@
 .dash-table td {
   text-align: left;
   padding: 8px 12px;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
   white-space: nowrap;
 }
 
 .dash-table th {
-  color: #7c8da3;
-  font-weight: 600;
-  font-family: var(--font-jetbrains-mono), monospace;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
   font-size: 11px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
 }
