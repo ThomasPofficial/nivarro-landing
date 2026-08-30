@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function Mission() {
   return (
     <section className="mission">
@@ -18,6 +20,15 @@ export default function Mission() {
       </div>
 
       <p className="virtue-band-label mission-eyebrow">Our Mission</p>
+
+      <div className="mission-photo">
+        <Image
+          src="/connect/lifestyle/feature-older-alumnus-tablet.png"
+          alt="An older alumnus reconnecting with his school on a tablet"
+          fill
+          sizes="130px"
+        />
+      </div>
 
       <blockquote className="mission-quote">
         &ldquo;The day students graduate, schools lose touch with them &mdash; and with them, the mentors and donors the next generation needs.&rdquo;

@@ -38,8 +38,6 @@ export default function ConnectLanding({ onStart }: { onStart: () => void }) {
 
       <section className="cl-hero">
         <div className="dot-grid" />
-        <div className="cl-blob cl-blob-blue" />
-        <div className="cl-blob cl-blob-gold" />
         <div className="cl-hero-content">
           <div className="cl-badge">
             <div className="badge-dot" />
@@ -71,7 +69,6 @@ export default function ConnectLanding({ onStart }: { onStart: () => void }) {
             />
           </div>
           <div className="cl-sticker">Two students. No investors. Just research.</div>
-          <div className="cl-sticker-2">2 min survey</div>
         </div>
       </section>
 
@@ -153,15 +150,33 @@ export default function ConnectLanding({ onStart }: { onStart: () => void }) {
       </section>
 
       <section className="cl-why">
-        <p className="cl-why-eyebrow">Why we&apos;re asking</p>
-        <p className="cl-why-text">
-          We&apos;re two students, not a company with a sales team. We haven&apos;t launched
-          yet — this survey is what actually decides what we build first. Two minutes, and we
-          read every single response ourselves.
-        </p>
+        <div className="cl-why-media">
+          <Image
+            src="/connect/lifestyle/feature-alumna-kitchen-laptop.png"
+            alt="An alumna answering questions from her own kitchen table"
+            fill
+            sizes="(max-width: 767px) 220px, 260px"
+          />
+        </div>
+        <div className="cl-why-copy">
+          <p className="cl-why-eyebrow">Why we&apos;re asking</p>
+          <p className="cl-why-text">
+            We&apos;re two students, not a company with a sales team. We haven&apos;t launched
+            yet — this survey is what actually decides what we build first. Two minutes, and we
+            read every single response ourselves.
+          </p>
+        </div>
       </section>
 
       <section className="cl-closing">
+        <div className="cl-closing-media">
+          <Image
+            src="/connect/lifestyle/feature-two-staff-monitor.png"
+            alt="Two advancement staff reviewing something together on a laptop"
+            fill
+            sizes="200px"
+          />
+        </div>
         <p className="cl-closing-label">Ready when you are</p>
         <OrnamentalRule />
         <h2 className="cl-closing-title">Help us build this right.</h2>
