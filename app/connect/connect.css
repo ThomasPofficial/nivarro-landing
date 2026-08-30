@@ -357,12 +357,20 @@
 
 .cl-hero {
   position: relative;
+  z-index: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   padding: 56px 24px 40px;
+}
+
+.cl-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .cl-badge {
@@ -443,6 +451,11 @@
   max-width: 460px;
   aspect-ratio: 1536 / 2752;
   margin-top: 40px;
+}
+
+.cl-hero-media-frame {
+  position: absolute;
+  inset: 0;
   border-radius: 22px;
   overflow: hidden;
   border: 0.5px solid rgba(75, 142, 245, 0.35);
@@ -451,6 +464,49 @@
 
 .cl-hero-media img {
   object-fit: cover;
+}
+
+.cl-sticker {
+  position: absolute;
+  left: -16px;
+  bottom: 28px;
+  max-width: 190px;
+  background: var(--navy2);
+  border: 1px solid rgba(212, 168, 75, 0.45);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--gold);
+  transform: rotate(-4deg);
+  box-shadow: 4px 6px 0 rgba(0, 0, 0, 0.25), 0 0 24px rgba(212, 168, 75, 0.15);
+  z-index: 2;
+}
+
+.cl-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.cl-blob-blue {
+  width: 360px;
+  height: 360px;
+  top: -120px;
+  left: -100px;
+  background: rgba(37, 99, 235, 0.22);
+}
+
+.cl-blob-gold {
+  width: 300px;
+  height: 300px;
+  bottom: -140px;
+  right: -80px;
+  background: rgba(212, 168, 75, 0.14);
 }
 
 .cl-stats {
@@ -549,13 +605,17 @@
 }
 
 .cl-feature-eyebrow {
-  display: block;
-  font-size: 11px;
+  display: inline-block;
+  background: rgba(37, 99, 235, 0.14);
+  border: 0.5px solid rgba(75, 142, 245, 0.4);
+  border-radius: 100px;
+  padding: 5px 14px;
+  font-size: 10.5px;
   font-weight: 500;
-  letter-spacing: 1.6px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  color: var(--blue-bright);
-  margin-bottom: 10px;
+  color: #93c5fd;
+  margin-bottom: 14px;
 }
 
 .cl-feature-text {
@@ -653,19 +713,17 @@
 @media (min-width: 768px) {
   .cl-hero {
     padding: 72px 40px 64px;
-    display: grid;
-    grid-template-columns: 1fr 440px;
-    gap: 48px;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+    gap: 48px;
     text-align: left;
   }
 
-  .cl-badge,
-  .cl-hero-title,
-  .cl-hero-sub,
-  .cl-cta,
-  .cl-hero-note {
-    grid-column: 1;
+  .cl-hero-content {
+    align-items: flex-start;
+    flex: 1;
+    max-width: 480px;
   }
 
   .cl-hero-title,
@@ -674,11 +732,9 @@
   }
 
   .cl-hero-media {
-    grid-column: 2;
-    grid-row: 1 / span 5;
+    flex-shrink: 0;
     max-width: 440px;
     margin-top: 0;
-    justify-self: end;
   }
 
   .cl-stats {

@@ -38,31 +38,39 @@ export default function ConnectLanding({ onStart }: { onStart: () => void }) {
 
       <section className="cl-hero">
         <div className="dot-grid" />
-        <div className="cl-badge">
-          <div className="badge-dot" />
-          For advancement offices &amp; alumni relations
+        <div className="cl-blob cl-blob-blue" />
+        <div className="cl-blob cl-blob-gold" />
+        <div className="cl-hero-content">
+          <div className="cl-badge">
+            <div className="badge-dot" />
+            A research survey from two students, not a sales pitch
+          </div>
+
+          <h1 className="cl-hero-title">
+            We think your alumni want to help. <em>We&apos;re not sure yet — that&apos;s why we&apos;re asking.</em>
+          </h1>
+          <p className="cl-hero-sub">
+            We&apos;re building Nivarro to connect students with alumni mentors, then make it
+            simple for those alumni to fund what they&apos;ve seen up close. Before we build any
+            more of it, we want to know if that&apos;s actually true for your school.
+          </p>
+          <button className="cl-cta" onClick={onStart}>
+            Take the 2-minute survey
+          </button>
+          <p className="cl-hero-note">10 honest questions. We read every answer ourselves.</p>
         </div>
 
-        <h1 className="cl-hero-title">
-          Your alumni already want to help. <em>They just don&apos;t have a way to start.</em>
-        </h1>
-        <p className="cl-hero-sub">
-          Nivarro connects students with alumni mentors first — then makes it simple for those
-          alumni to fund exactly what they&apos;ve seen up close.
-        </p>
-        <button className="cl-cta" onClick={onStart}>
-          Take the 2-minute survey
-        </button>
-        <p className="cl-hero-note">10 questions. No sales call unless you ask for one.</p>
-
         <div className="cl-hero-media">
-          <Image
-            src="/connect/lifestyle/hero-students-library.png"
-            alt="Two students reviewing Nivarro together on a laptop at a library table"
-            fill
-            priority
-            sizes="(max-width: 767px) 90vw, (max-width: 1023px) 440px, 520px"
-          />
+          <div className="cl-hero-media-frame">
+            <Image
+              src="/connect/lifestyle/hero-students-library.png"
+              alt="Two students reviewing Nivarro together on a laptop at a library table"
+              fill
+              priority
+              sizes="(max-width: 767px) 90vw, (max-width: 1023px) 440px, 520px"
+            />
+          </div>
+          <div className="cl-sticker">Two students. No investors. Just research.</div>
         </div>
       </section>
 
@@ -103,9 +111,10 @@ export default function ConnectLanding({ onStart }: { onStart: () => void }) {
               sizes="(max-width: 767px) 340px, 33vw"
             />
           </div>
-          <span className="cl-feature-eyebrow">Mentorship</span>
+          <span className="cl-feature-eyebrow">The idea: mentorship</span>
           <p className="cl-feature-text">
-            A student gets matched with an alum in their field — not a name in a spreadsheet.
+            A student would get matched with an alum in their field — not a name in a
+            spreadsheet.
           </p>
         </div>
         <div className="cl-feature cl-feature-mid">
@@ -118,10 +127,10 @@ export default function ConnectLanding({ onStart }: { onStart: () => void }) {
               sizes="(max-width: 767px) 340px, 33vw"
             />
           </div>
-          <span className="cl-feature-eyebrow">Fundraising pages</span>
+          <span className="cl-feature-eyebrow">The idea: fundraising pages</span>
           <p className="cl-feature-text">
-            The robotics team needs new parts. The donation page exists before the meeting where
-            you&apos;d normally start planning one.
+            The robotics team needs new parts. We want the donation page to exist before the
+            meeting where you&apos;d normally start planning one.
           </p>
         </div>
         <div className="cl-feature">
@@ -134,10 +143,10 @@ export default function ConnectLanding({ onStart }: { onStart: () => void }) {
               sizes="(max-width: 767px) 340px, 33vw"
             />
           </div>
-          <span className="cl-feature-eyebrow">Admin dashboard</span>
+          <span className="cl-feature-eyebrow">The idea: admin dashboard</span>
           <p className="cl-feature-text">
-            Every gift lands directly in your school&apos;s own bank account. You watch the
-            number move, live.
+            Every gift would land directly in your school&apos;s own bank account, and
+            you&apos;d watch the number move, live.
           </p>
         </div>
       </section>
@@ -145,9 +154,9 @@ export default function ConnectLanding({ onStart }: { onStart: () => void }) {
       <section className="cl-why">
         <p className="cl-why-eyebrow">Why we&apos;re asking</p>
         <p className="cl-why-text">
-          We haven&apos;t launched yet. This survey is what decides what we build first —
-          pricing, which features ship, all of it. Two minutes, no sales pitch, and no one calls
-          you unless you ask us to.
+          We&apos;re two students, not a company with a sales team. We haven&apos;t launched
+          yet — this survey is what actually decides what we build first. Two minutes, and we
+          read every single response ourselves.
         </p>
       </section>
 
