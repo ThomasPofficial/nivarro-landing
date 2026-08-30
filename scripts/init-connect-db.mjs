@@ -33,16 +33,38 @@ await pool.query(`
     fair_cut_percent TEXT,
     budget_per_semester TEXT,
     wants_demo_call TEXT,
-    demo_email TEXT,
+    email TEXT,
     heard_via TEXT,
 
     utm_source TEXT,
     utm_medium TEXT,
     utm_campaign TEXT,
     referrer TEXT,
-    user_agent TEXT
+    user_agent TEXT,
+    device_type TEXT,
+    time_per_question_ms TEXT
   )
 `)
+
+// Migrate an existing table created before this rename/addition. Safe to
+// re-run: each step checks current state before acting.
+const existingCols = await pool.query(
+  "SELECT column_name FROM information_schema.columns WHERE table_name = 'connect_signups'"
+)
+const colNames = existingCols.rows.map((r) => r.column_name)
+
+if (colNames.includes('demo_email') && !colNames.includes('email')) {
+  await pool.query('ALTER TABLE connect_signups RENAME COLUMN demo_email TO email')
+  console.log('renamed demo_email -> email')
+}
+if (!colNames.includes('device_type')) {
+  await pool.query('ALTER TABLE connect_signups ADD COLUMN device_type TEXT')
+  console.log('added device_type')
+}
+if (!colNames.includes('time_per_question_ms')) {
+  await pool.query('ALTER TABLE connect_signups ADD COLUMN time_per_question_ms TEXT')
+  console.log('added time_per_question_ms')
+}
 
 console.log('connect_signups table ready')
 await pool.end()
