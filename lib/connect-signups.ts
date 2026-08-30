@@ -136,6 +136,11 @@ export async function getAllSignups(): Promise<ConnectSignupRow[]> {
   return result.rows
 }
 
+export async function clearAllSignups(): Promise<number> {
+  const result = await getPool().query('DELETE FROM connect_signups')
+  return result.rowCount ?? 0
+}
+
 export type FunnelStats = {
   totalVisits: number
   completed: number

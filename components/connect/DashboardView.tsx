@@ -1,3 +1,7 @@
+'use client'
+
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import type { ConnectSignupRow, FunnelStats } from '@/lib/connect-signups'
 import { FUNNEL_STEPS } from './funnelSteps'
 
@@ -20,6 +24,9 @@ export default function DashboardView({
   percentDistribution: Bucket[]
   budgetDistribution: Bucket[]
 }) {
+  const router = useRouter()
+  const [clearing, setClearing] = useState(false)
+
   const filtered = signups.filter((s) => {
     if (filter === 'complete') return s.completed
     if (filter === 'partial') return !s.completed
@@ -30,13 +37,33 @@ export default function DashboardView({
   const maxPercentCount = Math.max(1, ...percentDistribution.map((b) => b.count))
   const maxBudgetCount = Math.max(1, ...budgetDistribution.map((b) => b.count))
 
+  async function handleClearData() {
+    const confirmed = window.confirm(
+      `This permanently deletes all ${stats.totalVisits} survey session(s) from the database. This cannot be undone. Continue?`
+    )
+    if (!confirmed) return
+
+    setClearing(true)
+    try {
+      await fetch('/api/connect/clear', { method: 'POST' })
+      router.refresh()
+    } finally {
+      setClearing(false)
+    }
+  }
+
   return (
     <main className="dash-page">
       <div className="dash-header">
         <h1 className="dash-title">Connect survey dashboard</h1>
-        <a className="dash-export-btn" href="/api/connect/export">
-          Export CSV
-        </a>
+        <div className="dash-header-actions">
+          <a className="dash-export-btn" href="/api/connect/export">
+            Export CSV
+          </a>
+          <button className="dash-clear-btn" onClick={handleClearData} disabled={clearing}>
+            {clearing ? 'Clearing…' : 'Clear all data'}
+          </button>
+        </div>
       </div>
 
       <div className="dash-stats">

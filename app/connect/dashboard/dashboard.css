@@ -19,6 +19,12 @@
   font-weight: 700;
 }
 
+.dash-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .dash-export-btn {
   background: var(--blue);
   color: var(--white);
@@ -33,6 +39,29 @@
 
 .dash-export-btn:hover {
   background: #1a52d8;
+}
+
+.dash-clear-btn {
+  background: transparent;
+  color: #f87171;
+  border: 0.5px solid rgba(248, 113, 113, 0.4);
+  border-radius: 100px;
+  padding: 10px 20px;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.dash-clear-btn:hover {
+  background: rgba(248, 113, 113, 0.1);
+  border-color: #f87171;
+}
+
+.dash-clear-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .dash-stats {
