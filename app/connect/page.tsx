@@ -3,9 +3,9 @@ import ConnectFunnel from '@/components/connect/ConnectFunnel'
 import './connect.css'
 
 export const metadata = {
-  title: 'Quick Survey for Schools | Nivarro',
+  title: 'Survey for Private and Charter Schools | Nivarro',
   description:
-    "10 quick questions for whoever runs alumni relations at your school. No pitch — this shapes what we build before launch.",
+    "A 10-question research survey for private and charter schools. No pitch — your answers shape what we build before launch.",
 }
 
 export default function ConnectPage({

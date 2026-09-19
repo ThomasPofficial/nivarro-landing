@@ -68,116 +68,122 @@ export default function ConnectLanding({ onStart }: { onStart: () => void }) {
 
   return (
     <main className="connect-landing">
-      <nav className="cl-nav">
-        <a className="cl-logo" href="/">
-          <Crown size={28} />
-          <span className="cl-wordmark">Nivarro</span>
-        </a>
-      </nav>
-
       <section className="cl-hero">
-        <p className="cl-eyebrow-blue">A research survey from two students, not a sales pitch</p>
-        <h1 className="cl-display cl-hero-title">
-          We think your alumni want to help. We&apos;re not sure yet — that&apos;s why we&apos;re asking.
-        </h1>
-        <p className="cl-hero-sub">
-          We&apos;re building Nivarro to connect students with alumni mentors, then make it simple
-          for those alumni to fund what they&apos;ve seen up close. Before we build any more of it,
-          we want to know if that&apos;s actually true for your private or charter school.
-        </p>
-        <button ref={heroCta} className="cl-cta" onClick={onStart}>
-          Take the 2-minute survey
-        </button>
-        <p className="cl-faint cl-hero-note">10 honest questions. We read every answer ourselves.</p>
+        <div className="cl-hero-media">
+          {/* Mirrored in CSS so she looks toward the left-aligned copy. */}
+          <div className="cl-hero-photo">
+            <Image
+              src="/connect/lifestyle/feature-alumna-kitchen-laptop.png"
+              alt="An alumna answering questions from her own kitchen table"
+              fill
+              priority
+              sizes="91vw"
+            />
+          </div>
+          <div className="cl-hero-shade" />
+          <div className="cl-hero-fade" />
+        </div>
+
+        <nav className="cl-nav">
+          <a className="cl-logo" href="/">
+            <Crown size={28} />
+            <span className="cl-wordmark">Nivarro</span>
+          </a>
+        </nav>
+
+        <div className="cl-hero-copy">
+          <p className="cl-eyebrow">
+            A research survey for private and charter schools, from two students — not a sales pitch
+          </p>
+          <h1 className="cl-display cl-hero-title">
+            We think your alumni want to help. We&apos;re not sure yet — that&apos;s why we&apos;re asking.
+          </h1>
+          <p className="cl-hero-sub">
+            We&apos;re building Nivarro to connect students with alumni mentors, then make it simple
+            for those alumni to fund what they&apos;ve seen up close. Before we build any more of it,
+            we want to know if that&apos;s actually true for your private or charter school.
+          </p>
+          <button ref={heroCta} className="cl-cta" onClick={onStart}>
+            Take the 2-minute survey
+          </button>
+          <p className="cl-hero-note">
+            10 honest questions for private and charter school leaders. We read every answer
+            ourselves.
+          </p>
+        </div>
       </section>
 
       <section className="cl-strip">
-        <Image
-          src="/connect/lifestyle/hero-students-library.png"
-          alt="Two students reviewing Nivarro together on a laptop at a library table"
-          fill
-          sizes="100vw"
-        />
-        <div className="cl-strip-fade" />
-        <p className="cl-strip-caption">Two students. No investors. Just research.</p>
-      </section>
-
-      <section className="cl-stats">
-        <div className="cl-stats-inner">
-          <div className="cl-stats-row">
-            <div className="cl-stat">
-              <div className="cl-display cl-stat-value">26%</div>
-              <p className="cl-stat-label">
-                of a school&apos;s operating budget comes from annual giving. Tuition alone
-                doesn&apos;t close the gap.
-              </p>
-            </div>
-            <div className="cl-stat">
-              <div className="cl-display cl-stat-value cl-stat-gold">20%</div>
-              <p className="cl-stat-label">
-                of alumni actually give — even though they&apos;re a school&apos;s single largest
-                donor group.
-              </p>
-            </div>
-            <div className="cl-stat">
-              <div className="cl-display cl-stat-value">$5.42B</div>
-              <p className="cl-stat-label">
-                raised by U.S. independent schools in 2024 alone. The money is already moving.
-              </p>
-            </div>
+        <div className="cl-strip-row">
+          <div className="cl-stat">
+            <div className="cl-num">26%</div>
+            <p className="cl-stat-label">
+              of a school&apos;s operating budget comes from annual giving. Tuition alone
+              doesn&apos;t close the gap.
+            </p>
           </div>
-          <p className="cl-faint cl-caps cl-stats-source">Source: CASE / NAIS, Voluntary Support of Education</p>
+          <div className="cl-stat">
+            <div className="cl-num cl-num-gold">20%</div>
+            <p className="cl-stat-label">
+              of alumni actually give — even though they&apos;re a school&apos;s single largest
+              donor group.
+            </p>
+          </div>
+          <div className="cl-stat">
+            <div className="cl-num">$5.42B</div>
+            <p className="cl-stat-label">
+              raised by U.S. independent schools in 2024 alone. The money is already moving.
+            </p>
+          </div>
         </div>
+        <p className="cl-strip-source">Source: CASE / NAIS, Voluntary Support of Education</p>
       </section>
 
       <section className="cl-ideas">
-        <div className="cl-ideas-list">
-          {IDEAS.map((idea) => (
-            <div className="cl-idea" key={idea.num}>
-              <span className="cl-idea-num">{idea.num}</span>
-              <h2 className="cl-idea-title">{idea.title}</h2>
-              <p className="cl-idea-text">{idea.text}</p>
-            </div>
-          ))}
-        </div>
+        {IDEAS.map((idea) => (
+          <div className="cl-idea" key={idea.num}>
+            <span className="cl-num">{idea.num}</span>
+            <h2 className="cl-idea-title">{idea.title}</h2>
+            <p className="cl-idea-text">{idea.text}</p>
+          </div>
+        ))}
       </section>
 
       <section className="cl-why">
-        <div className="cl-why-copy">
-          <p className="cl-faint cl-caps cl-why-eyebrow">Why we&apos;re asking</p>
+        <p className="cl-why-eyebrow cl-caps">Why we&apos;re asking</p>
+        <div className="cl-why-body">
+          <h2 className="cl-display">We&apos;re two students, not a company with a sales team.</h2>
           <p className="cl-why-text">
-            We&apos;re two students, not a company with a sales team. We haven&apos;t launched yet —
-            this survey is what actually decides what we build first. Two minutes, and we read
-            every single response ourselves.
+            We haven&apos;t launched yet — this survey is what actually decides what we build first.
+            Two minutes, and we read every single response ourselves.
           </p>
-        </div>
-        <div className="cl-why-media">
-          <Image
-            src="/connect/lifestyle/feature-alumna-kitchen-laptop.png"
-            alt="An alumna answering questions from her own kitchen table"
-            fill
-            sizes="(max-width: 900px) 100vw, 480px"
-          />
         </div>
       </section>
 
       <section className="cl-closing">
         <div className="cl-closing-media">
-          <Image
-            src="/connect/lifestyle/feature-two-staff-monitor.png"
-            alt="Two advancement staff reviewing something together on a laptop"
-            fill
-            sizes="144px"
-          />
+          <div className="cl-closing-photo">
+            <Image
+              src="/connect/lifestyle/feature-two-staff-monitor.png"
+              alt="Two advancement staff reviewing something together on a laptop"
+              fill
+              sizes="100vw"
+            />
+          </div>
+          <div className="cl-closing-shade" />
         </div>
-        <p className="cl-faint cl-caps cl-closing-label">Ready when you are</p>
-        <h2 className="cl-display cl-closing-title">Help us build this right.</h2>
-        <button ref={closingCta} className="cl-cta cl-closing-cta" onClick={onStart}>
-          Take the survey
-        </button>
-        <a className="cl-privacy-link" href="/connect/privacy">
-          How we use your info
-        </a>
+        <div className="cl-closing-copy">
+          <p className="cl-closing-label cl-caps">Ready when you are</p>
+          <h2 className="cl-display cl-closing-title">Help us build this right.</h2>
+          <div className="cl-closing-actions">
+            <button ref={closingCta} className="cl-cta" onClick={onStart}>
+              Take the survey
+            </button>
+            <a className="cl-privacy-link" href="/connect/privacy">
+              How we use your info
+            </a>
+          </div>
+        </div>
       </section>
 
       <div
