@@ -1,23 +1,23 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
-import SectionDivider from '@/components/SectionDivider'
 import Features from '@/components/Features'
+import Why from '@/components/Why'
 import Mission from '@/components/Mission'
-import VirtueBand from '@/components/VirtueBand'
 import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-    <>
+    <div className="home">
       <Navbar />
-      <Hero />
-      <SectionDivider />
-      <Features />
-      <Mission />
-      <VirtueBand />
-      <CTA />
+      <main>
+        <Hero />
+        <Features />
+        <Why />
+        <Mission />
+        <CTA />
+      </main>
       <Footer />
-    </>
+    </div>
   )
 }

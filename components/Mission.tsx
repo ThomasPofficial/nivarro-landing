@@ -1,83 +1,56 @@
 import Image from 'next/image'
 
+const pillars = [
+  {
+    title: 'Human fulfillment',
+    body: 'Give students real mentors, and give alumni a meaningful way to reconnect and give back.',
+  },
+  {
+    title: 'Generational legacy',
+    body: 'Every alumni gift funds the next program that gives current students the same head start.',
+  },
+  {
+    title: 'Economic ignition',
+    body: 'Close the gap between what alumni want to give and what schools have the system to receive.',
+  },
+  {
+    title: 'The flourish directive',
+    body: 'When alumni show up for students, schools thrive and their whole community feels it.',
+  },
+]
+
 export default function Mission() {
   return (
-    <section className="mission">
-      <div className="mission-pattern">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="hb-mission" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <path d="M0 10 L10 0 L20 10" stroke="rgba(255,255,255,0.025)" strokeWidth="0.5" fill="none"/>
-              <path d="M0 20 L10 10 L20 20" stroke="rgba(255,255,255,0.025)" strokeWidth="0.5" fill="none"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#hb-mission)"/>
-        </svg>
-      </div>
-
-      <div className="rule">
-        <div className="rl" /><div className="rds" /><div className="rd" /><div className="rds" /><div className="rl" />
-      </div>
-
-      <p className="virtue-band-label mission-eyebrow">Our Mission</p>
-
-      <div className="mission-photo">
-        <Image
-          src="/connect/lifestyle/feature-older-alumnus-tablet.png"
-          alt="An older alumnus reconnecting with his school on a tablet"
-          fill
-          sizes="130px"
-        />
-      </div>
-
-      <blockquote className="mission-quote">
-        &ldquo;The day students graduate, schools lose touch with them &mdash; and with them, the mentors and donors the next generation needs.&rdquo;
-      </blockquote>
-
-      <div className="mission-grid">
-        <div className="mission-card">
-          <div className="mission-card-header">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <circle cx="7" cy="7" r="5" stroke="#D4A84B" strokeWidth="0.75"/>
-              <circle cx="7" cy="7" r="2" fill="#D4A84B"/>
-            </svg>
-            <span className="virtue-name">Human Fulfillment</span>
+    <section className="hp-mission">
+      <div className="hp-container">
+        <div className="hp-stage">
+          <div className="hp-media">
+            <div className="hp-photo">
+              <Image
+                src="/connect/lifestyle/feature-older-alumnus-tablet.png"
+                alt="An older alumnus reconnecting with his school on a tablet"
+                fill
+                sizes="(max-width: 900px) 100vw, 760px"
+              />
+            </div>
           </div>
-          <p>Give students real mentors, and give alumni a meaningful way to reconnect and give back.</p>
+
+          <div className="hp-panel hp-stage-panel">
+            <p className="hp-eyebrow">Our mission</p>
+            <blockquote className="hp-display">
+              The day students graduate, schools lose touch with them — and with them, the mentors and donors the next generation needs.
+            </blockquote>
+          </div>
         </div>
 
-        <div className="mission-card">
-          <div className="mission-card-header">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <polygon points="7,2 12,11 2,11" stroke="#D4A84B" strokeWidth="0.75" fill="none"/>
-              <circle cx="7" cy="8" r="1.5" fill="#D4A84B"/>
-            </svg>
-            <span className="virtue-name">Generational Legacy</span>
-          </div>
-          <p>Every alumni gift funds the next program that gives current students the same head start.</p>
-        </div>
-
-        <div className="mission-card">
-          <div className="mission-card-header">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <rect x="2" y="2" width="10" height="10" stroke="#D4A84B" strokeWidth="0.75" transform="rotate(45 7 7)" fill="none"/>
-              <circle cx="7" cy="7" r="1.5" fill="#D4A84B"/>
-            </svg>
-            <span className="virtue-name">Economic Ignition</span>
-          </div>
-          <p>Close the gap between what alumni want to give and what schools have the system to receive.</p>
-        </div>
-
-        <div className="mission-card">
-          <div className="mission-card-header">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M7 2 Q10 5 10 7 Q10 11 7 12 Q4 11 4 7 Q4 5 7 2Z" stroke="#D4A84B" strokeWidth="0.75" fill="none"/>
-              <circle cx="7" cy="7" r="1.5" fill="#D4A84B"/>
-            </svg>
-            <span className="virtue-name">The Flourish Directive</span>
-          </div>
-          <p>When alumni show up for students, schools thrive and their whole community feels it.</p>
-        </div>
+        <ul className="hp-pillars">
+          {pillars.map((p) => (
+            <li key={p.title} className="hp-pillar">
+              <h3 className="hp-label">{p.title}</h3>
+              <p className="hp-copy-sm">{p.body}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )
