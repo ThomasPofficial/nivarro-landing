@@ -14,7 +14,7 @@ export default function Hero() {
           <p className="hp-pill">Free through your first semester — 5% + 30¢ per donation</p>
           <h1 className="hp-display">The alumni engagement &amp; fundraising platform built for private and charter schools.</h1>
           <p className="hp-lede">
-            Schools are underfunded, and their alumni want to help — they just don&apos;t have a way to. Nivarro connects students with alumni mentors, and alumni give back once they see the impact they&apos;ve made.
+            Private and charter schools are underfunded, and their alumni want to help — they just don&apos;t have a way to. Nivarro connects students with alumni mentors, and alumni give back once they see the impact they&apos;ve made.
           </p>
           <button type="button" className="hp-btn hp-btn-white" onClick={scrollToCTA}>
             Request a demo

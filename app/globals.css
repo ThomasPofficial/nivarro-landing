@@ -115,6 +115,7 @@ em { font-style: normal; }
   font-size: var(--text-md);
   line-height: var(--lh-md);
   color: var(--white-70);
+  text-wrap: pretty;
 }
 .hp-copy-sm {
   font-size: var(--text-sm);
