@@ -83,7 +83,7 @@ export default function ConnectLanding({ onStart }: { onStart: () => void }) {
         <p className="cl-hero-sub">
           We&apos;re building Nivarro to connect students with alumni mentors, then make it simple
           for those alumni to fund what they&apos;ve seen up close. Before we build any more of it,
-          we want to know if that&apos;s actually true for your school.
+          we want to know if that&apos;s actually true for your private or charter school.
         </p>
         <button ref={heroCta} className="cl-cta" onClick={onStart}>
           Take the 2-minute survey

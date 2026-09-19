@@ -16,7 +16,7 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Nivarro — The alumni engagement & fundraising platform for schools',
+  title: 'Nivarro — The alumni engagement & fundraising platform for private and charter schools',
   description: 'Turn your alumni network into ongoing mentorship and reliable annual giving — a private community, AI-generated fundraising pages, and a real-time admin dashboard, funded straight to your school\'s bank account.',
 }
 

@@ -21,7 +21,7 @@ export default function CTA() {
         <div className="hp-panel hp-frame hp-cta-panel">
           <div className="hp-cta-title">
             <p className="hp-eyebrow">Get in touch</p>
-            <h2 className="hp-display">Bring alumni engagement to your school.</h2>
+            <h2 className="hp-display">Bring alumni engagement to your private or charter school.</h2>
           </div>
 
           <div className="hp-cta-body">
