@@ -40,7 +40,7 @@ export default function FundraisingPage() {
         <div className="nv-wrap fr-hero-row">
           <div className="fr-hero-copy">
             <p className="nv-fine fr-eyebrow">P.03 · Fundraising</p>
-            <h1 className="fr-h1">Made for private and charter schools to increase donations.</h1>
+            <h1 className="fr-h1">Campaign pages that raise real money.</h1>
           </div>
           <p className="fr-hero-lede">
             Choose a ready-made design, tell the story, set a goal. Your private or charter school gets a live page, a link and a

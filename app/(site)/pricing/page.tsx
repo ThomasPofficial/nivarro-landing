@@ -65,7 +65,7 @@ export default function PricingPage() {
         <div className="nv-wrap pr-hero-row">
           <div className="pr-hero-copy">
             <p className="pr-eyebrow">P.05 · PRICING</p>
-            <h1 className="pr-h1">Made for private and charter schools to increase donations.</h1>
+            <h1 className="pr-h1">Simple pricing. Every feature included.</h1>
           </div>
           <p className="pr-hero-lede">
             Choose one: $900 a month or $4,500 a semester, never both. Same price for private and charter schools. Every feature is included.

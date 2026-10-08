@@ -20,7 +20,7 @@ export default function DemoPage() {
       <div className="nv-wrap dm-row">
         <div className="dm-left">
           <p className="dm-eyebrow">P.06 · Request a demo</p>
-          <h1 className="dm-h1">Made for private and charter schools to increase donations.</h1>
+          <h1 className="dm-h1">See it working with your own alumni.</h1>
           <p className="dm-lede">
             Tell us about your private or charter school. We will set up a walkthrough using a sample of your own alumni
             records.

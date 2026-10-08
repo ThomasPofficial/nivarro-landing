@@ -15,7 +15,8 @@
 }
 .ab a { color: inherit; text-decoration: none; }
 .ab :is(a, button):focus-visible { outline: 2px solid var(--ab-blue); outline-offset: 3px; }
-.ab h1, .ab h2, .ab h3, .ab h4 { font-weight: 500; }
+.ab h1, .ab h2, .ab h3 { font-family: var(--font-newsreader), Georgia, serif; font-weight: 400; }
+.ab h4 { font-weight: 600; }
 
 .ab-wrap { width: min(1312px, calc(100% - 128px)); margin-inline: auto; }
 
@@ -42,14 +43,14 @@
 /* Type */
 .ab-eyebrow { font-size: 14px; line-height: 20px; font-weight: 600; color: var(--ab-blue); }
 .ab-eyebrow-light { color: var(--ab-sky); }
-.ab-h1 { margin-top: 24px; font-size: clamp(44px, 6vw, 80px); line-height: 1.05; letter-spacing: -0.04em; color: var(--ab-ink); }
-.ab-h2 { margin-top: 16px; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.12; letter-spacing: -0.035em; color: var(--ab-ink); }
+.ab-h1 { margin-top: 24px; font-size: clamp(44px, 6.4vw, 92px); line-height: 1.03; letter-spacing: -0.035em; color: var(--ab-ink); }
+.ab-h2 { margin-top: 16px; font-size: clamp(34px, 4vw, 56px); line-height: 1.08; letter-spacing: -0.03em; color: var(--ab-ink); }
 .ab-h2-sm { font-size: clamp(26px, 2.6vw, 36px); max-width: 620px; }
 .ab-h2-light { color: #fff; }
-.ab-h3 { font-size: 24px; line-height: 30px; letter-spacing: -0.02em; color: var(--ab-ink); }
+.ab-h3 { font-size: 28px; line-height: 34px; letter-spacing: -0.02em; color: var(--ab-ink); }
 .ab-lede { font-size: 19px; line-height: 30px; color: var(--ab-body); max-width: 400px; padding-bottom: 10px; }
 .ab-body { font-size: 16px; line-height: 26px; color: var(--ab-body); }
-.ab-body-strong { color: var(--ab-ink); font-weight: 600; font-size: 18px; line-height: 28px; }
+.ab-body-strong { color: var(--ab-ink); font-weight: 500; font-size: 18px; line-height: 28px; }
 .ab-fine { font-size: 12px; line-height: 16px; letter-spacing: 0.14em; text-transform: uppercase; color: #7A8BA3; }
 
 /* Orbs (soft gradient glow, decoration only) */
@@ -70,12 +71,12 @@
 .ab-cards { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
 .ab-card {
   display: flex; flex-direction: column; gap: 20px; padding: 36px;
-  background: #fff; border: 1px solid var(--ab-line); border-radius: 20px;
+  background: #fff; border: 1.5px solid #C9D6EE; border-radius: 20px;
   box-shadow: 0 24px 48px -24px rgba(10, 37, 64, 0.16);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .ab-card:hover { transform: translateY(-4px); box-shadow: 0 32px 60px -24px rgba(10, 37, 64, 0.28); }
-.ab-num { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; background: var(--ab-navy); color: #fff; font-size: 15px; font-weight: 600; }
+.ab-num { box-shadow: 0 0 0 4px #E3EAF7; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; background: var(--ab-navy); color: #fff; font-size: 15px; font-weight: 600; }
 
 /* Co-founders */
 .ab-founders { position: relative; overflow: hidden; padding: 112px 0; background: linear-gradient(160deg, var(--ab-navy) 0%, var(--ab-navy2) 100%); }
@@ -84,19 +85,20 @@
 .ab-founder-list { display: flex; flex-direction: column; gap: 32px; margin-top: 56px; }
 .ab-founder {
   display: flex; gap: 56px; padding: 48px; border-radius: 24px;
-  background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05); border: 1.5px solid rgba(143, 176, 255, 0.35);
   transition: background 0.25s ease, border-color 0.25s ease;
 }
 .ab-founder:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(143, 176, 255, 0.4); }
 .ab-founder-id { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; width: 340px; flex-shrink: 0; }
 .ab-avatar { width: 168px; height: 168px; border-radius: 50%; overflow: hidden; box-shadow: 0 0 0 4px #0F2A4D, 0 0 0 6px #3A5A8C; }
 .ab-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.ab-name { font-size: 34px; line-height: 40px; letter-spacing: -0.035em; color: #fff; }
-.ab-pill { font-size: 12px; line-height: 16px; font-weight: 600; color: var(--ab-navy); background: #BFD2FF; padding: 4px 10px; border-radius: 999px; }
+.ab-name { font-size: 40px; line-height: 44px; letter-spacing: -0.02em; color: #fff; }
+.ab-pill { border: 1px solid rgba(10, 37, 64, 0.25); font-size: 12px; line-height: 16px; font-weight: 600; color: var(--ab-navy); background: #BFD2FF; padding: 4px 10px; border-radius: 999px; }
+.ab-founder-id { padding-right: 24px; border-right: 1px solid rgba(143, 176, 255, 0.25); }
 .ab-founder-intro { font-size: 16px; line-height: 26px; color: #B8C7DD; }
 .ab-founder-body { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
 .ab-areas { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.ab-area { padding: 24px; border-radius: 16px; background: rgba(255, 255, 255, 0.06); transition: background 0.2s ease, transform 0.2s ease; }
+.ab-area { padding: 24px; border-radius: 16px; border: 1px solid rgba(143, 176, 255, 0.28); background: rgba(255, 255, 255, 0.06); transition: background 0.2s ease, transform 0.2s ease; }
 .ab-area:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-2px); }
 .ab-area h4 { font-size: 16px; line-height: 22px; font-weight: 600; color: #fff; }
 .ab-area p { margin-top: 8px; font-size: 15px; line-height: 23px; color: #B8C7DD; }
@@ -114,7 +116,7 @@
 .ab-contact { padding: 96px 0 0; }
 .ab-contact-card {
   display: flex; align-items: center; justify-content: space-between; gap: 48px;
-  padding: 48px; border-radius: 24px; border: 1px solid var(--ab-line);
+  padding: 48px; border-radius: 24px; border: 1.5px solid #C9D6EE;
   background: linear-gradient(180deg, var(--ab-wash) 0%, #EAF0F9 100%);
 }
 .ab-contact-mail { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; text-align: right; }
@@ -144,6 +146,7 @@
 
 /* Responsive */
 @media (max-width: 1000px) {
+  .ab-founder-id { border-right: 0; padding-right: 0; }
   .ab-wrap { width: calc(100% - 48px); }
   .ab-hero-row { flex-direction: column; align-items: flex-start; }
   .ab-cards { grid-template-columns: 1fr; }

@@ -48,7 +48,7 @@ export default function ForSchoolsPage() {
           <div className="nv-hero-row">
             <div>
               <p className="nv-fine fs-blue">P.04 · For schools</p>
-              <h1 className="nv-h1">Made for private and charter schools to increase donations.</h1>
+              <h1 className="nv-h1">Private or charter, your alumni want to help.</h1>
             </div>
             <p className="nv-lede">
               Two kinds of school, one problem: not enough money, and alumni who rarely hear from you.

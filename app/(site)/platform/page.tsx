@@ -116,7 +116,7 @@ export default function PlatformPage() {
         <div className="nv-wrap pl-hero-row">
           <div className="pl-hero-copy">
             <p className="pl-eyebrow">P.02 · THE PLATFORM</p>
-            <h1 className="pl-h1">Made for private and charter schools to increase donations.</h1>
+            <h1 className="pl-h1">From a messy spreadsheet to a working mentorship program.</h1>
           </div>
           <p className="pl-hero-lede">
             Nivarro takes a private or charter school&apos;s messy alumni records and turns them into a mentorship program with teacher approval, verified hours and a path to giving.
