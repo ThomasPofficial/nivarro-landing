@@ -158,3 +158,43 @@
   .nv-footer-cols { gap: 40px; flex-wrap: wrap; }
 }
 @media (prefers-reduced-motion: reduce) { .nv * { transition: none !important; } }
+
+
+/* ── Polish pass: Stripe-style chrome and motion ── */
+html:has(.nv), body:has(.nv) { background: #fff; }
+
+.nv-header { position: sticky; top: -37px; z-index: 50; background: rgba(255, 255, 255, 0.82); -webkit-backdrop-filter: saturate(180%) blur(14px); backdrop-filter: saturate(180%) blur(14px); transition: box-shadow 0.3s ease; }
+.nv-ticker { background: linear-gradient(90deg, var(--navy) 0%, var(--navy-2) 100%); }
+.nv-ticker-row { justify-content: center; }
+.nv-ticker-c { display: inline-flex; align-items: center; gap: 10px; }
+.nv-live { width: 7px; height: 7px; border-radius: 50%; background: #4ADE80; box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6); animation: nv-pulse 2.4s ease-out infinite; }
+@keyframes nv-pulse { 70% { box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); } 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); } }
+
+.nv-nameplate { padding-block: 18px; }
+.nv-nav a { position: relative; padding: 6px 0; }
+.nv-nav a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--blue), var(--amber)); transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease; }
+.nv-nav a:hover::after { transform: scaleX(1); }
+.nv-rules { gap: 0; }
+.nv-rules i { height: 1px; background: var(--line); }
+.nv-rules i + i { display: none; }
+
+/* buttons: gradient sheen + arrow nudge */
+.nv-btn, .nv a.nv-btn { background-image: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0) 60%); box-shadow: 0 1px 0 rgba(255,255,255,0.25) inset, 0 6px 16px -6px rgba(47, 91, 234, 0.5); }
+.nv-btn-dark { box-shadow: 0 1px 0 rgba(255,255,255,0.12) inset, 0 6px 16px -6px rgba(10, 37, 64, 0.5); }
+
+/* soft drifting glow in every hero */
+.nv-orb-hero, .nv-hero::before { animation: nv-drift 14s ease-in-out infinite alternate; }
+@keyframes nv-drift { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(-40px, 30px, 0) scale(1.08); } }
+
+/* cards: subtle gradient edge on hover */
+.nv-card:hover { border-color: #C9D6EE; }
+
+/* scroll reveal (added by ScrollReveal; harmless without JS) */
+.nv-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.nv-reveal.nv-in { opacity: 1; transform: none; }
+
+@media (max-width: 1000px) { .nv-header { top: -37px; } }
+@media (prefers-reduced-motion: reduce) {
+  .nv-live, .nv-orb-hero, .nv-hero::before { animation: none; }
+  .nv-reveal { opacity: 1; transform: none; transition: none; }
+}
