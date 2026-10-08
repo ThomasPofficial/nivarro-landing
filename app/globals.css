@@ -185,6 +185,9 @@ em { font-style: normal; }
   color: var(--white);
 }
 .hp-brand svg { flex-shrink: 0; }
+.hp-nav { display: flex; align-items: center; gap: 28px; }
+.hp-nav-link { font-size: var(--text-sm); line-height: var(--lh-sm); color: var(--white-70); transition: color 0.2s; }
+.hp-nav-link:hover { color: var(--white); }
 .hp-brand-word {
   font-size: var(--text-sm);
   line-height: var(--lh-sm);

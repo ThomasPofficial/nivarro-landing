@@ -14,9 +14,12 @@ export default function Navbar() {
           <LogoMark />
           <span className="hp-brand-word">Nivarro</span>
         </a>
-        <button type="button" className="hp-btn hp-btn-blue" onClick={scrollToCTA}>
-          Request a demo
-        </button>
+        <nav className="hp-nav" aria-label="Primary">
+          <a className="hp-nav-link" href="/about">About</a>
+          <button type="button" className="hp-btn hp-btn-blue" onClick={scrollToCTA}>
+            Request a demo
+          </button>
+        </nav>
       </div>
     </header>
   )
