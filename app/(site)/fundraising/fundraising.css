@@ -108,7 +108,8 @@
 .fr-fee { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 48px 56px; border-radius: 28px; background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%); }
 .fr-fee > div { display: flex; flex-direction: column; gap: 12px; max-width: 640px; }
 .fr-fee p, .fr-fee h2 { margin: 0; }
-.fr-fee h2 { color: #fff; }
+.nv .fr-fee .fr-h2, .nv .fr-fee h2 { color: #FFFFFF; }
+.nv .fr-fee .fr-amber { color: #FFC87A; }
 .fr-fee > p { flex: 0 0 460px; max-width: 100%; font-size: 18px; line-height: 28px; color: #C6D0E2; }
 
 /* Pricing */
