@@ -10,11 +10,24 @@ export async function submitEmail(_prevState: unknown, formData: FormData) {
 
   const resend = new Resend(process.env.RESEND_API_KEY)
 
+  const esc = (v: FormDataEntryValue | null) =>
+    String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c] as string)
+  const rows = [
+    ['Email', email],
+    ['Name', formData.get('name')],
+    ['School', formData.get('school')],
+    ['School type', formData.get('schoolType')],
+    ['Alumni count', formData.get('alumniCount')],
+  ]
+    .filter(([, v]) => String(v ?? '').trim())
+    .map(([k, v]) => `<p>${k}: ${esc(v as FormDataEntryValue)}</p>`)
+    .join('')
+
   await resend.emails.send({
     from: 'Nivarro <onboarding@resend.dev>',
     to: 'team.nivarro@gmail.com',
-    subject: 'New early access request',
-    html: `<p><strong>${email}</strong> just requested early access on nivarro.com.</p>`,
+    subject: 'New demo request',
+    html: `<p>New request on nivarro.co:</p>${rows}`,
   })
 
   return { success: true }
