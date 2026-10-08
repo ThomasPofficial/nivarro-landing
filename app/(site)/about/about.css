@@ -11,11 +11,7 @@
   --ab-line: #E3EAF7;
   --ab-wash: #F6F9FC;
 
-  font-family: var(--font-inter), system-ui, sans-serif;
-  background: #fff;
   color: var(--ab-ink);
-  min-height: 100vh;
-  overflow-x: clip;
 }
 .ab a { color: inherit; text-decoration: none; }
 .ab :is(a, button):focus-visible { outline: 2px solid var(--ab-blue); outline-offset: 3px; }

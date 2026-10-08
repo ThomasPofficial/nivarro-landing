@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import LogoMark from '@/components/LogoMark'
 
 const reasons = [
   {
@@ -51,21 +50,6 @@ const founders = [
 export default function AboutPage() {
   return (
     <>
-      <header className="ab-header">
-        <div className="ab-wrap ab-header-row">
-          <Link href="/" className="ab-brand" aria-label="Nivarro home">
-            <LogoMark />
-            <span>Nivarro</span>
-          </Link>
-          <nav className="ab-nav" aria-label="Primary">
-            <Link href="/">Home</Link>
-            <Link href="/about" aria-current="page">About</Link>
-            <Link href="/connect">For schools</Link>
-            <Link href="/#cta" className="ab-btn">Request a demo</Link>
-          </nav>
-        </div>
-      </header>
-
       <main>
         <section className="ab-hero">
           <div className="ab-orb ab-orb-hero" aria-hidden="true" />
@@ -164,22 +148,11 @@ export default function AboutPage() {
               <p className="ab-eyebrow ab-eyebrow-light">For private &amp; charter schools</p>
               <h2 className="ab-h2 ab-h2-light">Get your alumni in the room.</h2>
             </div>
-            <Link href="/#cta" className="ab-btn ab-btn-white">Request a demo</Link>
+            <Link href="/demo" className="ab-btn ab-btn-white">Request a demo</Link>
           </div>
         </section>
       </main>
 
-      <footer className="ab-footer">
-        <div className="ab-wrap ab-footer-row">
-          <div className="ab-brand ab-brand-light">
-            <LogoMark />
-            <span>Nivarro</span>
-          </div>
-          <p className="ab-footer-copy">Alumni engagement and fundraising for private and charter schools.</p>
-          <a className="ab-footer-mail" href="mailto:team.nivarro@gmail.com">team.nivarro@gmail.com</a>
-          <span className="ab-footer-fine">© 2026 Nivarro</span>
-        </div>
-      </footer>
     </>
   )
 }

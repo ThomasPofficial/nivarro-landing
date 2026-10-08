@@ -1,12 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './about.css'
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-inter',
-})
 
 export const metadata: Metadata = {
   title: 'About — Nivarro',
@@ -15,5 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function AboutLayout({ children }: { children: React.ReactNode }) {
-  return <div className={`${inter.variable} ab`}>{children}</div>
+  return <div className="ab">{children}</div>
 }
