@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import type { Metadata } from 'next'
+import Ribbon from '@/components/home/Ribbon'
 import CtaBand from '@/components/site/CtaBand'
 import './for-schools.css'
 
@@ -48,12 +49,12 @@ export default function ForSchoolsPage() {
   return (
     <main className="fs">
       <section className="nv-hero">
-        <div className="nv-orb nv-orb-hero" aria-hidden="true" />
+        <Ribbon className="nv-ribbon-hero" fade="#FFFFFF" />
         <div className="nv-wrap">
           <div className="nv-hero-row">
             <div>
               <p className="nv-fine fs-blue mo-rule hm3-in">P.04 · For schools</p>
-              <h1 className="nv-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>Public, charter or private, <span className="mo-foil">your alumni want to help.</span></h1>
+              <h1 className="nv-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>Built for public, charter and private schools.</h1>
             </div>
             <p className="nv-lede hm3-in" style={{ ['--d' as string]: '200ms' }}>
               Three kinds of school, three different problems: unclear outcomes, an untapped donor base, and tuition

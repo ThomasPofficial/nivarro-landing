@@ -2,6 +2,7 @@
 
 import { useFormState, useFormStatus } from 'react-dom'
 import { submitEmail } from '@/app/actions'
+import Ribbon from '@/components/home/Ribbon'
 
 function Submit() {
   const { pending } = useFormStatus()
@@ -13,7 +14,7 @@ function Submit() {
 }
 
 export default function CtaBand({
-  eyebrow = 'For private & charter schools',
+  eyebrow = 'For public, charter & private schools',
   title = 'Get your alumni in the room.',
 }: {
   eyebrow?: string
@@ -25,6 +26,7 @@ export default function CtaBand({
     <section className="nv-section nv-cta-section">
       <div className="nv-wrap">
         <div className="nv-cta">
+          <Ribbon className="nv-ribbon-cta" fade="#0A2540" />
           <div className="nv-cta-copy">
             <p className="nv-eyebrow nv-eyebrow-light">{eyebrow}</p>
             <h2 className="nv-h2 nv-light">{title}</h2>

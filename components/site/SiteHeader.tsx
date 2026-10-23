@@ -2,6 +2,7 @@ import Link from 'next/link'
 import LogoMark from '@/components/LogoMark'
 
 const links = [
+  { href: '/', label: 'Home' },
   { href: '/platform', label: 'Platform' },
   { href: '/fundraising', label: 'Donations' },
   { href: '/for-schools', label: 'For schools' },

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import Ribbon from '@/components/home/Ribbon'
 
 const reasons = [
   {
@@ -52,11 +53,11 @@ export default function AboutPage() {
     <>
       <main>
         <section className="ab-hero">
-          <div className="ab-orb ab-orb-hero" aria-hidden="true" />
+          <Ribbon className="nv-ribbon-hero" fade="#FFFFFF" />
           <div className="ab-wrap ab-hero-row">
             <div>
               <p className="ab-eyebrow mo-rule hm3-in">About Nivarro</p>
-              <h1 className="ab-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>Built by the people <span className="mo-foil">closest to the problem.</span></h1>
+              <h1 className="ab-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>Built by the people closest to the problem.</h1>
             </div>
             <p className="ab-lede hm3-in" style={{ ['--d' as string]: '200ms' }}>
               Public, charter and private schools are underfunded. Their alumni want to help but have no way in. Nivarro is the system that connects them, built by two co-founders who work on it every day.
@@ -144,6 +145,7 @@ export default function AboutPage() {
 
         <section className="ab-cta">
           <div className="ab-wrap ab-cta-card">
+            <Ribbon className="nv-ribbon-cta" fade="#0A2540" />
             <div className="ab-cta-copy">
               <p className="ab-eyebrow ab-eyebrow-light">For public, charter &amp; private schools</p>
               <h2 className="ab-h2 ab-h2-light">Get your alumni in the room.</h2>

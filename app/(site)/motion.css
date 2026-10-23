@@ -26,3 +26,16 @@
   .mo-lift.mo-hide.nv-in { transition: opacity 0.4s, transform 0.4s var(--ease), box-shadow 0.4s; }
 .mo-lift:hover { transform: none; }
 }
+
+/* Silk ribbon (navy to gold), shared by every page hero and the CTA band */
+.hm-ribbon { position: absolute; width: 1100px; height: 820px; pointer-events: none; z-index: 0; }
+.hm-ribbon svg { display: block; }
+.hm-ribbon-fade { position: absolute; left: 0; top: 0; width: 340px; height: 100%; background: linear-gradient(90deg, var(--fade, #fff) 0%, transparent 100%); }
+.nv-ribbon-hero { left: 41.67%; top: -300px; }
+.nv-ribbon-cta { left: 340px; top: -330px; }
+.nv-cta { position: relative; }
+.nv-cta > *:not(.hm-ribbon) { position: relative; z-index: 1; }
+@media (max-width: 1000px) {
+  .nv-ribbon-hero { left: 8%; top: -360px; opacity: 0.4; }
+  .nv-ribbon-cta { left: 0; top: -380px; opacity: 0.7; }
+}

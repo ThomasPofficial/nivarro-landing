@@ -2,9 +2,6 @@
 
 /* Hero */
 .pl-hero { position: relative; overflow: clip; padding: 72px 0; background: #fff; }
-.pl-wave { position: absolute; left: calc(50% - 120px); top: -300px; width: 1100px; height: 820px; pointer-events: none; }
-.pl-wave svg { display: block; }
-.pl-wave-fade { position: absolute; left: 0; top: 0; width: 340px; height: 820px; background: linear-gradient(90deg, #fff, rgba(255,255,255,0)); }
 .pl-hero-row { position: relative; display: flex; align-items: flex-end; justify-content: space-between; gap: 48px; }
 .pl-hero-copy { display: flex; flex-direction: column; gap: 28px; width: 980px; max-width: 100%; flex-shrink: 0; }
 .pl-eyebrow { margin: 0; font-size: 12px; line-height: 16px; letter-spacing: 0.14em; color: var(--pl-violet); }
@@ -90,7 +87,7 @@
 
 @media (max-width: 1000px) {
   .pl-hero { padding: 48px 0; }
-  .pl-wave { left: 20%; top: -360px; opacity: 0.5; }
+
   .pl-hero-row { flex-direction: column; align-items: flex-start; gap: 24px; }
   .pl-hero-copy { width: 100%; gap: 20px; }
   .pl-h1 { font-size: clamp(40px, 11vw, 60px); line-height: 1.04; }

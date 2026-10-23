@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Ribbon from '@/components/home/Ribbon'
 import CtaBand from '@/components/site/CtaBand'
 import './pricing.css'
 
@@ -38,10 +39,11 @@ export default function PricingPage() {
   return (
     <>
       <section className="pr-hero">
+        <Ribbon className="nv-ribbon-hero" fade="#FFFFFF" />
         <div className="nv-wrap pr-hero-row">
           <div className="pr-hero-copy">
             <p className="pr-eyebrow mo-rule hm3-in">P.05 · PRICING</p>
-            <h1 className="pr-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>Two plans. <span className="mo-foil">Published prices.</span></h1>
+            <h1 className="pr-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>Two plans. Published prices.</h1>
           </div>
           <p className="pr-hero-lede hm3-in" style={{ ['--d' as string]: '200ms' }}>
             One plan for public schools, one for private and charter schools. Your first semester is free.
@@ -84,7 +86,7 @@ export default function PricingPage() {
           </article>
           <article className="pr-tile pr-tile-navy mo mo-lift" style={{ ['--d' as string]: '240ms' }}>
             <div className="pr-tile-top">
-              <p className="pr-eyebrow pr-c-peach">ON EVERY GIFT</p>
+              <p className="pr-eyebrow pr-c-peach">PLUS, ON EVERY DONATION</p>
               <p className="pr-price pr-price-fee mo-foil">5.5% + 30¢</p>
               <ul className="pr-bul pr-bul-dark">
                 <li>The school keeps the rest</li>

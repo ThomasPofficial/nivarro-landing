@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import type { Metadata } from 'next'
+import Ribbon from '@/components/home/Ribbon'
 import CtaBand from '@/components/site/CtaBand'
 import './platform.css'
 
@@ -8,26 +9,6 @@ export const metadata: Metadata = {
   description:
     "Nivarro turns a public, charter or private school's messy alumni records into a living roster, course outcome data and, on the Advanced plan, verified mentorship with a path to giving.",
 }
-
-const STOPS = ['#2F5BEA', '#555BF4', '#7A5CFE', '#B95DD4', '#F95FA7', '#FF7578', '#FF8D49', '#FFA840', '#FFC33D']
-
-function hex(c: string) {
-  return [1, 3, 5].map((i) => parseInt(c.slice(i, i + 2), 16))
-}
-function colorAt(i: number) {
-  const t = Math.min(i / 5, STOPS.length - 1)
-  const a = Math.floor(t)
-  const b = Math.min(a + 1, STOPS.length - 1)
-  const f = t - a
-  const ca = hex(STOPS[a])
-  const cb = hex(STOPS[b])
-  return '#' + ca.map((v, k) => Math.round(v + (cb[k] - v) * f).toString(16).padStart(2, '0')).join('')
-}
-function wave(i: number) {
-  return `M-60 ${82 + 8 * i} C330 ${804 - 6 * i} 682 ${16 + 10 * i} 1160 ${Math.round(410 + 8 * i)}`
-}
-const thin = Array.from({ length: 44 }, (_, i) => i)
-const thick = Array.from({ length: 9 }, (_, i) => i * 5)
 
 const CSV = `name,email,class,phone
 jon smith,JSMITH@gmail,'09,
@@ -102,21 +83,11 @@ export default function PlatformPage() {
   return (
     <main className="pl">
       <section className="pl-hero">
-        <div className="pl-wave" aria-hidden="true">
-          <svg viewBox="0 0 1100 820" width="1100" height="820" xmlns="http://www.w3.org/2000/svg">
-            {thick.map((i) => (
-              <path key={`k${i}`} d={wave(i)} fill="none" stroke={colorAt(i)} strokeWidth="64" opacity="0.13" />
-            ))}
-            {thin.map((i) => (
-              <path key={i} d={wave(i)} fill="none" stroke={colorAt(i)} strokeWidth="6" opacity="0.85" />
-            ))}
-          </svg>
-          <div className="pl-wave-fade" />
-        </div>
+        <Ribbon className="nv-ribbon-hero" fade="#FFFFFF" />
         <div className="nv-wrap pl-hero-row">
           <div className="pl-hero-copy">
             <p className="pl-eyebrow mo-rule hm3-in">P.02 · THE PLATFORM</p>
-            <h1 className="pl-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>From a messy spreadsheet to a <span className="mo-foil">working alumni program.</span></h1>
+            <h1 className="pl-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>A messy spreadsheet becomes a mentorship program.</h1>
           </div>
           <p className="pl-hero-lede hm3-in" style={{ ['--d' as string]: '200ms' }}>
             Nivarro takes a school&apos;s messy alumni records and turns them into a living roster, outcome data for your courses and, on the Advanced plan, verified mentorship with a path to giving.
@@ -157,7 +128,7 @@ export default function PlatformPage() {
 
         <Step
           n="02"
-          color="#7B5CFF"
+          color="#2F5BEA"
           title="Nivarro messages every alum."
           body="Personal invitations by email and text, a reminder, then a gentle nudge if they go quiet. Nobody on your staff has to chase anyone."
         >
@@ -188,7 +159,7 @@ export default function PlatformPage() {
 
         <Step
           n="03"
-          color="#FF5FA2"
+          color="#2F5BEA"
           title="Teachers approve. Alumni mentor, in the app."
           body="On the Advanced plan, every pairing is approved by school staff. Mentors and students talk only inside Nivarro, with a teacher in the room."
         >
@@ -208,7 +179,7 @@ export default function PlatformPage() {
 
         <Step
           n="04"
-          color="#FF8A3D"
+          color="#2F5BEA"
           title="A set number of hours a week, verified."
           body="Mentors on the Advanced plan commit to hours each week. Teachers review and approve every log, so the hours are real and countable."
         >

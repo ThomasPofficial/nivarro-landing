@@ -129,10 +129,7 @@
 .ab-cta-card {
   display: flex; align-items: center; justify-content: space-between; gap: 32px;
   padding: 64px; border-radius: 28px; overflow: hidden; position: relative;
-  background:
-    radial-gradient(60% 140% at 100% 0%, rgba(255, 176, 64, 0.55) 0%, rgba(255, 176, 64, 0) 60%),
-    radial-gradient(70% 160% at 85% 100%, rgba(79, 140, 255, 0.7) 0%, rgba(79, 140, 255, 0) 65%),
-    var(--ab-navy);
+  background: var(--ab-navy);
 }
 .ab-cta-copy .ab-h2 { max-width: 560px; }
 
@@ -163,3 +160,6 @@
 @media (prefers-reduced-motion: reduce) {
   .ab * { transition: none !important; }
 }
+
+.ab-cta-card > *:not(.hm-ribbon) { position: relative; z-index: 1; }
+.ab-hero { background: #fff; }

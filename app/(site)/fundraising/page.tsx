@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import CtaBand from '@/components/site/CtaBand'
-import Ribbon from '@/components/fundraising/Ribbon'
+import Ribbon from '@/components/home/Ribbon'
 import './fundraising.css'
 
 export const metadata: Metadata = {
@@ -31,18 +31,15 @@ export default function FundraisingPage() {
     <>
       {/* Hero */}
       <section className="fr-hero">
-        <div className="fr-ribbon fr-ribbon-hero" aria-hidden="true">
-          <Ribbon />
-          <div className="fr-fade fr-fade-white" />
-        </div>
+        <Ribbon className="nv-ribbon-hero" fade="#FFFFFF" />
         <div className="nv-wrap fr-hero-row">
           <div className="fr-hero-copy">
             <p className="nv-fine fr-eyebrow">P.03 · Donations</p>
             <h1 className="fr-h1">Donation links that go straight to your school.</h1>
           </div>
           <p className="fr-hero-lede">
-            Give alumni one simple link to give. Share it in an email, a text or a program, and every gift is paid to your private
-            or charter school's bank account.
+            Give alumni one simple link to give. Share it in an email, a text or a program, and every gift is paid to your school's
+            bank account.
           </p>
         </div>
       </section>
@@ -113,16 +110,16 @@ export default function FundraisingPage() {
       <section className="fr-pricing">
         <div className="nv-wrap fr-price-grid">
           <div className="fr-price" style={{ borderTopColor: '#2F5BEA' }}>
-            <p className="nv-fine">Monthly</p>
-            <p className="fr-big">$900</p>
-            <p className="fr-price-copy">per month. The full plan, billed monthly.</p>
+            <p className="nv-fine">Base plan · Public</p>
+            <p className="fr-big">$2,000</p>
+            <p className="fr-price-copy">per semester · $50 to sign. Alumni tracker, curriculum map, outcome surveys and donation links.</p>
           </div>
-          <div className="fr-price" style={{ borderTopColor: '#7B5CFF' }}>
-            <p className="nv-fine">Per semester</p>
+          <div className="fr-price" style={{ borderTopColor: '#0A2540' }}>
+            <p className="nv-fine">Advanced plan · Private &amp; charter</p>
             <p className="fr-big">$4,500</p>
-            <p className="fr-price-copy">per semester. One invoice, one budget line.</p>
+            <p className="fr-price-copy">per semester · $100 to sign. Everything in base, plus verified alumni mentorship.</p>
           </div>
-          <div className="fr-price fr-price-dark" style={{ borderTopColor: '#FF5FA2' }}>
+          <div className="fr-price fr-price-dark" style={{ borderTopColor: '#2F5BEA' }}>
             <p className="nv-fine fr-amber">On every donation</p>
             <p className="fr-big fr-big-sm">5.5% + 30¢</p>
             <p className="fr-price-copy">The school keeps the rest. Donors can cover the fee so the school receives 100%.</p>
