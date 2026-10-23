@@ -34,7 +34,6 @@ export default function FundraisingPage() {
         <Ribbon className="nv-ribbon-hero" fade="#FFFFFF" />
         <div className="nv-wrap fr-hero-row">
           <div className="fr-hero-copy">
-            <p className="nv-fine fr-eyebrow">P.03 · Donations</p>
             <h1 className="fr-h1">Donation links that go straight to your school.</h1>
           </div>
           <p className="fr-hero-lede">

@@ -42,7 +42,6 @@ export default function PricingPage() {
         <Ribbon className="nv-ribbon-hero" fade="#FFFFFF" />
         <div className="nv-wrap pr-hero-row">
           <div className="pr-hero-copy">
-            <p className="pr-eyebrow mo-rule hm3-in">P.05 · PRICING</p>
             <h1 className="pr-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>Two plans. Published prices.</h1>
           </div>
           <p className="pr-hero-lede hm3-in" style={{ ['--d' as string]: '200ms' }}>

@@ -86,7 +86,6 @@ export default function PlatformPage() {
         <Ribbon className="nv-ribbon-hero" fade="#FFFFFF" />
         <div className="nv-wrap pl-hero-row">
           <div className="pl-hero-copy">
-            <p className="pl-eyebrow mo-rule hm3-in">P.02 · THE PLATFORM</p>
             <h1 className="pl-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>A messy spreadsheet becomes a mentorship program.</h1>
           </div>
           <p className="pl-hero-lede hm3-in" style={{ ['--d' as string]: '200ms' }}>

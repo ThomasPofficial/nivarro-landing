@@ -53,7 +53,6 @@ export default function ForSchoolsPage() {
         <div className="nv-wrap">
           <div className="nv-hero-row">
             <div>
-              <p className="nv-fine fs-blue mo-rule hm3-in">P.04 · For schools</p>
               <h1 className="nv-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>Built for public, charter and private schools.</h1>
             </div>
             <p className="nv-lede hm3-in" style={{ ['--d' as string]: '200ms' }}>
