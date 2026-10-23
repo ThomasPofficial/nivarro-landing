@@ -24,7 +24,7 @@ export async function notifySurveyCompletion(input: ConnectSignupInput): Promise
 
   await resend.emails.send({
     from: 'Nivarro <onboarding@resend.dev>',
-    to: 'team.nivarro@gmail.com',
+    to: 'team@nivarro.co',
     subject: 'New school survey response completed',
     html: `<table style="border-collapse:collapse;font-family:sans-serif">${rows}</table>`,
   })

@@ -25,7 +25,7 @@ export async function submitEmail(_prevState: unknown, formData: FormData) {
 
   await resend.emails.send({
     from: 'Nivarro <onboarding@resend.dev>',
-    to: 'team.nivarro@gmail.com',
+    to: 'team@nivarro.co',
     subject: 'New demo request',
     html: `<p>New request on nivarro.co:</p>${rows}`,
   })

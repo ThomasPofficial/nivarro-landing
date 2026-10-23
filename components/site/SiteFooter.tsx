@@ -12,7 +12,7 @@ export default function SiteFooter() {
               <span>Nivarro</span>
             </div>
             <p>Alumni engagement and donations for public, charter and private schools.</p>
-            <a href="mailto:team.nivarro@gmail.com">team.nivarro@gmail.com</a>
+            <a href="mailto:team@nivarro.co">team@nivarro.co</a>
           </div>
           <div className="nv-footer-cols">
             <div>

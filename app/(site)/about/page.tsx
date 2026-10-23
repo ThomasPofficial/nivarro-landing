@@ -136,7 +136,7 @@ export default function AboutPage() {
               <h2 className="ab-h2 ab-h2-sm">Questions, ideas, or want to see it for your school?</h2>
             </div>
             <div className="ab-contact-mail">
-              <a href="mailto:team.nivarro@gmail.com">team.nivarro@gmail.com</a>
+              <a href="mailto:team@nivarro.co">team@nivarro.co</a>
               <p className="ab-fine">Email the Nivarro team directly.</p>
             </div>
           </div>

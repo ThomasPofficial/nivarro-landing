@@ -26,7 +26,7 @@ export default function ConnectPrivacyPage() {
             We don't sell this information or share it with anyone outside
             Nivarro. You can ask us to delete your data at any time by
             emailing{' '}
-            <a href="mailto:team.nivarro@gmail.com">team.nivarro@gmail.com</a>.
+            <a href="mailto:team@nivarro.co">team@nivarro.co</a>.
           </p>
         </div>
       </div>

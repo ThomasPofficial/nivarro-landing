@@ -25,7 +25,7 @@ export default function DemoForm() {
           <p className="dm-success-title">Thanks. You&apos;re on the list.</p>
           <p className="dm-success-body">
             We&apos;ll reply from our team shortly to set up your walkthrough. Questions in the meantime?{' '}
-            <a href="mailto:team.nivarro@gmail.com">team.nivarro@gmail.com</a>
+            <a href="mailto:team@nivarro.co">team@nivarro.co</a>
           </p>
         </div>
       ) : (
@@ -73,7 +73,7 @@ export default function DemoForm() {
       )}
       <p className="dm-fine">No spam · Just a reply from our team</p>
       <p className="dm-mail">
-        Prefer email? <a href="mailto:team.nivarro@gmail.com">team.nivarro@gmail.com</a>
+        Prefer email? <a href="mailto:team@nivarro.co">team@nivarro.co</a>
       </p>
     </div>
   )
