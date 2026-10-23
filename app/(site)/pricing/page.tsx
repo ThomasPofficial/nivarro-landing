@@ -40,10 +40,10 @@ export default function PricingPage() {
       <section className="pr-hero">
         <div className="nv-wrap pr-hero-row">
           <div className="pr-hero-copy">
-            <p className="pr-eyebrow">P.05 · PRICING</p>
-            <h1 className="pr-h1">Two plans. Published prices.</h1>
+            <p className="pr-eyebrow mo-rule hm3-in">P.05 · PRICING</p>
+            <h1 className="pr-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>Two plans. <span className="mo-foil">Published prices.</span></h1>
           </div>
-          <p className="pr-hero-lede">
+          <p className="pr-hero-lede hm3-in" style={{ ['--d' as string]: '200ms' }}>
             One plan for public schools, one for private and charter schools. Your first semester is free.
           </p>
         </div>
@@ -51,7 +51,7 @@ export default function PricingPage() {
 
       <section className="pr-tiles">
         <div className="nv-wrap pr-tiles-grid">
-          <article className="pr-tile pr-tile-blue">
+          <article className="pr-tile pr-tile-blue mo mo-lift" style={{ ['--d' as string]: '0ms' }}>
             <div className="pr-tile-top">
               <p className="pr-eyebrow pr-c-cf">BASE PLAN · PUBLIC SCHOOLS</p>
               <p className="pr-price">$2,000</p>
@@ -67,7 +67,7 @@ export default function PricingPage() {
             </div>
             <Link href="/demo" className="pr-pill pr-pill-white">Request a demo</Link>
           </article>
-          <article className="pr-tile pr-tile-tint">
+          <article className="pr-tile pr-tile-tint mo mo-lift" style={{ ['--d' as string]: '120ms' }}>
             <div className="pr-tile-top">
               <p className="pr-eyebrow pr-c-ink2">ADVANCED PLAN · PRIVATE & CHARTER</p>
               <p className="pr-price pr-c-navy">$4,500</p>
@@ -82,10 +82,10 @@ export default function PricingPage() {
             </div>
             <Link href="/demo" className="pr-pill pr-pill-navy">Request a demo</Link>
           </article>
-          <article className="pr-tile pr-tile-navy">
+          <article className="pr-tile pr-tile-navy mo mo-lift" style={{ ['--d' as string]: '240ms' }}>
             <div className="pr-tile-top">
               <p className="pr-eyebrow pr-c-peach">ON EVERY GIFT</p>
-              <p className="pr-price pr-price-fee">5.5% + 30¢</p>
+              <p className="pr-price pr-price-fee mo-foil">5.5% + 30¢</p>
               <ul className="pr-bul pr-bul-dark">
                 <li>The school keeps the rest</li>
                 <li>Donors can cover the fee</li>
@@ -105,7 +105,7 @@ export default function PricingPage() {
           </div>
           <div className="pr-cols">
             {INCLUDED.map((c) => (
-              <div className="pr-col" key={c.h}>
+              <div className="pr-col mo" key={c.h} style={{ ['--d' as string]: `${INCLUDED.indexOf(c) * 100}ms` }}>
                 <p className="pr-eyebrow pr-c-blue">{c.h.toUpperCase()}</p>
                 <ul className="pr-list">
                   {c.items.map((i) => (
@@ -128,7 +128,7 @@ export default function PricingPage() {
             {FAQ.map((col, i) => (
               <div className="pr-faq-col" key={i}>
                 {col.map((f) => (
-                  <div className="pr-faq-item" key={f.q}>
+                  <div className="pr-faq-item mo" key={f.q}>
                     <h3 className="pr-faq-q">{f.q}</h3>
                     <p className="pr-faq-a">{f.a}</p>
                   </div>
@@ -150,7 +150,7 @@ export default function PricingPage() {
           </div>
           <div className="pr-steps">
             {STEPS.map((s, i) => (
-              <article className={`pr-step pr-step-${i + 1}`} key={s.n}>
+              <article className={`pr-step pr-step-${i + 1} mo mo-lift`} key={s.n} style={{ ['--d' as string]: `${i * 100}ms` }}>
                 <span className="pr-step-n">{s.n}</span>
                 <div className="pr-step-body">
                   <h3 className="pr-step-t">{s.t}</h3>

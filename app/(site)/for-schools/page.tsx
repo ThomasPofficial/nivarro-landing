@@ -52,10 +52,10 @@ export default function ForSchoolsPage() {
         <div className="nv-wrap">
           <div className="nv-hero-row">
             <div>
-              <p className="nv-fine fs-blue">P.04 · For schools</p>
-              <h1 className="nv-h1">Public, charter or private, your alumni want to help.</h1>
+              <p className="nv-fine fs-blue mo-rule hm3-in">P.04 · For schools</p>
+              <h1 className="nv-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>Public, charter or private, <span className="mo-foil">your alumni want to help.</span></h1>
             </div>
-            <p className="nv-lede">
+            <p className="nv-lede hm3-in" style={{ ['--d' as string]: '200ms' }}>
               Three kinds of school, three different problems: unclear outcomes, an untapped donor base, and tuition
               that doesn't cover costs. Nivarro is built for each.
             </p>
@@ -65,13 +65,19 @@ export default function ForSchoolsPage() {
 
       <section className="fs-story">
         <div className="nv-wrap fs-row">
-          <div className="fs-photo fs-photo-blue">
+          <div className="fs-photo mo fs-photo-blue">
             <div className="fs-stat">
-              <span>22%</span>
-              <p>of 12th graders are proficient in math, and $893 per student a year goes to curriculum and teacher support (NAEP and NCES)</p>
+              <div className="fs-stat-top">
+                <span className="mo-foil">$893</span>
+                <p>per student a year goes to curriculum and teacher support</p>
+              </div>
+              <div>
+                <span>22%</span>
+                <p>of 12th graders are proficient in math. Source: NAEP and NCES</p>
+              </div>
             </div>
           </div>
-          <div className="fs-copy">
+          <div className="fs-copy mo" style={{ ['--d' as string]: '120ms' }}>
             <p className="nv-fine fs-blue">Public schools</p>
             <h2 className="nv-h2 fs-h2">Know which classes lead to jobs and college.</h2>
             <p className="nv-lede fs-lede">
@@ -85,7 +91,7 @@ export default function ForSchoolsPage() {
 
       <section className="fs-story">
         <div className="nv-wrap fs-row fs-row-rev">
-          <div className="fs-photo fs-photo-navy">
+          <div className="fs-photo mo fs-photo-navy">
             <div className="fs-photo-img">
               <Image
                 src="/connect/lifestyle/feature-older-alumnus-tablet.png"
@@ -95,7 +101,7 @@ export default function ForSchoolsPage() {
               />
             </div>
           </div>
-          <div className="fs-copy">
+          <div className="fs-copy mo" style={{ ['--d' as string]: '120ms' }}>
             <p className="nv-fine fs-blue">Private schools</p>
             <h2 className="nv-h2 fs-h2">Decades of alumni, finally put to work.</h2>
             <p className="nv-lede fs-lede">
@@ -109,7 +115,7 @@ export default function ForSchoolsPage() {
 
       <section className="fs-story">
         <div className="nv-wrap fs-row fs-row-rev">
-          <div className="fs-copy">
+          <div className="fs-copy mo" style={{ ['--d' as string]: '120ms' }}>
             <p className="nv-fine fs-blue">Charter schools</p>
             <h2 className="nv-h2 fs-h2">A second source of funding, untapped.</h2>
             <p className="nv-lede fs-lede">
@@ -118,7 +124,7 @@ export default function ForSchoolsPage() {
             </p>
             <Points items={charterPoints} />
           </div>
-          <div className="fs-photo fs-photo-coral">
+          <div className="fs-photo mo fs-photo-coral">
             <div className="fs-photo-img">
               <Image
                 src="/connect/lifestyle/hero-students-library.png"
@@ -139,7 +145,7 @@ export default function ForSchoolsPage() {
           </div>
           <div className="fs-cols">
             {program.map(([k, v]) => (
-              <div key={k} className="fs-col">
+              <div key={k} className="fs-col mo" style={{ ['--d' as string]: `${program.findIndex((p) => p[0] === k) * 100}ms` }}>
                 <p className="nv-fine fs-blue">{k}</p>
                 <p className="fs-col-t">{v}</p>
               </div>

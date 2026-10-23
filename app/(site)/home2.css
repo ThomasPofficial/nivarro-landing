@@ -224,7 +224,7 @@
 }
 
 @media (max-width: 700px) {
-  .hm3-hero .hm-hero-ribbon { opacity: 0.32; left: 10%; top: 40%; }
+  .hm3-hero .hm-hero-ribbon { z-index: 0; opacity: 0.22; left: -30%; top: auto; bottom: -40px; width: 160%; pointer-events: none; }
   .hm3-stack { height: 360px; }
   .hm3-win-a { left: 8px; width: calc(100% - 8px); }
   .hm3-win-b { top: 190px; width: 82%; }

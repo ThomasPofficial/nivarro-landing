@@ -1,0 +1,28 @@
+/* Shared motion + gold foil for the inner pages (same recipe as the Home page). */
+.nv {
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --gold: #D4A84B;
+  --gold-2: #F2D27A;
+  --gold-3: #B7821E;
+  --foil: linear-gradient(100deg, #B7821E 0%, #F2D27A 38%, #D4A84B 52%, #F6E3A5 66%, #B7821E 100%);
+}
+.mo-hide { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--ease) var(--d, 0ms), transform 0.8s var(--ease) var(--d, 0ms); will-change: opacity, transform; }
+.mo-hide.nv-in { opacity: 1; transform: none; }
+.hm3-in { opacity: 0; transform: translateY(22px); animation: hm3-rise 0.9s var(--ease) var(--d, 0ms) forwards; }
+@keyframes hm3-rise { to { opacity: 1; transform: none; } }
+@keyframes hm3-shimmer { from { background-position: 0% 0; } to { background-position: -220% 0; } }
+
+.mo-foil { background: var(--foil); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent !important; -webkit-text-fill-color: transparent; animation: hm3-shimmer 8s linear infinite; }
+.mo-rule::before { content: ''; display: inline-block; width: 32px; height: 2px; margin-right: 14px; vertical-align: middle; background: var(--foil); background-size: 220% 100%; animation: hm3-shimmer 7s linear infinite; }
+.mo-lift { transition: transform 0.4s var(--ease), box-shadow 0.4s; }
+.mo-lift.mo-hide.nv-in { transition: opacity 0.4s, transform 0.4s var(--ease), box-shadow 0.4s; }
+.mo-lift:hover { transform: translateY(-6px); box-shadow: 0 28px 56px -24px rgba(10, 37, 64, 0.35); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hm3-in { opacity: 1; transform: none; animation: none; }
+  .mo-hide { opacity: 1; transform: none; transition: none; }
+  .mo-foil, .mo-rule::before { animation: none; }
+  .mo-lift { transition: none; }
+  .mo-lift.mo-hide.nv-in { transition: opacity 0.4s, transform 0.4s var(--ease), box-shadow 0.4s; }
+.mo-lift:hover { transform: none; }
+}

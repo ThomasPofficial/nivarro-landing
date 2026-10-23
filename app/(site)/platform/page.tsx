@@ -6,7 +6,7 @@ import './platform.css'
 export const metadata: Metadata = {
   title: 'The Platform | Nivarro',
   description:
-    "Nivarro turns a private or charter school's messy alumni records into a mentorship program with teacher approval, verified hours and a path to giving.",
+    "Nivarro turns a public, charter or private school's messy alumni records into a living roster, course outcome data and, on the Advanced plan, verified mentorship with a path to giving.",
 }
 
 const STOPS = ['#2F5BEA', '#555BF4', '#7A5CFE', '#B95DD4', '#F95FA7', '#FF7578', '#FF8D49', '#FFA840', '#FFC33D']
@@ -75,7 +75,7 @@ function Step({
   first?: boolean
 }) {
   return (
-    <div className={`pl-step${first ? ' pl-step-first' : ''}`}>
+    <div className={`pl-step mo${first ? ' pl-step-first' : ''}`}>
       <div className="pl-step-copy">
         <div className="pl-num" style={{ color }}>
           {n}
@@ -115,11 +115,11 @@ export default function PlatformPage() {
         </div>
         <div className="nv-wrap pl-hero-row">
           <div className="pl-hero-copy">
-            <p className="pl-eyebrow">P.02 · THE PLATFORM</p>
-            <h1 className="pl-h1">From a messy spreadsheet to a working mentorship program.</h1>
+            <p className="pl-eyebrow mo-rule hm3-in">P.02 · THE PLATFORM</p>
+            <h1 className="pl-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>From a messy spreadsheet to a <span className="mo-foil">working alumni program.</span></h1>
           </div>
-          <p className="pl-hero-lede">
-            Nivarro takes a private or charter school&apos;s messy alumni records and turns them into a mentorship program with teacher approval, verified hours and a path to giving.
+          <p className="pl-hero-lede hm3-in" style={{ ['--d' as string]: '200ms' }}>
+            Nivarro takes a school&apos;s messy alumni records and turns them into a living roster, outcome data for your courses and, on the Advanced plan, verified mentorship with a path to giving.
           </p>
         </div>
       </section>
@@ -190,7 +190,7 @@ export default function PlatformPage() {
           n="03"
           color="#FF5FA2"
           title="Teachers approve. Alumni mentor, in the app."
-          body="Every pairing is approved by school staff. Mentors and students talk only inside Nivarro, with a teacher in the room."
+          body="On the Advanced plan, every pairing is approved by school staff. Mentors and students talk only inside Nivarro, with a teacher in the room."
         >
           <div className="pl-vis pl-shots">
             <div className="pl-win pl-win-1">
@@ -210,7 +210,7 @@ export default function PlatformPage() {
           n="04"
           color="#FF8A3D"
           title="A set number of hours a week, verified."
-          body="Mentors commit to hours each week. Teachers review and approve every log, so the hours are real and countable."
+          body="Mentors on the Advanced plan commit to hours each week. Teachers review and approve every log, so the hours are real and countable."
         >
           <div className="pl-paper pl-hours">
             <div className="pl-hours-head">
