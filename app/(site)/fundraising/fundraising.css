@@ -81,7 +81,7 @@
 .fr-qr-rows em { font-style: normal; font-size: 12px; color: #5B6678; }
 
 /* Anatomy */
-.fr-anatomy { padding: 144px 0 0; }
+.fr-anatomy { padding: 56px 0 0; }
 .fr-anat-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 40px; }
 .fr-anat-head .fr-h2 { max-width: 760px; }
 .fr-anat-grid { display: flex; border-top: 2px solid var(--navy); }

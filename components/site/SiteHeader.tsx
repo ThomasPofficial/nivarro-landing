@@ -3,7 +3,7 @@ import LogoMark from '@/components/LogoMark'
 
 const links = [
   { href: '/platform', label: 'Platform' },
-  { href: '/fundraising', label: 'Fundraising' },
+  { href: '/fundraising', label: 'Donations' },
   { href: '/for-schools', label: 'For schools' },
   { href: '/pricing', label: 'Pricing' },
   { href: '/about', label: 'About' },
@@ -12,11 +12,6 @@ const links = [
 export default function SiteHeader() {
   return (
     <header className="nv-header">
-      <div className="nv-ticker">
-        <div className="nv-wrap nv-ticker-row">
-          <span className="nv-ticker-c"><i className="nv-live" aria-hidden="true" />Import · Outreach · Approval · Mentor hours · Employer match · QR campaigns</span>
-        </div>
-      </div>
       <div className="nv-wrap nv-nameplate">
         <nav className="nv-nav" aria-label="Primary">
           {links.map((l) => (

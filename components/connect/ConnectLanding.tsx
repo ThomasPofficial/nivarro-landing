@@ -29,8 +29,8 @@ const IDEAS = [
   },
   {
     num: '02',
-    title: 'The idea: fundraising pages',
-    text: "The robotics team needs new parts. We want the donation page to exist before the meeting where you'd normally start planning one.",
+    title: 'The idea: donation links',
+    text: "The robotics team needs new parts. Every alum would get a simple link to give, ready before the meeting where you'd normally start planning one.",
   },
   {
     num: '03',

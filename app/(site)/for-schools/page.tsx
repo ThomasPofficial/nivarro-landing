@@ -6,24 +6,29 @@ import './for-schools.css'
 export const metadata: Metadata = {
   title: 'For schools | Nivarro',
   description:
-    'Nivarro is built for private and charter schools: turn your alumni into active mentors and grow your annual fund.',
+    'Nivarro is built for public, charter and private schools: see which classes lead to jobs and college, turn alumni into mentors, and grow your annual fund.',
 }
 
 const privatePoints = [
   'A directory nobody has touched in years becomes a living roster.',
   "Mentors from every graduating class, matched to today's students.",
-  'Campaign pages and QR codes for reunions, galas and the annual fund.',
+  'A simple donation link for reunions, galas and the annual fund.',
+]
+const publicPoints = [
+  'Link every course to where graduates actually end up.',
+  'Invite graduates back for career days, panels and job shadows.',
+  'Show the district and families real outcomes.',
 ]
 const charterPoints = [
   'Bring recent graduates back as mentors while the connection is fresh.',
   'Show families and funders real outcomes: pairings, hours and gifts.',
-  'Launch a campaign from a template in an afternoon.',
+  'Share your donation link in an afternoon.',
 ]
 const program = [
   ['Alumni', 'CSV import and cleanup, automatic outreach, an alumni directory.'],
   ['Mentorship', 'In-app messaging, teacher approvals, weekly hours review.'],
   ['Proof', 'Volunteer certificates, employer match records, a gift ledger.'],
-  ['Fundraising', 'Campaign templates, live pages, QR codes, an admin dashboard.'],
+  ['Fundraising', 'Donation links, a gift ledger, an admin dashboard.'],
 ]
 
 function Points({ items }: { items: string[] }) {
@@ -48,11 +53,11 @@ export default function ForSchoolsPage() {
           <div className="nv-hero-row">
             <div>
               <p className="nv-fine fs-blue">P.04 · For schools</p>
-              <h1 className="nv-h1">Private or charter, your alumni want to help.</h1>
+              <h1 className="nv-h1">Public, charter or private, your alumni want to help.</h1>
             </div>
             <p className="nv-lede">
-              Two kinds of school, one problem: not enough money, and alumni who rarely hear from you.
-              Nivarro is built for exactly that.
+              Three kinds of school, three different problems: unclear outcomes, an untapped donor base, and tuition
+              that doesn't cover costs. Nivarro is built for each.
             </p>
           </div>
         </div>
@@ -60,6 +65,26 @@ export default function ForSchoolsPage() {
 
       <section className="fs-story">
         <div className="nv-wrap fs-row">
+          <div className="fs-photo fs-photo-blue">
+            <div className="fs-stat">
+              <span>22%</span>
+              <p>of 12th graders are proficient in math, and $893 per student a year goes to curriculum and teacher support (NAEP and NCES)</p>
+            </div>
+          </div>
+          <div className="fs-copy">
+            <p className="nv-fine fs-blue">Public schools</p>
+            <h2 className="nv-h2 fs-h2">Know which classes lead to jobs and college.</h2>
+            <p className="nv-lede fs-lede">
+              Test scores show what students knew in May, not what happened next. Nivarro links every course to where
+              graduates end up, invites them back for career days, and shows families real outcomes. $2,000 a semester.
+            </p>
+            <Points items={publicPoints} />
+          </div>
+        </div>
+      </section>
+
+      <section className="fs-story">
+        <div className="nv-wrap fs-row fs-row-rev">
           <div className="fs-photo fs-photo-navy">
             <div className="fs-photo-img">
               <Image
@@ -86,10 +111,10 @@ export default function ForSchoolsPage() {
         <div className="nv-wrap fs-row fs-row-rev">
           <div className="fs-copy">
             <p className="nv-fine fs-blue">Charter schools</p>
-            <h2 className="nv-h2 fs-h2">Your first graduates are your best advocates.</h2>
+            <h2 className="nv-h2 fs-h2">A second source of funding, untapped.</h2>
             <p className="nv-lede fs-lede">
-              Charter schools have fewer alumni, and they are close to campus and easy to reach. Nivarro
-              brings them back as mentors and makes every dollar raised go further for current students.
+              Charters get public dollars and, as nonprofits, can take gifts like private schools. Few have tapped that
+              second source. Nivarro brings your first graduates back as mentors, then invites them to give.
             </p>
             <Points items={charterPoints} />
           </div>
@@ -109,8 +134,8 @@ export default function ForSchoolsPage() {
       <section className="nv-section fs-program">
         <div className="nv-wrap">
           <div className="fs-program-head">
-            <h2 className="nv-h2 fs-h2">Either way, you get the whole program.</h2>
-            <p className="nv-fine fs-blue">The same platform for both</p>
+            <h2 className="nv-h2 fs-h2">One platform, whichever school you run.</h2>
+            <p className="nv-fine fs-blue">What every plan shares</p>
           </div>
           <div className="fs-cols">
             {program.map(([k, v]) => (

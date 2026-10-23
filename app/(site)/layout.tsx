@@ -21,9 +21,9 @@ const newsreader = Newsreader({
 export const viewport = { themeColor: '#FFFFFF' }
 
 export const metadata: Metadata = {
-  title: 'Nivarro — Alumni engagement and fundraising for private and charter schools',
+  title: 'Nivarro — Alumni engagement for public, charter and private schools',
   description:
-    "Turn your alumni network into ongoing mentorship and reliable annual giving: a private community, fundraising pages and a real-time admin dashboard, funded straight to your school's bank account.",
+    "Turn your alumni network into ongoing mentorship and reliable annual giving: a private community, donation links and a real-time admin dashboard, funded straight to your school's bank account.",
 }
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {

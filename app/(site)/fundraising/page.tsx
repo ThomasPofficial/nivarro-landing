@@ -2,20 +2,18 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import CtaBand from '@/components/site/CtaBand'
 import Ribbon from '@/components/fundraising/Ribbon'
-import QrCode from '@/components/fundraising/QrCode'
 import './fundraising.css'
 
 export const metadata: Metadata = {
-  title: 'Fundraising for private and charter schools | Nivarro',
+  title: 'Donation links for private and charter schools | Nivarro',
   description:
-    'Pick a ready-made design, tell the story, set a goal. Your school gets a live campaign page, a link and a QR code alumni can scan. 5.5% + 30¢ per donation.',
+    'A simple donation link for your school. Share it by email, text or print, and gifts are paid straight to your school. 5.5% + 30¢ per donation.',
 }
 
 const ANATOMY = [
-  { k: 'A · TEMPLATES', h: 'Posters, hero stats and tournament designs.', p: 'Each with its own colours. No designer needed.' },
-  { k: 'B · THE STORY', h: 'A coach’s letter, in your own words.', p: 'A headline, a letter, a quote and a goal, laid out for you.' },
-  { k: 'C · GIFT AMOUNTS', h: 'Suggested gifts, tied to what they buy.', p: 'Show donors where their money goes.' },
-  { k: 'D · QR CODE', h: 'One tap makes a QR code for print.', p: 'It opens the live page on any phone.' },
+  { k: 'A · ONE LINK', h: 'Your school gets its own donation link.', p: 'We set it up for you during onboarding.' },
+  { k: 'B · SHARE ANYWHERE', h: 'Email, text, newsletter or print.', p: 'Alumni open the link on any phone and give.' },
+  { k: 'C · STRAIGHT TO YOU', h: 'Gifts are paid to your bank account.', p: 'Every gift is recorded in your ledger.' },
 ]
 
 function Dots() {
@@ -39,123 +37,13 @@ export default function FundraisingPage() {
         </div>
         <div className="nv-wrap fr-hero-row">
           <div className="fr-hero-copy">
-            <p className="nv-fine fr-eyebrow">P.03 · Fundraising</p>
-            <h1 className="fr-h1">Campaign pages that raise real money.</h1>
+            <p className="nv-fine fr-eyebrow">P.03 · Donations</p>
+            <h1 className="fr-h1">Donation links that go straight to your school.</h1>
           </div>
           <p className="fr-hero-lede">
-            Choose a ready-made design, tell the story, set a goal. Your private or charter school gets a live page, a link and a
-            QR code alumni can scan from a flyer, a program or a gym wall.
+            Give alumni one simple link to give. Share it in an email, a text or a program, and every gift is paid to your private
+            or charter school's bank account.
           </p>
-        </div>
-      </section>
-
-      {/* Stage */}
-      <section className="fr-stage">
-        <div className="fr-ribbon fr-ribbon-stage" aria-hidden="true">
-          <Ribbon />
-          <div className="fr-fade fr-fade-wash" />
-        </div>
-        <div className="nv-wrap">
-          <div className="fr-comp">
-            <div className="fr-win fr-win-editor">
-              <div className="fr-win-bar">
-                <Dots />
-                <span>nivarro.co/fundraise/edit</span>
-              </div>
-              <div className="fr-editor-view">
-                <Image
-                  src="/site/fundraising/designs.jpg"
-                  alt="The campaign design picker: Hero Stat, Poster Meter, Robotics Worlds and Tournament Run templates with colour options"
-                  width={960}
-                  height={1829}
-                />
-              </div>
-            </div>
-
-            <div className="fr-phone fr-phone-live">
-              <div className="fr-screen">
-                <div className="fr-status fr-status-dark">
-                  <span>9:41</span>
-                  <b />
-                  <span>5G</span>
-                </div>
-                <div className="fr-live-head">
-                  <p className="fr-mini fr-amber">WESTSIDE ACADEMY · ROBOTICS</p>
-                  <p className="fr-live-title">Send Our 12 Robots to Dallas Nationals</p>
-                </div>
-                <div className="fr-live-body">
-                  <p className="fr-raised">
-                    <strong>$195</strong>
-                    <span>raised of $13,600</span>
-                  </p>
-                  <div className="fr-meter">
-                    <i />
-                  </div>
-                  <p className="fr-live-copy">
-                    We qualified for Nationals. Your gift covers flights, rooms and the tournament fee for twelve students.
-                  </p>
-                </div>
-                <div className="fr-amounts">
-                  <span>$25</span>
-                  <span className="fr-on">$100</span>
-                  <span>$400</span>
-                </div>
-                <div className="fr-give">
-                  <span>Give $100</span>
-                </div>
-                <div className="fr-gifts">
-                  <p className="fr-mini fr-blue">RECENT GIFTS</p>
-                  <div className="fr-gift">
-                    <i style={{ background: '#7B5CFF' }}>ME</i>
-                    <span>Margaret Ellis</span>
-                    <b>$100</b>
-                  </div>
-                  <div className="fr-gift">
-                    <i style={{ background: '#FF5FA2' }}>DO</i>
-                    <span>Daniel Okafor</span>
-                    <b>$95</b>
-                  </div>
-                </div>
-                <div className="fr-home" />
-              </div>
-            </div>
-
-            <div className="fr-phone fr-phone-qr">
-              <div className="fr-screen">
-                <div className="fr-status">
-                  <span>9:41</span>
-                  <b />
-                  <span>5G</span>
-                </div>
-                <div className="fr-qr-head">
-                  <p className="fr-mini fr-blue">SHARE · QR CODE</p>
-                  <p className="fr-qr-title">Send Our 12 Robots to Dallas Nationals</p>
-                </div>
-                <div className="fr-qr-box">
-                  <QrCode />
-                </div>
-                <div className="fr-qr-link">
-                  <span>nivarro.co/c/westside-robotics</span>
-                  <em>Scan to open the live campaign</em>
-                </div>
-                <div className="fr-qr-btns">
-                  <span className="fr-solid">Download PNG</span>
-                  <span>Copy link</span>
-                </div>
-                <div className="fr-qr-rows">
-                  <p>
-                    <span>Print as a poster</span>
-                    <em>→</em>
-                  </p>
-                  <p>
-                    <span>Text it to alumni</span>
-                    <em>→</em>
-                  </p>
-                </div>
-                <div className="fr-home" />
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -163,8 +51,8 @@ export default function FundraisingPage() {
       <section className="fr-anatomy">
         <div className="nv-wrap">
           <div className="fr-anat-head">
-            <h2 className="fr-h2">Everything a campaign page needs.</h2>
-            <p className="nv-fine fr-eyebrow">Fig. 3 · Anatomy of a campaign</p>
+            <h2 className="fr-h2">How donation links work.</h2>
+            <p className="nv-fine fr-eyebrow">Fig. 3 · Donation links</p>
           </div>
           <div className="fr-anat-grid">
             {ANATOMY.map((a) => (
@@ -215,7 +103,7 @@ export default function FundraisingPage() {
               <h2 className="fr-h2 fr-white">5.5% + 30¢ per donation.</h2>
             </div>
             <p>
-              The school keeps the rest. Donors can choose to cover the fee, so a campaign receives 100% of what they meant to give.
+              The school keeps the rest. Donors can choose to cover the fee, so the school receives 100% of what they meant to give.
             </p>
           </div>
         </div>
@@ -237,7 +125,7 @@ export default function FundraisingPage() {
           <div className="fr-price fr-price-dark" style={{ borderTopColor: '#FF5FA2' }}>
             <p className="nv-fine fr-amber">On every donation</p>
             <p className="fr-big fr-big-sm">5.5% + 30¢</p>
-            <p className="fr-price-copy">The school keeps the rest. Donors can cover the fee so a campaign receives 100%.</p>
+            <p className="fr-price-copy">The school keeps the rest. Donors can cover the fee so the school receives 100%.</p>
           </div>
         </div>
       </section>

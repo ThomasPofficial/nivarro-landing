@@ -1,99 +1,95 @@
 import Link from 'next/link'
 import CtaBand from '@/components/site/CtaBand'
 import Ribbon from '@/components/home/Ribbon'
-import Scaled from '@/components/home/Scaled'
-import Phone from '@/components/home/Phone'
-import BrowserWindow from '@/components/home/BrowserWindow'
+import CountUp from '@/components/motion/CountUp'
+import StatsCarousel from '@/components/motion/StatsCarousel'
+import AgentDemo from '@/components/motion/AgentDemo'
+import ProductTour from '@/components/motion/ProductTour'
+import HeroStack from '@/components/motion/HeroStack'
+import DonateDemo from '@/components/motion/DonateDemo'
 import './home.css'
+import './home2.css'
 
-const issue = [
-  { n: 'P.02 · PLATFORM', t: 'A messy spreadsheet becomes a mentorship program.', href: '/platform' },
-  { n: 'P.03 · FUNDRAISING', t: 'Templates and QR codes that raise real money.', href: '/fundraising' },
-  { n: 'P.04 · FOR SCHOOLS', t: 'Built for private and charter schools.', href: '/for-schools' },
-  { n: 'P.05 · PRICING', t: '$900 a month or $4,500 a semester.', href: '/pricing' },
+const features = [
+  {
+    n: '01',
+    t: 'Alumni directory and tracking',
+    b: 'We import your list and survey your alumni for you, so college and career records stay current without your staff chasing anyone.',
+  },
+  {
+    n: '02',
+    t: 'AI that understands your curriculum',
+    b: 'It connects the courses each class took to real outcomes, jobs and college acceptances, and shows which classes are working.',
+  },
+  {
+    n: '03',
+    t: 'Verified mentorship',
+    b: 'Students ask, teachers approve every pairing, and each thread is logged. Included in the advanced plan.',
+  },
+  {
+    n: '04',
+    t: 'Events and career days',
+    b: 'Invite graduates back to speak, sit on panels and run job shadows.',
+  },
+  {
+    n: '05',
+    t: 'Donation links and a gift ledger',
+    b: 'One simple link for reunions and the annual fund. Gifts go straight to the school and every gift is recorded.',
+  },
+  {
+    n: '06',
+    t: 'Volunteer hours and employer match',
+    b: "Verified hours, certificates and match records, so an alum's company can give too.",
+  },
 ]
 
-const APP = 'https://app.nivarro.co/login'
+const schools = [
+  {
+    cls: 'hm3-public',
+    eyebrow: 'PUBLIC SCHOOLS',
+    h: 'Know which classes lead to jobs and college.',
+    p: 'Test scores show May, not what happens next. Link every course to where graduates end up, invite them back for career days, and show families real outcomes.',
+    foot: 'stat',
+  },
+  {
+    cls: 'hm3-charter',
+    eyebrow: 'CHARTER SCHOOLS',
+    h: 'A second source of funding, untapped.',
+    p: 'Charters get public dollars and can take gifts like private schools. Bring your first graduates back as mentors, then invite them to give.',
+    foot: '/site/home/students.jpg',
+  },
+  {
+    cls: 'hm3-private',
+    eyebrow: 'PRIVATE SCHOOLS',
+    h: 'Decades of alumni, finally put to work.',
+    p: "Tuition doesn't cover costs. Turn a neglected directory into active mentors and an annual fund that grows with every class.",
+    foot: '/site/home/elder.jpg',
+  },
+]
 
-const tiles = [
+const voices = [
   {
-    label: 'Import my alumni list',
-    art: (
-      <svg width="132" height="132" viewBox="0 0 132 132" aria-hidden="true">
-        <rect x="26" y="14" width="80" height="104" rx="8" fill="#FFFFFF" stroke="#0A2540" strokeWidth="3" />
-        <path d="M42 44h48M42 62h48M42 80h30" fill="none" stroke="#0A2540" strokeWidth="3" strokeLinecap="round" />
-        <circle cx="98" cy="98" r="22" fill="#2F5BEA" />
-        <path d="M98 108V88M89 96l9-9 9 9" fill="none" stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
+    dark: false,
+    q: "I can't imagine a better gift than offering these teenagers caring mentors to walk beside them on their academic (and life) journey.",
+    who: 'A HIGH SCHOOL TEACHER',
   },
   {
-    label: 'Message my alumni',
-    art: (
-      <svg width="132" height="132" viewBox="0 0 132 132" aria-hidden="true">
-        <path d="M14 28a10 10 0 0 1 10-10h58a10 10 0 0 1 10 10v34a10 10 0 0 1-10 10H48L30 88V72h-6a10 10 0 0 1-10-10z" fill="#2F5BEA" />
-        <path d="M52 62a10 10 0 0 1 10-10h46a10 10 0 0 1 10 10v30a10 10 0 0 1-10 10h-6v16l-18-16H62a10 10 0 0 1-10-10z" fill="#C9A55C" stroke="#0A2540" strokeWidth="3" />
-      </svg>
-    ),
+    dark: true,
+    q: 'The appetite to mentor and support the next generation is strong. The key is providing defined, meaningful avenues to do so, rather than open-ended requests.',
+    who: 'A SCHOOL LEADER WE SPOKE WITH',
   },
   {
-    label: 'Approve mentor hours',
-    art: (
-      <svg width="132" height="132" viewBox="0 0 132 132" aria-hidden="true">
-        <circle cx="66" cy="66" r="50" fill="#FFFFFF" stroke="#0A2540" strokeWidth="3" />
-        <path d="M66 34v32l22 14" fill="none" stroke="#0A2540" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="100" cy="100" r="20" fill="#1F7A4D" />
-        <path d="M91 100l6 6 12-12" fill="none" stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-  {
-    label: 'Launch a campaign',
-    art: (
-      <svg width="132" height="132" viewBox="0 0 132 132" aria-hidden="true">
-        {[
-          [16, 16],
-          [72, 16],
-          [16, 72],
-        ].map(([x, y]) => (
-          <g key={`${x}-${y}`}>
-            <rect x={x} y={y} width="44" height="44" rx="6" fill="#0A2540" />
-            <rect x={x + 10} y={y + 10} width="24" height="24" rx="3" fill="#FFFFFF" />
-            <rect x={x + 16} y={y + 16} width="12" height="12" fill="#0A2540" />
-          </g>
-        ))}
-        <rect x="72" y="72" width="20" height="20" fill="#2F5BEA" />
-        <rect x="96" y="96" width="20" height="20" fill="#C9A55C" />
-      </svg>
-    ),
+    dark: false,
+    q: 'One school we spoke with is hiring a full-time Director of Alumni Engagement at $75,000 to $90,000 a year. Our most advanced plan is $9,000 a year. That is $66,000 to $81,000 saved.',
+    who: 'AN ADVANCEMENT OFFICE',
   },
 ]
 
 const steps = [
-  {
-    n: '01',
-    cls: 'hm-step-1',
-    t: 'We set up everything.',
-    b: 'Send us your alumni list and your goals. We import and clean it, then configure messaging, approvals and your first campaign. You build nothing.',
-  },
-  {
-    n: '02',
-    cls: 'hm-step-2',
-    t: 'Alumni get signed up.',
-    b: 'Automatic invitations by email and text, reminders and follow-ups bring your alumni onto the platform. Staff only step in when someone goes quiet.',
-  },
-  {
-    n: '03',
-    cls: 'hm-step-3',
-    t: 'They mentor, then give.',
-    b: 'Alumni mentor students for set hours each week, with teacher approval. Seeing the impact makes them more likely to donate, through a campaign link or QR code.',
-  },
-  {
-    n: '04',
-    cls: 'hm-step-4',
-    t: 'Corporations join in.',
-    b: "Employers get their own software: verified volunteer hours, match claims and gift records, so an alum's company can donate or match.",
-  },
+  { n: '01', t: 'We set up everything.', b: 'Send us your alumni list and your goals. We import and clean it, then configure messaging, approvals and your donation link. You build nothing.' },
+  { n: '02', t: 'Alumni get signed up.', b: 'Automatic invitations by email and text, reminders and follow-ups bring your alumni onto the platform. Staff only step in when someone goes quiet.' },
+  { n: '03', t: 'They mentor, then give.', b: 'Alumni mentor students for set hours each week, with teacher approval. Seeing the impact makes them more likely to donate, through your donation link.' },
+  { n: '04', t: 'Corporations join in.', b: "Employers get their own software: verified volunteer hours, match claims and gift records, so an alum's company can donate or match." },
 ]
 
 const founders = [
@@ -106,7 +102,7 @@ const founders = [
   {
     name: 'Neel Patil',
     img: '/about/neel.jpg',
-    body: 'Makes sure money moves correctly and the operations behind every campaign work. Owns payment processing, workflows, legal and finances.',
+    body: 'Makes sure money moves correctly and the operations behind every donation work. Owns payment processing, workflows, legal and finances.',
     tags: ['Payment processing', 'Workflows', 'Legal', 'Finances'],
   },
 ]
@@ -115,209 +111,258 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="hm-hero">
-        <Ribbon className="hm-hero-ribbon" fade="#FFFFFF" />
-        <div className="nv-wrap hm-hero-grid">
-          <div className="hm-hero-copy">
-            <p className="hm-eyebrow">ALUMNI ENGAGEMENT AND FUNDRAISING FOR PRIVATE &amp; CHARTER SCHOOLS</p>
-            <h1 className="hm-h1">Made for private and charter schools to increase donations.</h1>
-            <p className="hm-lede">
-              Nivarro helps private and charter schools turn a messy alumni list into a mentorship program, and a
-              mentorship program into donations.
+      <section className="hm-hero hm3-hero">
+        <Ribbon className="hm-hero-ribbon hm3-drift" fade="#FFFFFF" />
+        <div className="nv-wrap hm3-hero-grid">
+          <div className="hm3-hero-copy">
+            <p className="hm-eyebrow hm3-in" style={{ ['--d' as string]: '0ms' }}>
+              FOR TEACHERS, COACHES AND SCHOOL LEADERS WHO CARE
             </p>
-            <div className="hm-btns">
+            <h1 className="hm-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>
+              Your graduates still want to <em className="hm3-gold">help your students.</em>
+            </h1>
+            <p className="hm-lede hm3-in" style={{ ['--d' as string]: '200ms' }}>
+              You know what one caring adult can do for a teenager. Your alumni want to be that adult. They just need a
+              defined, meaningful way in. Start with the base plan at $2,000 a semester, and add verified mentorship when
+              you are ready.
+            </p>
+            <div className="hm-btns hm3-in" style={{ ['--d' as string]: '310ms' }}>
               <Link href="/demo" className="nv-btn hm-btn-xl">
                 Request a demo
               </Link>
-              <Link href="/platform" className="nv-btn nv-btn-ghost hm-btn-xl hm-btn-outline">
-                See how it works
+              <Link href="/pricing" className="nv-btn nv-btn-ghost hm-btn-xl hm-btn-outline">
+                See the plans
               </Link>
             </div>
           </div>
-          <Scaled width={760} height={850} className="hm-hero-art">
-            <BrowserWindow
-              className="hm-hero-win"
-              url="nivarro.co/fundraise"
-              src="/site/home/fundraise.jpg"
-              alt="Nivarro campaigns dashboard showing one active campaign and two pledges"
-              imgWidth={660}
-              imgHeight={618}
-              imgLeft={28}
-              imgTop={10}
-            />
-            <Phone className="hm-hero-phone" />
-          </Scaled>
+          <HeroStack className="hm3-stack hm3-in-r">
+            <div className="hm3-win hm3-win-a">
+              <div className="hm3-win-bar">
+                <i />
+                <i />
+                <i />
+                <span>app.nivarro.co/messages</span>
+              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/site/product/messages.jpg" alt="" width={2000} height={1250} />
+            </div>
+            <div className="hm3-win hm3-win-b">
+              <div className="hm3-win-bar">
+                <i />
+                <i />
+                <i />
+                <span>app.nivarro.co/school/alumni</span>
+              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/site/product/alumni.jpg" alt="" width={2000} height={1250} />
+            </div>
+          </HeroStack>
         </div>
       </section>
 
-      {/* Live image window */}
-      <div className="nv-wrap">
-        <figure className="hm-live">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/site/home/live.jpg"
-            alt="Two students smiling at a laptop in a school library"
-            width={1536}
-            height={640}
-          />
-          <figcaption>
-            <i />
-            MENTORING SESSION · THIS WEEK
-          </figcaption>
-        </figure>
-      </div>
-
-      {/* In this issue */}
-      <div className="nv-wrap">
-        <nav className="hm-issue" aria-label="In this issue">
-          {issue.map((i) => (
-            <Link key={i.href} href={i.href} className="hm-issue-col">
-              <span className="hm-issue-n">{i.n}</span>
-              <span className="hm-issue-t">{i.t}</span>
-              <span className="hm-issue-r">READ →</span>
-            </Link>
+      {/* Always-moving gold marquee */}
+      <div className="hm3-marq" aria-hidden="true">
+        <div className="hm3-marq-track">
+          {[0, 1].map((k) => (
+            <ul key={k}>
+              {['Alumni tracker', 'AI curriculum agent', 'Verified mentorship', 'Career days', 'Donation links', 'Employer match', 'Outcome surveys', 'Teacher approval'].map((t) => (
+                <li key={t}>
+                  <i />
+                  {t}
+                </li>
+              ))}
+            </ul>
           ))}
-        </nav>
+        </div>
       </div>
 
-      {/* Problem statement */}
-      <section className="hm-problem">
-        <div className="nv-wrap hm-problem-row">
-          <div className="hm-problem-main">
-            <p className="hm-eyebrow">THE PROBLEM</p>
-            <h2 className="hm-huge">
-              Private and charter schools are underfunded.
-              <span> Their alumni want to help.</span>
+      {/* What Nivarro does */}
+      <section className="hm3-what" data-mo-self>
+        <div className="nv-wrap">
+          <div className="hm3-what-head">
+            <p className="hm-eyebrow mo">WHAT NIVARRO DOES</p>
+            <h2 className="hm-h2-56 mo" style={{ ['--d' as string]: '80ms' }}>
+              One platform for your whole alumni community.
             </h2>
-          </div>
-          <p className="hm-problem-side">
-            They just have no way in. Nivarro gives schools a way to reach them, put them in front of students, and
-            invite them to give.
-          </p>
-        </div>
-      </section>
-
-      {/* What Nivarro is */}
-      <section className="nv-section-navy hm-what">
-        <div className="nv-wrap hm-what-row">
-          <div className="hm-what-copy">
-            <p className="hm-eyebrow hm-eyebrow-warm">WHAT NIVARRO IS</p>
-            <h2 className="hm-h2-72">A platform built for private and charter schools.</h2>
-            <p className="hm-lede hm-lede-dark">
-              In your inbox, in the app, and on a poster. One place to bring alumni back to mentor students and give.
+            <p className="hm-lede mo" style={{ ['--d' as string]: '160ms' }}>
+              Nivarro helps public, charter and private schools keep track of every graduate, bring them back to help
+              students, and learn which classes actually lead to success.
             </p>
           </div>
-          <div className="hm-what-img">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/site/home/students.jpg"
-              alt="Two students looking at the Nivarro app on a laptop"
-              width={1000}
-              height={842}
-              loading="lazy"
-            />
+          <div className="hm3-what-grid">
+            <ol className="hm3-feat">
+              {features.map((f, i) => (
+                <li key={f.n} className="mo" style={{ ['--d' as string]: `${i * 70}ms` }}>
+                  <span className="hm3-feat-n">{f.n}</span>
+                  <div>
+                    <h3>{f.t}</h3>
+                    <p>{f.b}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <div className="hm3-what-side">
+              <div className="hm3-photo mo">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/site/home/students.jpg" alt="Two students at a laptop in a school library" width={1000} height={842} loading="lazy" />
+              </div>
+              <div className="hm3-prof mo" style={{ ['--d' as string]: '120ms' }}>
+                <div className="hm3-prof-nums">
+                  <span>
+                    <CountUp to={22} suffix="%" />
+                  </span>
+                  <span className="hm3-prof-2">
+                    <CountUp to={35} suffix="%" />
+                  </span>
+                </div>
+                <p>of 12th graders are proficient in math and reading. Know which classes actually prepare students. (NAEP, 2024)</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Showcase */}
-      <section className="hm-showcase">
-        <Ribbon className="hm-showcase-ribbon" fade="#F6F9FC" />
-        <div className="nv-wrap">
-          <div className="hm-head">
-            <h2 className="hm-h2-56">One app for the whole mentorship program.</h2>
-            <p className="hm-eyebrow hm-fig">FIG. 2 · MESSAGING, MENTORS AND QR CAMPAIGNS</p>
+      {/* Why it matters: stats carousel */}
+      <section className="hm3-stats" data-mo-self>
+        <div className="hm3-stats-in">
+          <div className="hm3-stats-head mo">
+            <p className="hm-eyebrow hm-eyebrow-sky">WHY IT MATTERS</p>
+            <h2 className="hm-h2-56">Who your students know decides where they go.</h2>
           </div>
-          <Scaled width={1312} height={700} className="hm-comp">
-            <BrowserWindow
-              className="hm-comp-a"
-              url="nivarro.co/messages"
-              src="/site/home/messages.jpg"
-              alt="Nivarro messaging screen with rooms and a group chat"
-              imgWidth={900}
-              imgHeight={756}
-              imgLeft={-6}
-            />
-            <BrowserWindow
-              className="hm-comp-b"
-              url="nivarro.co/alumni"
-              src="/site/home/alumni.jpg"
-              alt="Nivarro alumni network directory"
-              imgWidth={600}
-              imgHeight={467}
-              imgLeft={20}
-            />
-            <Phone className="hm-comp-c" />
-          </Scaled>
+          <StatsCarousel />
         </div>
       </section>
 
-      {/* What do you want to do today */}
-      <section className="hm-today">
+      {/* AI curriculum agent */}
+      <section className="hm3-agent" data-mo-self>
+        <div className="nv-wrap hm3-agent-grid">
+          <div className="hm3-agent-copy">
+            <p className="hm-eyebrow mo">THE AI CURRICULUM AGENT</p>
+            <h2 className="hm-h2-56 mo" style={{ ['--d' as string]: '80ms' }}>
+              See which classes actually helped your graduates.
+            </h2>
+            <p className="hm-lede mo" style={{ ['--d' as string]: '160ms' }}>
+              We survey your alumni for you, so your staff never chases a spreadsheet. We record where each graduate
+              studies and works, then connect it to the courses they took. Our AI looks for the correlation between
+              classes and real-world outcomes, like jobs and college acceptances, and answers in plain English from your
+              own records.
+            </p>
+            <ul className="hm3-ticks">
+              {[
+                'Alumni surveys run by us, not your staff: college, career and city for every graduate',
+                'Links real outcomes, jobs and college acceptances, to the courses and programs each class took',
+                'Drafts lesson plans that build on what worked',
+                'Included in every plan. Encrypted, logged, never sold or shared',
+              ].map((t, i) => (
+                <li key={t} className="mo" style={{ ['--d' as string]: `${240 + i * 80}ms` }}>
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="mo" style={{ ['--d' as string]: '120ms' }}>
+            <AgentDemo />
+          </div>
+        </div>
+      </section>
+
+      {/* Real product tour */}
+      <section className="hm3-tour" data-mo-self>
         <div className="nv-wrap">
-          <h2 className="hm-h2-56 hm-center">What do you want to do today?</h2>
-          <div className="hm-tiles">
-            {tiles.map((t) => (
-              <a key={t.label} href={APP} className="hm-tile">
-                {t.art}
-                <span>
-                  {t.label} <i aria-hidden="true">↗</i>
-                </span>
-              </a>
-            ))}
+          <div className="hm3-tour-head mo">
+            <p className="hm-eyebrow">THE REAL PRODUCT</p>
+            <h2 className="hm-h2-56">This is the app your school gets.</h2>
+          </div>
+          <div className="mo" style={{ ['--d' as string]: '100ms' }}>
+            <ProductTour />
+          </div>
+        </div>
+      </section>
+
+      {/* Donation link demo */}
+      <section className="hm3-give" data-mo-self>
+        <div className="nv-wrap hm3-give-grid">
+          <div className="hm3-give-copy">
+            <p className="hm-eyebrow hm-eyebrow-gold mo">TRY THE DONATION LINK</p>
+            <h2 className="hm-h2-56 mo" style={{ ['--d' as string]: '80ms' }}>
+              This is what your donors see.
+            </h2>
+            <p className="hm-lede mo" style={{ ['--d' as string]: '160ms' }}>
+              One simple link for reunions, the annual fund and booster drives. Pick an amount and watch exactly where
+              the money goes. Donors can cover the 5.5% + 30¢ fee so your school receives 100%.
+            </p>
+          </div>
+          <div className="mo" style={{ ['--d' as string]: '140ms' }}>
+            <DonateDemo />
           </div>
         </div>
       </section>
 
       {/* Schools */}
-      <section className="hm-schools">
+      <section className="hm-schools hm3-schools" data-mo-self>
         <div className="nv-wrap">
-          <div className="hm-head">
-            <h2 className="hm-h2-56">Built for private and charter schools.</h2>
-            <p className="hm-eyebrow hm-fig">TWO KINDS OF SCHOOL · ONE PLATFORM</p>
+          <div className="hm-head mo">
+            <h2 className="hm-h2-56">Built for public, charter and private schools.</h2>
+            <p className="hm-eyebrow hm-fig">THREE KINDS OF SCHOOL · ONE PLATFORM</p>
           </div>
-          <div className="hm-school-grid">
-            <article className="hm-school hm-school-private">
-              <div className="hm-school-copy">
-                <p className="hm-eyebrow hm-eyebrow-warm">PRIVATE SCHOOLS</p>
-                <h3>Decades of alumni, finally put to work.</h3>
-                <p>
-                  Turn a long-neglected directory into active mentors, and an annual fund that grows with every class.
-                </p>
-              </div>
-              <div className="hm-school-img">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/site/home/elder.jpg" alt="An older alumnus smiling at a tablet in an armchair" width={1000} height={842} loading="lazy" />
-              </div>
-            </article>
-            <article className="hm-school hm-school-charter">
-              <div className="hm-school-copy">
-                <p className="hm-eyebrow hm-eyebrow-ink">CHARTER SCHOOLS</p>
-                <h3>Your first graduates are your best advocates.</h3>
-                <p>Bring your earliest alumni back as mentors and make every dollar raised go further for current students.</p>
-              </div>
-              <div className="hm-school-img">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/site/home/students.jpg" alt="Two students at a laptop in a school library" width={1000} height={842} loading="lazy" />
-              </div>
-            </article>
+          <div className="hm3-school-grid">
+            {schools.map((s, i) => (
+              <article key={s.cls} className={`hm3-school ${s.cls} mo`} style={{ ['--d' as string]: `${i * 110}ms` }}>
+                <div className="hm3-school-copy">
+                  <p className="hm-eyebrow">{s.eyebrow}</p>
+                  <h3>{s.h}</h3>
+                  <p>{s.p}</p>
+                </div>
+                {s.foot === 'stat' ? (
+                  <div className="hm3-school-stat">
+                    <span>
+                      <CountUp to={22} suffix="%" />
+                    </span>
+                    <p>of 12th graders are proficient in math (2024)</p>
+                  </div>
+                ) : (
+                  <div className="hm3-school-img">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={s.foot} alt="" width={1000} height={842} loading="lazy" />
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Voices */}
+      <section className="hm3-voices" data-mo-self>
+        <div className="nv-wrap">
+          <div className="hm3-voices-head mo">
+            <p className="hm-eyebrow">WHAT WE HEARD FROM THE PEOPLE WHO CARE MOST</p>
+            <h2 className="hm-h2-56">They already want to help. Give them a place to start.</h2>
+          </div>
+          <div className="hm3-voice-grid">
+            {voices.map((v, i) => (
+              <figure key={v.who} className={`hm3-voice ${v.dark ? 'is-dark' : ''} mo`} style={{ ['--d' as string]: `${i * 110}ms` }}>
+                <blockquote>{v.q}</blockquote>
+                <figcaption>{v.who}</figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Plan steps */}
-      <section className="hm-plan">
+      <section className="hm-plan" data-mo-self>
         <div className="nv-wrap">
-          <div className="hm-head">
+          <div className="hm-head mo">
             <div>
               <p className="hm-eyebrow">THE PLAN</p>
               <h2 className="hm-h2-56 hm-plan-h">We set it up. Your alumni sign up, mentor and give.</h2>
             </div>
-            <p className="hm-eyebrow hm-fig">FOUR PARTS · ONE PRICE</p>
+            <p className="hm-eyebrow hm-fig">FOUR PARTS · TWO PLANS</p>
           </div>
           <div className="hm-steps">
-            {steps.map((s) => (
-              <article key={s.n} className={`hm-step ${s.cls}`}>
+            {steps.map((s, i) => (
+              <article key={s.n} className="hm-step hm3-step mo" style={{ ['--d' as string]: `${i * 90}ms` }}>
                 <span className="hm-step-n">{s.n}</span>
                 <div>
                   <h3>{s.t}</h3>
@@ -329,29 +374,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Plan pricing */}
-      <section className="hm-pricing">
+      {/* Plans */}
+      <section className="hm-pricing hm3-pricing" data-mo-self>
         <div className="nv-wrap">
-          <div className="hm-price-grid">
-            <div className="hm-price hm-price-a">
-              <p className="hm-eyebrow hm-eyebrow-muted">MONTHLY</p>
-              <p className="hm-price-n">$900</p>
-              <p className="hm-price-d">per month. The full plan, billed monthly.</p>
+          <div className="hm3-price-grid">
+            <div className="hm3-price mo">
+              <p className="hm-eyebrow hm-eyebrow-muted">BASE PLAN · PUBLIC SCHOOLS</p>
+              <p className="hm-price-n">$2,000</p>
+              <p className="hm3-price-sub">per semester · $4,000/yr · $50 to sign</p>
+              <ul>
+                <li>Alumni tracker and curriculum map</li>
+                <li>AI linking courses to real outcomes</li>
+                <li>Outcome surveys we run for you</li>
+                <li>Alumni events and career days</li>
+                <li>Booster and PTA donation links</li>
+                <li>First semester free</li>
+              </ul>
+              <Link href="/demo" className="nv-btn">
+                Request a demo
+              </Link>
             </div>
-            <div className="hm-price-or" aria-hidden="true">or</div>
-            <div className="hm-price hm-price-b">
-              <p className="hm-eyebrow hm-eyebrow-muted">PER SEMESTER</p>
+            <div className="hm3-price hm3-price-adv mo" style={{ ['--d' as string]: '110ms' }}>
+              <p className="hm-eyebrow hm-eyebrow-muted">ADVANCED PLAN · PRIVATE & CHARTER</p>
               <p className="hm-price-n">$4,500</p>
-              <p className="hm-price-d">per semester. One invoice, one budget line.</p>
+              <p className="hm3-price-sub">per semester · $9,000/yr · $100 to sign</p>
+              <ul>
+                <li>Everything in the base plan</li>
+                <li>Verified alumni mentorship</li>
+                <li>Teacher approval for every pairing</li>
+                <li>Safe, logged in-app messaging</li>
+                <li>First semester free</li>
+              </ul>
+              <Link href="/demo" className="nv-btn nv-btn-dark">
+                Request a demo
+              </Link>
             </div>
-            <div className="hm-price hm-price-c">
-              <p className="hm-eyebrow hm-eyebrow-warm">ON EVERY DONATION</p>
+            <div className="hm3-price hm3-price-fee mo" style={{ ['--d' as string]: '220ms' }}>
+              <p className="hm-eyebrow hm-eyebrow-sky">ON EVERY GIFT</p>
               <p className="hm-price-n hm-price-fee">5.5% + 30¢</p>
-              <p className="hm-price-d">The school keeps the rest. Donors can cover the fee so a campaign receives 100%.</p>
+              <ul>
+                <li>The school keeps the rest</li>
+                <li>Your first semester is free</li>
+                <li>First 7 schools pay half price for life</li>
+              </ul>
             </div>
           </div>
           <p className="hm-price-note">
-            Choose one plan: $900 a month or $4,500 a semester.{' '}
+            Prices are per school, published, and the same for everyone in your plan.{' '}
             <Link href="/pricing">See pricing →</Link>
           </p>
         </div>
@@ -401,7 +470,7 @@ export default function Home() {
         </div>
       </section>
 
-      <CtaBand />
+      <CtaBand eyebrow="For public, charter & private schools" />
     </>
   )
 }

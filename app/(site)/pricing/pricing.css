@@ -100,3 +100,11 @@
   .pr-tile, .pr-step, .pr-pill { transition: none !important; }
   .pr-tile:hover, .pr-step:hover, .pr-pill:hover { transform: none; }
 }
+
+/* bullets inside plan tiles */
+.pr-bul { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.pr-bul li { position: relative; padding-left: 20px; font-size: 15px; line-height: 23px; }
+.pr-bul li::before { content: ''; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; border-radius: 4px; background: currentColor; opacity: 0.7; }
+.pr-bul-dark li { color: #C6D0E2; }
+.pr-tile { height: auto; min-height: 520px; }
+.pr-tiles-grid { align-items: stretch; }

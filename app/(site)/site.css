@@ -163,7 +163,7 @@
 /* ── Polish pass: Stripe-style chrome and motion ── */
 html:has(.nv), body:has(.nv) { background: #fff; }
 
-.nv-header { position: sticky; top: -37px; z-index: 50; background: rgba(255, 255, 255, 0.82); -webkit-backdrop-filter: saturate(180%) blur(14px); backdrop-filter: saturate(180%) blur(14px); transition: box-shadow 0.3s ease; }
+.nv-header { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, 0.82); -webkit-backdrop-filter: saturate(180%) blur(14px); backdrop-filter: saturate(180%) blur(14px); transition: box-shadow 0.3s ease; }
 .nv-ticker { background: linear-gradient(90deg, var(--navy) 0%, var(--navy-2) 100%); }
 .nv-ticker-row { justify-content: center; }
 .nv-ticker-c { display: inline-flex; align-items: center; gap: 10px; }
@@ -193,7 +193,7 @@ html:has(.nv), body:has(.nv) { background: #fff; }
 .nv-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); }
 .nv-reveal.nv-in { opacity: 1; transform: none; }
 
-@media (max-width: 1000px) { .nv-header { top: -37px; } }
+
 @media (prefers-reduced-motion: reduce) {
   .nv-live, .nv-orb-hero, .nv-hero::before { animation: none; }
   .nv-reveal { opacity: 1; transform: none; transition: none; }

@@ -37,7 +37,7 @@ const founders = [
     alt: 'Neel Patil, co-founder of Nivarro',
     monogram: 'NP',
     tag: 'Payments · Legal · Finance',
-    intro: 'Makes sure money moves correctly and the operations behind every campaign work.',
+    intro: 'Makes sure money moves correctly and the operations behind every donation work.',
     areas: [
       ['Payment processing', "Donations, fees and payouts from the donor's gift to the school's account."],
       ['Workflows', 'Approvals, records and the operating processes that keep programs running.'],

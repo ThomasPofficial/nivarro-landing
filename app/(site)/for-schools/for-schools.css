@@ -8,7 +8,7 @@
 .fs-photo { position: relative; flex: 0 0 560px; height: 680px; }
 .fs-photo::before { content: ''; position: absolute; top: 24px; width: 536px; height: 656px; border-radius: 28px; background: var(--navy); }
 .fs-photo-navy::before { left: 24px; }
-.fs-photo-coral::before { left: 0; background: #FF8A5B; }
+.fs-photo-coral::before { left: 0; background: #2F5BEA; }
 .fs-photo-img { position: absolute; top: 0; width: 536px; height: 656px; border-radius: 28px; overflow: hidden; box-shadow: 0 24px 50px rgba(11, 18, 32, 0.22); transition: transform 0.4s ease; }
 .fs-photo-navy .fs-photo-img { left: 0; }
 .fs-photo-coral .fs-photo-img { left: 24px; }
@@ -45,3 +45,9 @@
   .fs-photo-img, .fs-photo-img img, .fs-points li { transition: none !important; }
   .fs-photo:hover .fs-photo-img, .fs-photo:hover .fs-photo-img img { transform: none; }
 }
+
+/* public schools: stat card in place of a photo */
+.fs-photo-blue::before { left: 24px; background: #2F5BEA; }
+.fs-stat { position: absolute; top: 0; left: 0; width: 536px; height: 656px; display: flex; flex-direction: column; justify-content: flex-end; gap: 12px; padding: 40px; border-radius: inherit; background: #0A2540; margin: 0; }
+.fs-stat span { font-family: var(--font-newsreader), Georgia, serif; font-size: clamp(88px, 9vw, 140px); line-height: 1; letter-spacing: -0.04em; color: #93C5FD; }
+.fs-stat p { max-width: 380px; font-size: 17px; line-height: 26px; color: #C6D0E2; }

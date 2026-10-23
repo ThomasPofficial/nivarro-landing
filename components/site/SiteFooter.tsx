@@ -11,21 +11,21 @@ export default function SiteFooter() {
               <LogoMark />
               <span>Nivarro</span>
             </div>
-            <p>Alumni engagement and fundraising for private and charter schools.</p>
+            <p>Alumni engagement and donations for public, charter and private schools.</p>
             <a href="mailto:team.nivarro@gmail.com">team.nivarro@gmail.com</a>
           </div>
           <div className="nv-footer-cols">
             <div>
               <h4>Platform</h4>
               <Link href="/platform">How it works</Link>
-              <Link href="/fundraising">Fundraising</Link>
+              <Link href="/fundraising">Donations</Link>
               <Link href="/pricing">Pricing</Link>
             </div>
             <div>
               <h4>For</h4>
+              <Link href="/for-schools">Public schools</Link>
               <Link href="/for-schools">Private schools</Link>
               <Link href="/for-schools">Charter schools</Link>
-              <Link href="/connect">Survey</Link>
             </div>
             <div>
               <h4>Company</h4>
