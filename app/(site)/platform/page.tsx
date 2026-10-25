@@ -166,12 +166,12 @@ export default function PlatformPage() {
             <div className="pl-win pl-win-1">
               <Dots />
               <span className="pl-url">nivarro.co/alumni</span>
-              <Image className="pl-shot" src="/site/platform/alumni-app.jpg" width={1120} height={871} alt="Nivarro alumni network screen showing mentors and their details" />
+              <Image className="pl-shot" src="/site/platform/alumni-app.jpg" width={1860} height={1450} quality={95} alt="Nivarro alumni network screen showing mentors and their details" />
             </div>
             <div className="pl-win pl-win-2">
               <Dots />
               <span className="pl-url">nivarro.co/partnerships</span>
-              <Image className="pl-shot" src="/site/platform/partnerships-app.jpg" width={1120} height={880} alt="Nivarro partnerships screen listing student groups and pairing requests" />
+              <Image className="pl-shot" src="/site/platform/partnerships-app.jpg" width={1860} height={1460} quality={95} alt="Nivarro partnerships screen listing student groups and pairing requests" />
             </div>
           </div>
         </Step>

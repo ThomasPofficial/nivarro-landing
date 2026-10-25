@@ -81,9 +81,10 @@ export default function FundraisingPage() {
             <div className="fr-ledger-view">
               <Image
                 src="/site/fundraising/ledger.jpg"
-                alt="The gift ledger: Margaret Ellis, $250.00, confirmed received, followed by two online test-mode gifts"
-                width={1600}
-                height={803}
+                alt="The gift ledger: Margaret Ellis, $250.00, confirmed received, followed by two online gifts"
+                width={2020}
+                height={960}
+                quality={95}
               />
             </div>
           </div>
