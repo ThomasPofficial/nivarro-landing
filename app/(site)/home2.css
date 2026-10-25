@@ -325,3 +325,15 @@
   .hm3-gold, .hm3-foil, .hm3-feat-n, .hm3-step .hm-step-n, .hm3-prof-nums span:first-child, .hm3-price-fee .hm-price-n, .hm3-school-stat span, .hm3-stats::before, .hm3-marq-track, .hm-btn-xl.nv-btn::after { animation: none; }
   .hm3-marq { overflow-x: auto; }
 }
+
+/* ── Meet an alum through Claude ── */
+.hm3-meet { padding: 112px 0; background: #F6F8FC; }
+.hm3-meet-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 64px; align-items: center; }
+.hm3-meet-copy { display: flex; flex-direction: column; gap: 26px; }
+.md-body { min-height: 0; }
+.md-steps { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 14px; counter-reset: md; }
+.md-steps li { position: relative; display: flex; flex-direction: column; gap: 2px; padding-left: 40px; counter-increment: md; font-size: 15px; line-height: 22px; color: #51607A; }
+.md-steps li b { font-weight: 400; color: var(--navy); }
+.md-steps li::before { content: counter(md); position: absolute; left: 0; top: 0; width: 26px; height: 26px; border-radius: 13px; display: grid; place-items: center; font-size: 13px; color: var(--blue); border: 1px solid var(--blue); }
+.md-steps li.is-done::before { background: var(--blue); color: #fff; }
+@media (max-width: 900px) { .hm3-meet-grid { grid-template-columns: 1fr; } }

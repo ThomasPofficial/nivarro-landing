@@ -7,6 +7,7 @@ import AgentDemo from '@/components/motion/AgentDemo'
 import ProductTour from '@/components/motion/ProductTour'
 import HeroStack from '@/components/motion/HeroStack'
 import DonateDemo from '@/components/motion/DonateDemo'
+import MeetDemo from '@/components/motion/MeetDemo'
 import './home.css'
 import './home2.css'
 
@@ -119,12 +120,12 @@ export default function Home() {
               FOR TEACHERS, COACHES AND SCHOOL LEADERS WHO CARE
             </p>
             <h1 className="hm-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>
-              Your graduates still want to <em className="hm3-gold">help your students.</em>
+              Your alumni can be the <em className="hm3-gold">mentors your students need.</em>
             </h1>
             <p className="hm-lede hm3-in" style={{ ['--d' as string]: '200ms' }}>
-              You know what one caring adult can do for a teenager. Your alumni want to be that adult. They just need a
-              defined, meaningful way in. Start with the base plan at $2,000 a semester, and add verified mentorship when
-              you are ready.
+              You know what one caring adult can do for a teenager. Your graduates are ready to be that adult, and
+              Nivarro gives them a simple way in. Start with the base plan at $2,000 a semester, and add verified
+              mentorship when you are ready.
             </p>
             <div className="hm-btns hm3-in" style={{ ['--d' as string]: '310ms' }}>
               <Link href="/demo" className="nv-btn hm-btn-xl">
@@ -262,6 +263,37 @@ export default function Home() {
           </div>
           <div className="mo" style={{ ['--d' as string]: '120ms' }}>
             <AgentDemo />
+          </div>
+        </div>
+      </section>
+
+      {/* Meet an alum through Claude */}
+      <section className="hm3-meet" data-mo-self>
+        <div className="nv-wrap hm3-meet-grid">
+          <div className="mo" style={{ ['--d' as string]: '120ms' }}>
+            <MeetDemo />
+          </div>
+          <div className="hm3-meet-copy">
+            <p className="hm-eyebrow mo">ASK CLAUDE</p>
+            <h2 className="hm-h2-56 mo" style={{ ['--d' as string]: '80ms' }}>
+              Ask for an alum. Claude sets up the meeting.
+            </h2>
+            <p className="hm-lede mo" style={{ ['--d' as string]: '160ms' }}>
+              Connect Nivarro to Claude and a teacher at any school, public schools included, can just ask to meet a
+              graduate. Nivarro emails the alum for you, they accept, and your students get someone real who adds depth
+              to the lesson.
+            </p>
+            <ul className="hm3-ticks">
+              {[
+                'One request in plain English. No forms, no phone tag',
+                'The alum gets the email and accepts on their own time',
+                'Your lessons gain a real person who lived the subject',
+              ].map((t, i) => (
+                <li key={t} className="mo" style={{ ['--d' as string]: `${240 + i * 80}ms` }}>
+                  {t}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
