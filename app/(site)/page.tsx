@@ -280,7 +280,7 @@ export default function Home() {
               <span>Claude</span>
             </p>
             <h2 className="hm-h2-56 mo" style={{ ['--d' as string]: '80ms' }}>
-              Ask for an alum. <em>Claude</em> sets up the meeting.
+              Invite alumni to your school in under 3 minutes with Nivarro × <em>Claude</em>.
             </h2>
             <p className="hm-lede mo" style={{ ['--d' as string]: '160ms' }}>
               Connect Nivarro to Claude and a teacher at any school, public schools included, can just ask to meet a
