@@ -7,7 +7,7 @@ import AgentDemo from '@/components/motion/AgentDemo'
 import ProductTour from '@/components/motion/ProductTour'
 import HeroStack from '@/components/motion/HeroStack'
 import DonateDemo from '@/components/motion/DonateDemo'
-import MeetDemo from '@/components/motion/MeetDemo'
+import ClaudeVideo from '@/components/motion/ClaudeVideo'
 import './home.css'
 import './home2.css'
 
@@ -269,12 +269,12 @@ export default function Home() {
 
       {/* Meet an alum through Claude */}
       <section className="hm3-meet" data-mo-self>
-        <div className="nv-wrap hm3-meet-grid">
-          <div className="mo" style={{ ['--d' as string]: '120ms' }}>
-            <MeetDemo />
-          </div>
+        <div className="nv-wrap">
           <div className="hm3-meet-copy">
-            <p className="hm-eyebrow mo">ASK CLAUDE</p>
+            <p className="hm3-new mo">New feature added 10/26/2026</p>
+            <p className="hm-eyebrow mo" style={{ ['--d' as string]: '40ms' }}>
+              NIVARRO FOR CLAUDE
+            </p>
             <h2 className="hm-h2-56 mo" style={{ ['--d' as string]: '80ms' }}>
               Ask for an alum. Claude sets up the meeting.
             </h2>
@@ -283,18 +283,21 @@ export default function Home() {
               graduate. Nivarro emails the alum for you, they accept, and your students get someone real who adds depth
               to the lesson.
             </p>
-            <ul className="hm3-ticks">
-              {[
-                'One request in plain English. No forms, no phone tag',
-                'The alum gets the email and accepts on their own time',
-                'Your lessons gain a real person who lived the subject',
-              ].map((t, i) => (
-                <li key={t} className="mo" style={{ ['--d' as string]: `${240 + i * 80}ms` }}>
-                  {t}
-                </li>
-              ))}
-            </ul>
           </div>
+          <div className="hm3-meet-video mo" style={{ ['--d' as string]: '200ms' }}>
+            <ClaudeVideo />
+          </div>
+          <ul className="hm3-ticks hm3-meet-ticks">
+            {[
+              'Add Nivarro as a connector in Claude and sign in once',
+              'One request in plain English. No forms, no phone tag',
+              'Claude drafts the invite and you approve it before it sends',
+            ].map((t, i) => (
+              <li key={t} className="mo" style={{ ['--d' as string]: `${240 + i * 80}ms` }}>
+                {t}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
