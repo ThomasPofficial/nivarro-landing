@@ -9,6 +9,7 @@ import HeroStack from '@/components/motion/HeroStack'
 import DonateDemo from '@/components/motion/DonateDemo'
 import ClaudeVideo from '@/components/motion/ClaudeVideo'
 import ClaudeSpark from '@/components/site/ClaudeSpark'
+import LoopVideo from '@/components/motion/LoopVideo'
 import './home.css'
 import './home2.css'
 
@@ -143,20 +144,18 @@ export default function Home() {
                 <i />
                 <i />
                 <i />
-                <span>app.nivarro.co/messages</span>
+                <span>app.nivarro.co/partnerships</span>
               </div>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/site/product/messages.jpg" alt="" width={2000} height={1250} />
+              <LoopVideo name="mentor-chat" label="A student and an alum mentor chat in Nivarro" className="hm3-vid" />
             </div>
             <div className="hm3-win hm3-win-b">
               <div className="hm3-win-bar">
                 <i />
                 <i />
                 <i />
-                <span>app.nivarro.co/school/alumni</span>
+                <span>app.nivarro.co/school/roster</span>
               </div>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/site/product/alumni.jpg" alt="" width={2000} height={1250} />
+              <LoopVideo name="roster-import" label="Nivarro's AI turns a pasted list into a school roster" className="hm3-vid" />
             </div>
           </HeroStack>
         </div>

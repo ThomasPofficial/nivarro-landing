@@ -61,6 +61,7 @@
 .pl-bar i { width: 10px; height: 10px; border-radius: 5px; background: #D3DAE4; flex-shrink: 0; }
 .pl-url { position: absolute; left: 62px; top: 9px; font-size: 12px; line-height: 16px; color: #51607A; }
 .pl-shot { width: 110.6%; max-width: none; height: auto; margin-left: 5.1%; }
+.pl-vid { display: block; width: 100%; height: calc(100% - 34px); object-fit: cover; object-position: right top; background: #EFF0E9; }
 
 /* Step 4 */
 .pl-hours { width: 100%; max-width: 836px; padding: 28px 32px; }

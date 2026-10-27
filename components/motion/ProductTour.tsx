@@ -7,15 +7,6 @@ type Tab = { key: string; label: string; title: string; body: string; url: strin
 
 const TABS: Tab[] = [
   {
-    key: 'alumni',
-    label: 'Alumni network',
-    title: 'Every graduate, searchable and current.',
-    body: 'Filter by industry, college or who is open to mentor. Alumni keep their own details fresh.',
-    url: 'app.nivarro.co/school/alumni',
-    src: '/site/product/alumni.jpg',
-    alt: 'Nivarro alumni network with mentor cards',
-  },
-  {
     key: 'messages',
     label: 'Mentorship',
     title: 'Teacher-approved, logged conversations.',
@@ -44,33 +35,6 @@ const TABS: Tab[] = [
     src: '/site/video/permissions.jpg',
     video: '/site/video/permissions.mp4',
     alt: 'An administrator adds a teacher and chooses their permissions',
-  },
-  {
-    key: 'school',
-    label: 'Student view',
-    title: 'A private community for your school.',
-    body: 'Students see staff, alumni and mentor spotlights in one safe, school-verified space.',
-    url: 'app.nivarro.co/my-school',
-    src: '/site/product/s-school.jpg',
-    alt: 'Nivarro student view of a school community with staff and mentors',
-  },
-  {
-    key: 'donate',
-    label: 'Donation link',
-    title: 'One link. Gifts go to the school.',
-    body: 'Donors pick an amount, see exactly where it goes, and can cover the fee.',
-    url: 'app.nivarro.co/give',
-    src: '/site/product/s-donate.jpg',
-    alt: 'Nivarro donation link with amounts and fee breakdown',
-  },
-  {
-    key: 'announce',
-    label: 'Announcements',
-    title: 'Beautiful emails, ready to send.',
-    body: 'Pick a finished design, preview it, and reach alumni and parents in minutes.',
-    url: 'app.nivarro.co/school/announcements',
-    src: '/site/product/announce.jpg',
-    alt: 'Nivarro announcement email designs',
   },
 ]
 

@@ -1,8 +1,8 @@
-import Image from 'next/image'
 import type { Metadata } from 'next'
 import Ribbon from '@/components/home/Ribbon'
 import CtaBand from '@/components/site/CtaBand'
 import './platform.css'
+import LoopVideo from '@/components/motion/LoopVideo'
 
 export const metadata: Metadata = {
   title: 'The Platform | Nivarro',
@@ -165,13 +165,13 @@ export default function PlatformPage() {
           <div className="pl-vis pl-shots">
             <div className="pl-win pl-win-1">
               <Dots />
-              <span className="pl-url">nivarro.co/alumni</span>
-              <Image className="pl-shot" src="/site/platform/alumni-app.jpg" width={1860} height={1450} quality={95} alt="Nivarro alumni network screen showing mentors and their details" />
+              <span className="pl-url">nivarro.co/partnerships</span>
+              <LoopVideo name="mentor-chat" label="A student and an alum mentor chat inside Nivarro" className="pl-vid" />
             </div>
             <div className="pl-win pl-win-2">
               <Dots />
-              <span className="pl-url">nivarro.co/partnerships</span>
-              <Image className="pl-shot" src="/site/platform/partnerships-app.jpg" width={1860} height={1460} quality={95} alt="Nivarro partnerships screen listing student groups and pairing requests" />
+              <span className="pl-url">nivarro.co/school/permissions</span>
+              <LoopVideo name="permissions" label="A school admin adds a teacher and picks their permissions" className="pl-vid" />
             </div>
           </div>
         </Step>
