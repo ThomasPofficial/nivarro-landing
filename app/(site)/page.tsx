@@ -8,6 +8,7 @@ import ProductTour from '@/components/motion/ProductTour'
 import HeroStack from '@/components/motion/HeroStack'
 import DonateDemo from '@/components/motion/DonateDemo'
 import ClaudeVideo from '@/components/motion/ClaudeVideo'
+import ClaudeSpark from '@/components/site/ClaudeSpark'
 import './home.css'
 import './home2.css'
 
@@ -269,14 +270,18 @@ export default function Home() {
 
       {/* Meet an alum through Claude */}
       <section className="hm3-meet" data-mo-self>
+        <div className="hm3-meet-glow" aria-hidden="true" />
         <div className="nv-wrap">
           <div className="hm3-meet-copy">
             <p className="hm3-new mo">New feature added 10/26/2026</p>
-            <p className="hm-eyebrow mo" style={{ ['--d' as string]: '40ms' }}>
-              NIVARRO FOR CLAUDE
+            <p className="hm3-lockup mo" style={{ ['--d' as string]: '40ms' }}>
+              <span>Nivarro</span>
+              <span className="hm3-lockup-x">×</span>
+              <ClaudeSpark size={26} className="hm3-spark" />
+              <span>Claude</span>
             </p>
             <h2 className="hm-h2-56 mo" style={{ ['--d' as string]: '80ms' }}>
-              Ask for an alum. Claude sets up the meeting.
+              Ask for an alum. <em>Claude</em> sets up the meeting.
             </h2>
             <p className="hm-lede mo" style={{ ['--d' as string]: '160ms' }}>
               Connect Nivarro to Claude and a teacher at any school, public schools included, can just ask to meet a
@@ -287,17 +292,19 @@ export default function Home() {
           <div className="hm3-meet-video mo" style={{ ['--d' as string]: '200ms' }}>
             <ClaudeVideo />
           </div>
-          <ul className="hm3-ticks hm3-meet-ticks">
+          <ol className="hm3-meet-steps">
             {[
-              'Add Nivarro as a connector in Claude and sign in once',
-              'One request in plain English. No forms, no phone tag',
-              'Claude drafts the invite and you approve it before it sends',
-            ].map((t, i) => (
+              ['Connect once', 'Add Nivarro as a connector in Claude and sign in with your school account.'],
+              ['Just ask', 'One request in plain English. No forms, no phone tag.'],
+              ['Approve and send', 'Claude drafts the invite in your name. Nothing goes out until you say yes.'],
+            ].map(([t, b], i) => (
               <li key={t} className="mo" style={{ ['--d' as string]: `${240 + i * 80}ms` }}>
-                {t}
+                <span className="hm3-meet-n">0{i + 1}</span>
+                <span className="hm3-meet-t">{t}</span>
+                <span className="hm3-meet-b">{b}</span>
               </li>
             ))}
-          </ul>
+          </ol>
         </div>
       </section>
 

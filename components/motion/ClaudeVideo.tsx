@@ -22,7 +22,7 @@ export default function ClaudeVideo() {
   }, [])
 
   return (
-    <div className="pt-frame">
+    <div className="pt-frame cv-frame">
       <div className="pt-bar">
         <i />
         <i />
@@ -34,7 +34,7 @@ export default function ClaudeVideo() {
         className="cv-video"
         src="/site/video/claude-connect.mp4"
         poster="/site/video/claude-connect.jpg"
-        width={1920}
+        width={1686}
         height={934}
         muted
         loop
