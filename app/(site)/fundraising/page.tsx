@@ -112,7 +112,7 @@ export default function FundraisingPage() {
           <div className="fr-price" style={{ borderTopColor: '#2F5BEA' }}>
             <p className="nv-fine">Base plan · Public</p>
             <p className="fr-big">$2,000</p>
-            <p className="fr-price-copy">per semester · $50 to sign. Alumni tracker, curriculum map, outcome surveys and donation links.</p>
+            <p className="fr-price-copy">per semester · $50 to sign. Alumni tracker, outcome surveys and donation links.</p>
           </div>
           <div className="fr-price" style={{ borderTopColor: '#0A2540' }}>
             <p className="nv-fine">Advanced plan · Private &amp; charter</p>

@@ -85,9 +85,6 @@
 .mo-slide-src { margin-top: 10px; font-size: 12px; letter-spacing: 0.14em; line-height: 16px; text-transform: uppercase; color: #C6D6FF; }
 
 /* ── AI agent ── */
-.hm3-agent { padding: 112px 0; }
-.hm3-agent-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 64px; align-items: center; }
-.hm3-agent-copy { display: flex; flex-direction: column; gap: 26px; }
 .hm3-ticks { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
 .hm3-ticks li { position: relative; padding-left: 26px; font-size: 16px; line-height: 25px; color: var(--navy); }
 .hm3-ticks li::before { content: ''; position: absolute; left: 0; top: 8px; width: 10px; height: 10px; border-radius: 5px; background: var(--blue); }
@@ -214,7 +211,7 @@
 @media (max-width: 1100px) {
   .hm3-hero-grid { grid-template-columns: 1fr; }
   .hm3-stack { height: 520px; margin-right: 0; }
-  .hm3-what-grid, .hm3-agent-grid { grid-template-columns: 1fr; }
+  .hm3-what-grid { grid-template-columns: 1fr; }
   .pt { grid-template-columns: 1fr; }
   .hm3-school-grid, .hm3-voice-grid, .hm3-price-grid { grid-template-columns: 1fr; }
   .hm3-stats-in { --mo-slide: 320px; padding-left: 32px; }
@@ -248,7 +245,7 @@
 @keyframes hm3-shimmer { from { background-position: 0% 0; } to { background-position: -220% 0; } }
 
 /* gold hairline before key eyebrows */
-.hm3-what .hm-eyebrow::before, .hm3-agent .hm-eyebrow::before, .hm3-tour .hm-eyebrow::before, .hm3-voices .hm-eyebrow::before, .hm3-give .hm-eyebrow::before, .hm3-stats .hm-eyebrow::before {
+.hm3-what .hm-eyebrow::before, .hm3-tour .hm-eyebrow::before, .hm3-voices .hm-eyebrow::before, .hm3-give .hm-eyebrow::before, .hm3-stats .hm-eyebrow::before {
   content: ''; display: inline-block; width: 32px; height: 2px; margin-right: 14px; vertical-align: middle;
   background: var(--foil); background-size: 220% 100%; animation: hm3-shimmer 7s linear infinite;
 }

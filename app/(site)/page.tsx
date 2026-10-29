@@ -3,7 +3,6 @@ import CtaBand from '@/components/site/CtaBand'
 import Ribbon from '@/components/home/Ribbon'
 import CountUp from '@/components/motion/CountUp'
 import StatsCarousel from '@/components/motion/StatsCarousel'
-import AgentDemo from '@/components/motion/AgentDemo'
 import ProductTour from '@/components/motion/ProductTour'
 import HeroStack from '@/components/motion/HeroStack'
 import DonateDemo from '@/components/motion/DonateDemo'
@@ -21,26 +20,21 @@ const features = [
   },
   {
     n: '02',
-    t: 'AI that understands your curriculum',
-    b: 'It connects the courses each class took to real outcomes, jobs and college acceptances, and shows which classes are working.',
-  },
-  {
-    n: '03',
     t: 'Verified mentorship',
     b: 'Students ask, teachers approve every pairing, and each thread is logged. Included in the advanced plan.',
   },
   {
-    n: '04',
+    n: '03',
     t: 'Events and career days',
     b: 'Invite graduates back to speak, sit on panels and run job shadows.',
   },
   {
-    n: '05',
+    n: '04',
     t: 'Donation links and a gift ledger',
     b: 'One simple link for reunions and the annual fund. Gifts go straight to the school and every gift is recorded.',
   },
   {
-    n: '06',
+    n: '05',
     t: 'Volunteer hours and employer match',
     b: "Verified hours, certificates and match records, so an alum's company can give too.",
   },
@@ -166,7 +160,7 @@ export default function Home() {
         <div className="hm3-marq-track">
           {[0, 1].map((k) => (
             <ul key={k}>
-              {['Alumni tracker', 'AI curriculum agent', 'Verified mentorship', 'Career days', 'Donation links', 'Employer match', 'Outcome surveys', 'Teacher approval'].map((t) => (
+              {['Alumni tracker', 'Verified mentorship', 'Career days', 'Donation links', 'Employer match', 'Outcome surveys', 'Teacher approval'].map((t) => (
                 <li key={t}>
                   <i />
                   {t}
@@ -231,39 +225,6 @@ export default function Home() {
             <h2 className="hm-h2-56">Who your students know decides where they go.</h2>
           </div>
           <StatsCarousel />
-        </div>
-      </section>
-
-      {/* AI curriculum agent */}
-      <section className="hm3-agent" data-mo-self>
-        <div className="nv-wrap hm3-agent-grid">
-          <div className="hm3-agent-copy">
-            <p className="hm-eyebrow mo">THE AI CURRICULUM AGENT</p>
-            <h2 className="hm-h2-56 mo" style={{ ['--d' as string]: '80ms' }}>
-              See which classes actually helped your graduates.
-            </h2>
-            <p className="hm-lede mo" style={{ ['--d' as string]: '160ms' }}>
-              We survey your alumni for you, so your staff never chases a spreadsheet. We record where each graduate
-              studies and works, then connect it to the courses they took. Our AI looks for the correlation between
-              classes and real-world outcomes, like jobs and college acceptances, and answers in plain English from your
-              own records.
-            </p>
-            <ul className="hm3-ticks">
-              {[
-                'Alumni surveys run by us, not your staff: college, career and city for every graduate',
-                'Links real outcomes, jobs and college acceptances, to the courses and programs each class took',
-                'Drafts lesson plans that build on what worked',
-                'Included in every plan. Encrypted, logged, never sold or shared',
-              ].map((t, i) => (
-                <li key={t} className="mo" style={{ ['--d' as string]: `${240 + i * 80}ms` }}>
-                  {t}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="mo" style={{ ['--d' as string]: '120ms' }}>
-            <AgentDemo />
-          </div>
         </div>
       </section>
 
@@ -424,8 +385,7 @@ export default function Home() {
               <p className="hm-price-n">$2,000</p>
               <p className="hm3-price-sub">per semester · $4,000/yr · $50 to sign</p>
               <ul>
-                <li>Alumni tracker and curriculum map</li>
-                <li>AI linking courses to real outcomes</li>
+                <li>Alumni tracker and directory</li>
                 <li>Outcome surveys we run for you</li>
                 <li>Alumni events and career days</li>
                 <li>Booster and PTA donation links</li>

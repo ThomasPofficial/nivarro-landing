@@ -58,8 +58,7 @@ export default function PricingPage() {
               <p className="pr-price">$2,000</p>
               <p className="pr-tile-p pr-c-e4">per semester · $4,000/yr · $50 to sign</p>
               <ul className="pr-bul">
-                <li>Alumni tracker and curriculum map</li>
-                <li>AI linking courses to real jobs and college outcomes</li>
+                <li>Alumni tracker and directory</li>
                 <li>Alumni outcome surveys we run for you</li>
                 <li>Alumni events and career days</li>
                 <li>Booster and PTA donation links</li>
