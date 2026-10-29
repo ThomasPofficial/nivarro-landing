@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   title: 'Nivarro — Alumni engagement for public, charter and private schools',
   description:
     "Turn your alumni network into ongoing mentorship and reliable annual giving: a private community, donation links and a real-time admin dashboard, funded straight to your school's bank account.",
+  alternates: { types: { 'text/markdown': '/llms.txt' } },
 }
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {

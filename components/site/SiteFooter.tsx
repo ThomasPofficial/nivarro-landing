@@ -37,7 +37,10 @@ export default function SiteFooter() {
         </div>
         <div className="nv-footer-bottom">
           <span>© 2026 Nivarro</span>
-          <Link href="/connect/privacy">Privacy</Link>
+          <span className="nv-footer-links">
+            <Link href="/machine">View as machine</Link>
+            <Link href="/connect/privacy">Privacy</Link>
+          </span>
         </div>
       </div>
     </footer>

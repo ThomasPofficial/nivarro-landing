@@ -137,6 +137,7 @@
 .nv-footer-cols a { color: #fff; transition: color 0.2s; }
 .nv-footer-bottom { display: flex; justify-content: space-between; margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.12); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #7F93AE; }
 .nv-footer-bottom a:hover { color: #fff; }
+.nv-footer-links { display: flex; gap: 24px; }
 
 /* Responsive */
 @media (max-width: 1000px) {
