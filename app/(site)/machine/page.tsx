@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import CopyButton from '@/components/site/CopyButton'
 import { MACHINE_MD, MACHINE_UPDATED } from '@/lib/machine'
-import './machine.css'
 
 export const metadata: Metadata = {
   title: 'View as machine | Nivarro',

@@ -23,6 +23,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
+      <head>
+        {/* Relative href: resolves to the current page's own machine view (see middleware.ts). */}
+        <link rel="alternate" type="text/markdown" href="?view=machine" title="This page as Markdown" />
+      </head>
       <body>{children}</body>
     </html>
   )

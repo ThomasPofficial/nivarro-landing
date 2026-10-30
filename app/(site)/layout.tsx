@@ -5,6 +5,7 @@ import SiteFooter from '@/components/site/SiteFooter'
 import ScrollReveal from '@/components/site/ScrollReveal'
 import './site.css'
 import './motion.css'
+import './machine.css'
 
 const inter = Inter({
   subsets: ['latin'],

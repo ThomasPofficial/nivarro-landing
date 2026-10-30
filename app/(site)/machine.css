@@ -28,3 +28,15 @@
   .mc-pre { padding: 20px; }
   .mc-meta { display: none; }
 }
+
+/* Per-page "View as machine" (components/site/MachineViewButton.tsx) */
+.mv-trigger { padding: 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; }
+.mv-overlay { position: fixed; inset: 0; z-index: 100; overflow-y: auto; background: #fff; padding: 32px 0 96px; }
+.mv-overlay .mc-toggle button { padding: 6px 16px; border: 0; border-radius: 999px; background: none; font: inherit; color: var(--body); cursor: pointer; }
+.mv-overlay .mc-toggle button:hover { color: var(--blue); }
+.mv-overlay .mc-lede code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--ink); overflow-wrap: anywhere; }
+.mv-link-btn { padding: 0; border: 0; background: none; font: inherit; color: var(--blue); cursor: pointer; }
+.mv-link-btn:hover { text-decoration: underline; }
+.nv-footer-bottom .mv-trigger:hover { color: #fff; }
+.mv-overlay .mc-actions > * { white-space: nowrap; }
+@media (max-width: 1000px) { .mv-overlay .mc-actions { gap: 14px; } }

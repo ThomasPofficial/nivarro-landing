@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import LogoMark from '@/components/LogoMark'
+import MachineViewButton from '@/components/site/MachineViewButton'
 
 const links = [
   { href: '/', label: 'Home' },
@@ -26,9 +27,7 @@ export default function SiteHeader() {
           <span>Nivarro</span>
         </Link>
         <div className="nv-actions">
-          <Link href="/machine" className="nv-signin" title="The whole site as plain text, for AI agents">
-            View as machine
-          </Link>
+          <MachineViewButton className="nv-signin" />
           <a href="https://app.nivarro.co/login" className="nv-signin">
             Sign in
           </a>

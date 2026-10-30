@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import LogoMark from '@/components/LogoMark'
+import MachineViewButton from '@/components/site/MachineViewButton'
 
 export default function SiteFooter() {
   return (
@@ -38,7 +39,8 @@ export default function SiteFooter() {
         <div className="nv-footer-bottom">
           <span>© 2026 Nivarro</span>
           <span className="nv-footer-links">
-            <Link href="/machine">View as machine</Link>
+            <MachineViewButton label="View this page as machine" />
+            <Link href="/machine">Whole site as text</Link>
             <Link href="/connect/privacy">Privacy</Link>
           </span>
         </div>
