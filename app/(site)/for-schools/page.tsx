@@ -22,14 +22,14 @@ const publicPoints = [
 ]
 const charterPoints = [
   'Bring recent graduates back as mentors while the connection is fresh.',
-  'Show families and funders real outcomes: pairings, hours and gifts.',
+  'Show families and funders real outcomes: pairings and hours.',
   'Share your donation link in an afternoon.',
 ]
 const program = [
   ['Alumni', 'CSV import and cleanup, automatic outreach, an alumni directory.'],
   ['Mentorship', 'In-app messaging, teacher approvals, weekly hours review.'],
-  ['Proof', 'Volunteer certificates, employer match records, a gift ledger.'],
-  ['Fundraising', 'Donation links, a gift ledger, an admin dashboard.'],
+  ['Proof', 'Verified volunteer hours and volunteer certificates.'],
+  ['Fundraising', "Fundraiser and event pages with a goal, linked to your school's own giving page."],
 ]
 
 function Points({ items }: { items: string[] }) {

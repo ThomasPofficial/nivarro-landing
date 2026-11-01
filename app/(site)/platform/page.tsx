@@ -205,7 +205,7 @@ export default function PlatformPage() {
           n="05"
           color="#14B8A6"
           title="Proven volunteers give, and so do their employers."
-          body="Because every hour is verified, an alum can show their company proof of volunteering. Many employers reward that with a donation or a match. The school keeps the receipts."
+          body="Because every hour is verified, an alum can show their company proof of volunteering. Many employers reward that with a donation or a match."
         >
           <div className="pl-cert">
             <div className="pl-cert-in">

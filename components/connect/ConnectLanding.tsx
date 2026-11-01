@@ -35,7 +35,7 @@ const IDEAS = [
   {
     num: '03',
     title: 'The idea: admin dashboard',
-    text: "You'd watch alumni sign up, mentor and give, live. Gifts would go straight to your school through its own giving page.",
+    text: "You'd see alumni sign up and mentor, in one place. Gifts would go straight to your school through its own giving page.",
   },
 ]
 

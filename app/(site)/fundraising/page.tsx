@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import CtaBand from '@/components/site/CtaBand'
 import Ribbon from '@/components/home/Ribbon'
 import './fundraising.css'
@@ -11,20 +10,10 @@ export const metadata: Metadata = {
 }
 
 const ANATOMY = [
-  { k: 'A · ONE LINK', h: 'Your school gets its own donation link.', p: "We set it up for you during onboarding. It links to your school's own giving page." },
+  { k: 'A · ONE PAGE', h: 'Your school gets its own fundraiser page.', p: "We design it during onboarding, with a goal, and it links to your school's own giving page." },
   { k: 'B · SHARE ANYWHERE', h: 'Email, text, newsletter or print.', p: 'Alumni open the link on any phone and give.' },
   { k: 'C · STRAIGHT TO YOU', h: 'Gifts go straight to your school.', p: 'Through its own giving page. Nivarro never touches the money.' },
 ]
-
-function Dots() {
-  return (
-    <>
-      <i />
-      <i />
-      <i />
-    </>
-  )
-}
 
 export default function FundraisingPage() {
   return (
@@ -58,35 +47,6 @@ export default function FundraisingPage() {
                 <p>{a.p}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Ledger */}
-      <section className="fr-ledger">
-        <div className="nv-wrap fr-ledger-row">
-          <div className="fr-ledger-copy">
-            <p className="nv-fine fr-eyebrow">The gift ledger</p>
-            <h2 className="fr-h2">Every gift, recorded and accounted for.</h2>
-            <p className="fr-lede">
-              Confirm checks, send donors a proof of gift for employer matching, and track match claims from one ledger. Gifts go
-              straight to your school through its own giving page. Nivarro never touches the money.
-            </p>
-          </div>
-          <div className="fr-win fr-win-ledger">
-            <div className="fr-win-bar">
-              <Dots />
-              <span>nivarro.co/funds</span>
-            </div>
-            <div className="fr-ledger-view">
-              <Image
-                src="/site/fundraising/ledger.jpg"
-                alt="The gift ledger: Margaret Ellis, $250.00, confirmed received, followed by two online gifts"
-                width={2020}
-                height={960}
-                quality={95}
-              />
-            </div>
           </div>
         </div>
       </section>

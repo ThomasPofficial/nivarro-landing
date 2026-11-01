@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 const INCLUDED = [
   { h: 'Alumni', items: ['CSV import and cleanup', 'Automatic outreach', 'Alumni directory', 'Follow-up reminders'] },
   { h: 'Mentorship', items: ['In-app messaging', 'Teacher approvals', 'Weekly hours review', 'Group chats'] },
-  { h: 'Proof', items: ['Volunteer certificates', 'Employer match records', 'Gift ledger', 'Proof of gift for donors'] },
-  { h: 'Fundraising', items: ['Donation links', 'Links to your own giving page', 'Admin dashboard', 'No cut of any gift'] },
+  { h: 'Proof', items: ['Verified volunteer hours', 'Volunteer certificates'] },
+  { h: 'Fundraising', items: ['Fundraiser and event pages', 'A goal on every page', 'Links to your own giving page', 'No cut of any gift'] },
 ]
 
 const FAQ = [
@@ -32,7 +32,7 @@ const STEPS = [
   { n: '01', t: 'We set up everything.', b: 'Send us your alumni list and your goals. We import and clean it, then configure messaging, approvals and your donation link. You build nothing.' },
   { n: '02', t: 'Alumni get signed up.', b: 'Automatic invitations by email and text, reminders and follow-ups bring your alumni onto the platform. Staff only step in when someone goes quiet.' },
   { n: '03', t: 'They mentor, then give.', b: 'Alumni mentor students for set hours each week, with teacher approval. Seeing the impact makes them more likely to donate, through your donation link.' },
-  { n: '04', t: 'Corporations join in.', b: "Employers get their own software: verified volunteer hours, match claims and gift records, so an alum's company can donate or match." },
+  { n: '04', t: 'Corporations join in.', b: "Alumni show their employer verified volunteer hours and certificates, so an alum's company can donate or match through your school's own giving page." },
 ]
 
 export default function PricingPage() {

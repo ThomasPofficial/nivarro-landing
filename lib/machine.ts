@@ -29,8 +29,8 @@ One platform for your whole alumni community. Nivarro helps schools keep track o
 1. **Alumni directory and tracking.** We import your list and survey your alumni for you, so college and career records stay current without your staff chasing anyone.
 2. **Verified mentorship.** Students ask, teachers approve every pairing, and each thread is logged. Included in the Advanced plan.
 3. **Events and career days.** Invite graduates back to speak, sit on panels and run job shadows.
-4. **Donation links and a gift ledger.** One simple link for reunions and the annual fund. Gifts go straight to your school through its own giving page. Nivarro never touches the money.
-5. **Volunteer hours and employer match.** Verified hours, certificates and match records, so an alum's company can give too.
+4. **Fundraiser pages and donation links.** A fundraiser or event page with a goal, for reunions and the annual fund. Gifts go straight to your school through its own giving page. Nivarro never touches the money.
+5. **Verified volunteer hours.** Verified hours and volunteer certificates, so an alum's company can give too.
 
 ## New: Nivarro × Claude (added 2026-10-26)
 
@@ -48,29 +48,28 @@ A messy spreadsheet becomes a mentorship program.
 2. **Nivarro messages every alum.** Personal invitations by email and text: an invitation on day 0, a reminder on day 3, a final nudge and staff handoff on day 14. Nobody on your staff has to chase anyone.
 3. **Teachers approve. Alumni mentor, in the app.** On the Advanced plan, every pairing is approved by school staff. Mentors and students talk only inside Nivarro, with a teacher in the room.
 4. **A set number of hours a week, verified.** Mentors on the Advanced plan commit to hours each week. Teachers review and approve every log, so the hours are real and countable.
-5. **Proven volunteers give, and so do their employers.** Because every hour is verified, an alum can show their company proof of volunteering (a certificate of volunteer service). Many employers reward that with a donation or a match. The school keeps the receipts.
+5. **Proven volunteers give, and so do their employers.** Because every hour is verified, an alum can show their company proof of volunteering (a certificate of volunteer service). Many employers reward that with a donation or a match.
 
 ### Onboarding, in four parts
 
 1. **We set up everything.** Send us your alumni list and your goals. We import and clean it, then configure messaging, approvals and your donation link. You build nothing.
 2. **Alumni get signed up.** Automatic invitations by email and text, reminders and follow-ups bring your alumni onto the platform. Staff only step in when someone goes quiet.
 3. **They mentor, then give.** Alumni mentor students for set hours each week, with teacher approval. Seeing the impact makes them more likely to donate, through your donation link.
-4. **Corporations join in.** Employers get their own software: verified volunteer hours, match claims and gift records, so an alum's company can donate or match.
+4. **Corporations join in.** Alumni show their employer verified volunteer hours and certificates, so an alum's company can donate or match through your school's own giving page.
 
 ## Built for three kinds of school
 
 - **Public schools: know which classes lead to jobs and college.** Test scores show what students knew in May, not what happened next. Nivarro links every course to where graduates end up, invites them back for career days, and shows families and the district real outcomes. Context: about $893 per student a year goes to curriculum and teacher support, and 22% of 12th graders are proficient in math (NAEP and NCES).
-- **Charter schools: a second source of funding, untapped.** Charters get public dollars and, as nonprofits, can take gifts like private schools. Nivarro brings your first graduates back as mentors while the connection is fresh, shows families and funders real outcomes (pairings, hours and gifts), then invites alumni to give.
+- **Charter schools: a second source of funding, untapped.** Charters get public dollars and, as nonprofits, can take gifts like private schools. Nivarro brings your first graduates back as mentors while the connection is fresh, shows families and funders real outcomes (pairings and hours), then invites alumni to give.
 - **Private schools: decades of alumni, finally put to work.** Tuition doesn't cover costs. Nivarro turns a directory nobody has touched in years into a living roster, active mentors from every graduating class, and an annual fund that grows with every class.
 
 ## Donations
 
 Donation links that go straight to your school.
 
-- **One link.** Your school gets its own donation link, set up for you during onboarding. It links to your school's own giving page.
+- **One page.** Your school gets its own fundraiser page, designed during onboarding, with a goal. It links to your school's own giving page.
 - **Share anywhere.** Email, text, newsletter or print. Alumni open the link on any phone and give.
 - **Straight to you.** Gifts go straight to your school through its own giving page. Nivarro never touches the money.
-- **Gift ledger.** Confirm checks, send donors a proof of gift for employer matching, and track match claims in one place. Gifts go straight to your school through its own giving page. Nivarro never touches the money. (Example shown on the site: a $250.00 check from Margaret Ellis, confirmed received, followed by two online gifts.)
 
 ## Pricing
 
@@ -89,8 +88,8 @@ Two plans, published prices, per school, the same for everyone in a plan.
 
 - **Alumni:** CSV import and cleanup, automatic outreach, alumni directory, follow-up reminders.
 - **Mentorship (Advanced only):** in-app messaging, teacher approvals, weekly hours review, group chats.
-- **Proof:** volunteer certificates, employer match records, gift ledger, proof of gift for donors.
-- **Fundraising:** donation links, links to your own giving page, admin dashboard, no cut of any gift.
+- **Proof:** verified volunteer hours, volunteer certificates.
+- **Fundraising:** fundraiser and event pages, a goal on every page, links to your own giving page, no cut of any gift.
 
 ### Pricing Q&A
 

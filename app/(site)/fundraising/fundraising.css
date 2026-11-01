@@ -93,16 +93,6 @@
 .fr-anat h3 { margin: 0; font-family: var(--font-newsreader), Georgia, serif; font-weight: 400; font-size: 32px; line-height: 38px; color: var(--ink); }
 .fr-anat p:last-child { font-size: 18px; line-height: 28px; color: var(--body); }
 
-/* Ledger */
-.fr-ledger { padding-top: 144px; }
-.fr-ledger-row { display: flex; align-items: center; gap: 64px; }
-.fr-ledger-copy { flex: 0 0 420px; display: flex; flex-direction: column; gap: 24px; }
-.fr-ledger-copy p, .fr-ledger-copy h2 { margin: 0; }
-.fr-win-ledger { flex: 1; min-width: 0; max-width: 828px; transition: transform 0.3s ease; }
-.fr-win-ledger:hover { transform: translateY(-4px); }
-.fr-ledger-view { overflow: hidden; aspect-ratio: 828 / 444; }
-.fr-ledger-view img { width: 108.7%; max-width: none; height: auto; margin-left: 2.9%; }
-
 /* Fee strip */
 .fr-fee-wrap { padding-top: 144px; }
 .fr-fee { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 48px 56px; border-radius: 28px; background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%); }
@@ -138,16 +128,15 @@
 @media (max-width: 1000px) {
   .fr-hero { padding: 48px 0; }
   .fr-ribbon-hero { left: 10%; top: -380px; opacity: 0.55; }
-  .fr-hero-row, .fr-anat-head, .fr-ledger-row, .fr-fee { flex-direction: column; align-items: flex-start; gap: 24px; }
-  .fr-hero-lede, .fr-ledger-copy, .fr-fee > p { flex: none; width: 100%; }
+  .fr-hero-row, .fr-anat-head, .fr-fee { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .fr-hero-lede, .fr-fee > p { flex: none; width: 100%; }
   .fr-stage { padding: 56px 0; }
   .fr-comp { flex-wrap: wrap; }
   .fr-phone-qr { margin-top: 0; }
-  .fr-anatomy, .fr-ledger, .fr-fee-wrap { padding-top: 72px; }
+  .fr-anatomy, .fr-fee-wrap { padding-top: 72px; }
   .fr-anat-grid { flex-direction: column; }
   .fr-anat, .fr-anat:first-child, .fr-anat:last-child { padding: 24px 0; border-left: 0; border-top: 1px solid #D5DAE3; }
   .fr-anat:first-child { border-top: 0; }
-  .fr-win-ledger { width: 100%; max-width: none; }
   .fr-fee { padding: 32px 24px; }
   .fr-pricing { padding-top: 32px; }
   .fr-price-grid { flex-direction: column; }
@@ -156,6 +145,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fr-phone, .fr-anat, .fr-win-ledger, .fr-price { transition: none !important; }
-  .fr-phone:hover, .fr-anat:hover, .fr-win-ledger:hover, .fr-price:hover { transform: none; }
+  .fr-phone, .fr-anat, .fr-price { transition: none !important; }
+  .fr-phone:hover, .fr-anat:hover, .fr-price:hover { transform: none; }
 }

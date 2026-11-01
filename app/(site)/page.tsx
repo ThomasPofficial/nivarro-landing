@@ -29,13 +29,13 @@ const features = [
   },
   {
     n: '04',
-    t: 'Donation links and a gift ledger',
-    b: 'One simple link for reunions and the annual fund. Gifts go straight to your school through its own giving page. Nivarro never touches the money.',
+    t: 'Fundraiser pages and donation links',
+    b: 'A fundraiser or event page with a goal, for reunions and the annual fund. Gifts go straight to your school through its own giving page. Nivarro never touches the money.',
   },
   {
     n: '05',
-    t: 'Volunteer hours and employer match',
-    b: "Verified hours, certificates and match records, so an alum's company can give too.",
+    t: 'Verified volunteer hours',
+    b: "Verified hours and volunteer certificates, so an alum's company can give too.",
   },
 ]
 
@@ -85,7 +85,7 @@ const steps = [
   { n: '01', t: 'We set up everything.', b: 'Send us your alumni list and your goals. We import and clean it, then configure messaging, approvals and your donation link. You build nothing.' },
   { n: '02', t: 'Alumni get signed up.', b: 'Automatic invitations by email and text, reminders and follow-ups bring your alumni onto the platform. Staff only step in when someone goes quiet.' },
   { n: '03', t: 'They mentor, then give.', b: 'Alumni mentor students for set hours each week, with teacher approval. Seeing the impact makes them more likely to donate, through your donation link.' },
-  { n: '04', t: 'Corporations join in.', b: "Employers get their own software: verified volunteer hours, match claims and gift records, so an alum's company can donate or match." },
+  { n: '04', t: 'Corporations join in.', b: "Alumni show their employer verified volunteer hours and certificates, so an alum's company can donate or match through your school's own giving page." },
 ]
 
 const founders = [
@@ -159,7 +159,7 @@ export default function Home() {
         <div className="hm3-marq-track">
           {[0, 1].map((k) => (
             <ul key={k}>
-              {['Alumni tracker', 'Verified mentorship', 'Career days', 'Donation links', 'Employer match', 'Outcome surveys', 'Teacher approval'].map((t) => (
+              {['Alumni tracker', 'Verified mentorship', 'Career days', 'Donation links', 'Volunteer hours', 'Outcome surveys', 'Teacher approval'].map((t) => (
                 <li key={t}>
                   <i />
                   {t}
