@@ -17,7 +17,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: 'Nivarro — The alumni engagement platform for public, charter and private schools',
-  description: 'Turn your alumni network into ongoing mentorship and reliable annual giving — a private community, verified mentorship, and a real-time admin dashboard, funded straight to your school\'s bank account.',
+  description: 'Turn your alumni network into ongoing mentorship and reliable annual giving — a private community, verified mentorship, and a real-time admin dashboard. Gifts go straight to your school through its own giving page. Nivarro never touches the money.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

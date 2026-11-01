@@ -35,7 +35,7 @@ const IDEAS = [
   {
     num: '03',
     title: 'The idea: admin dashboard',
-    text: "Every gift would land directly in your school's own bank account, and you'd watch the number move, live.",
+    text: "You'd watch alumni sign up, mentor and give, live. Gifts would go straight to your school through its own giving page.",
   },
 ]
 

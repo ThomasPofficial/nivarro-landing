@@ -7,20 +7,20 @@ import './pricing.css'
 export const metadata: Metadata = {
   title: 'Pricing | Nivarro',
   description:
-    'Two published plans: $2,000 a semester for public schools and $4,500 a semester for private and charter schools, plus 5.5% + 30¢ on every donation. First semester free.',
+    'Two published plans: $2,000 a semester for public schools and $4,500 a semester for private and charter schools. First semester free. Gifts go straight to your school through its own giving page. Nivarro never touches the money.',
 }
 
 const INCLUDED = [
   { h: 'Alumni', items: ['CSV import and cleanup', 'Automatic outreach', 'Alumni directory', 'Follow-up reminders'] },
   { h: 'Mentorship', items: ['In-app messaging', 'Teacher approvals', 'Weekly hours review', 'Group chats'] },
   { h: 'Proof', items: ['Volunteer certificates', 'Employer match records', 'Gift ledger', 'Proof of gift for donors'] },
-  { h: 'Fundraising', items: ['Donation links', 'Payouts to your bank', 'Admin dashboard', 'Donor fee option'] },
+  { h: 'Fundraising', items: ['Donation links', 'Links to your own giving page', 'Admin dashboard', 'No cut of any gift'] },
 ]
 
 const FAQ = [
   [
-    { q: 'How is the donation fee calculated?', a: '5.5% of the gift plus 30¢, taken from each donation. Nothing else is taken from what you raise.' },
-    { q: 'Can donors cover the fee?', a: 'Yes. Donors can choose to cover it, so the school receives 100% of the amount they intended to give.' },
+    { q: 'Does Nivarro take a cut of donations?', a: 'No. Gifts go straight to your school through its own giving page. Nivarro never touches the money.' },
+    { q: 'How do alumni give?', a: "Through your school's own giving page. Your Nivarro donation link sends them straight there." },
   ],
   [
     { q: 'How do we pay for the platform?', a: '$2,000 a semester for public schools, $4,500 a semester for private and charter schools. The first semester is free.' },
@@ -45,7 +45,7 @@ export default function PricingPage() {
             <h1 className="pr-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>Two plans. Published prices.</h1>
           </div>
           <p className="pr-hero-lede hm3-in" style={{ ['--d' as string]: '200ms' }}>
-            One plan for public schools, one for private and charter schools. Your first semester is free.
+            One plan for public schools, one for private and charter schools. Your first semester is free, and the first 7 schools pay half price for life.
           </p>
         </div>
       </section>
@@ -81,18 +81,6 @@ export default function PricingPage() {
               </ul>
             </div>
             <Link href="/demo" className="pr-pill pr-pill-navy">Request a demo</Link>
-          </article>
-          <article className="pr-tile pr-tile-navy mo mo-lift" style={{ ['--d' as string]: '240ms' }}>
-            <div className="pr-tile-top">
-              <p className="pr-eyebrow pr-c-peach">PLUS, ON EVERY DONATION</p>
-              <p className="pr-price pr-price-fee mo-foil">5.5% + 30¢</p>
-              <ul className="pr-bul pr-bul-dark">
-                <li>The school keeps the rest</li>
-                <li>Donors can cover the fee</li>
-                <li>Nothing else is taken from gifts</li>
-              </ul>
-            </div>
-            <p className="pr-eyebrow pr-c-peach">FIRST 7 SCHOOLS PAY HALF PRICE FOR LIFE</p>
           </article>
         </div>
       </section>

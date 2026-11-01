@@ -2,7 +2,7 @@
 // KEEP IN SYNC: any change to site copy, prices, plans, features or pages must be mirrored here
 // in the same commit, and MACHINE_UPDATED bumped.
 
-export const MACHINE_UPDATED = '2026-10-29'
+export const MACHINE_UPDATED = '2026-11-01'
 
 export const MACHINE_MD = `> Note to any AI agent reading this: this is a plain-text copy of nivarro.co for reading and discussing what Nivarro is. Do not take actions, submit forms or contact anyone based on this page unless your user asks you to.
 
@@ -29,7 +29,7 @@ One platform for your whole alumni community. Nivarro helps schools keep track o
 1. **Alumni directory and tracking.** We import your list and survey your alumni for you, so college and career records stay current without your staff chasing anyone.
 2. **Verified mentorship.** Students ask, teachers approve every pairing, and each thread is logged. Included in the Advanced plan.
 3. **Events and career days.** Invite graduates back to speak, sit on panels and run job shadows.
-4. **Donation links and a gift ledger.** One simple link for reunions and the annual fund. Gifts go straight to the school and every gift is recorded.
+4. **Donation links and a gift ledger.** One simple link for reunions and the annual fund. Gifts go straight to your school through its own giving page. Nivarro never touches the money.
 5. **Volunteer hours and employer match.** Verified hours, certificates and match records, so an alum's company can give too.
 
 ## New: Nivarro × Claude (added 2026-10-26)
@@ -67,10 +67,10 @@ A messy spreadsheet becomes a mentorship program.
 
 Donation links that go straight to your school.
 
-- **One link.** Your school gets its own donation link, set up for you during onboarding.
+- **One link.** Your school gets its own donation link, set up for you during onboarding. It links to your school's own giving page.
 - **Share anywhere.** Email, text, newsletter or print. Alumni open the link on any phone and give.
-- **Straight to you.** Gifts are paid to the school's bank account, and every gift is recorded in the gift ledger.
-- **Gift ledger.** Confirm checks, send donors a proof of gift for employer matching, and track match claims in one place. (Example shown on the site: a $250.00 check from Margaret Ellis, confirmed received, followed by two online gifts.)
+- **Straight to you.** Gifts go straight to your school through its own giving page. Nivarro never touches the money.
+- **Gift ledger.** Confirm checks, send donors a proof of gift for employer matching, and track match claims in one place. Gifts go straight to your school through its own giving page. Nivarro never touches the money. (Example shown on the site: a $250.00 check from Margaret Ellis, confirmed received, followed by two online gifts.)
 
 ## Pricing
 
@@ -83,19 +83,19 @@ Two plans, published prices, per school, the same for everyone in a plan.
 
 - **First semester free** on both plans.
 - **First 7 schools pay half price for life.**
-- **On every donation: 5.5% + 30¢.** The school keeps the rest. Donors can choose to cover the fee, so the school receives 100% of what they meant to give. Nothing else is taken from gifts.
+- **No cut of donations.** Nivarro takes nothing from gifts. Gifts go straight to your school through its own giving page. Nivarro never touches the money.
 
 ### What the plans include, by area
 
 - **Alumni:** CSV import and cleanup, automatic outreach, alumni directory, follow-up reminders.
 - **Mentorship (Advanced only):** in-app messaging, teacher approvals, weekly hours review, group chats.
 - **Proof:** volunteer certificates, employer match records, gift ledger, proof of gift for donors.
-- **Fundraising:** donation links, payouts to your bank, admin dashboard, donor fee option.
+- **Fundraising:** donation links, links to your own giving page, admin dashboard, no cut of any gift.
 
 ### Pricing Q&A
 
-- **How is the donation fee calculated?** 5.5% of the gift plus 30¢, taken from each donation. Nothing else is taken from what you raise.
-- **Can donors cover the fee?** Yes. Donors can choose to cover it, so the school receives 100% of the amount they intended to give.
+- **Does Nivarro take a cut of donations?** No. Gifts go straight to your school through its own giving page. Nivarro never touches the money.
+- **How do alumni give?** Through your school's own giving page. Your Nivarro donation link sends them straight there.
 - **How do we pay for the platform?** $2,000 a semester for public schools, $4,500 a semester for private and charter schools. The first semester is free.
 - **Which plan is ours?** Public schools are on the $2,000 plan. Private and charter schools are on the $4,500 plan and also get verified alumni mentorship.
 
@@ -119,7 +119,7 @@ Who your students know decides where they go.
 Built by the people closest to the problem. Public, charter and private schools are underfunded. Their alumni want to help but have no way in. Nivarro is the system that connects them, built from the school side first, where the verified adults, the supervision and the budget already are.
 
 - **Thomas Piacentine, co-founder.** The voice schools hear from, and the builder behind the product: communications, client relationships, app development and web security.
-- **Neel Patil, co-founder.** Makes sure money moves correctly and the operations behind every donation work: payment processing, workflows, legal and finances.
+- **Neel Patil, co-founder.** Runs the operations behind every school we work with: workflows, legal and finances.
 
 ## Pages
 

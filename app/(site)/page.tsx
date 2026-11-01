@@ -5,7 +5,6 @@ import CountUp from '@/components/motion/CountUp'
 import StatsCarousel from '@/components/motion/StatsCarousel'
 import ProductTour from '@/components/motion/ProductTour'
 import HeroStack from '@/components/motion/HeroStack'
-import DonateDemo from '@/components/motion/DonateDemo'
 import ClaudeVideo from '@/components/motion/ClaudeVideo'
 import ClaudeSpark from '@/components/site/ClaudeSpark'
 import LoopVideo from '@/components/motion/LoopVideo'
@@ -31,7 +30,7 @@ const features = [
   {
     n: '04',
     t: 'Donation links and a gift ledger',
-    b: 'One simple link for reunions and the annual fund. Gifts go straight to the school and every gift is recorded.',
+    b: 'One simple link for reunions and the annual fund. Gifts go straight to your school through its own giving page. Nivarro never touches the money.',
   },
   {
     n: '05',
@@ -99,8 +98,8 @@ const founders = [
   {
     name: 'Neel Patil',
     img: '/about/neel.jpg',
-    body: 'Makes sure money moves correctly and the operations behind every donation work. Owns payment processing, workflows, legal and finances.',
-    tags: ['Payment processing', 'Workflows', 'Legal', 'Finances'],
+    body: 'Runs the operations behind every school we work with. Owns workflows, legal and finances.',
+    tags: ['Operations', 'Workflows', 'Legal', 'Finances'],
   },
 ]
 
@@ -281,25 +280,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Donation link demo */}
-      <section className="hm3-give" data-mo-self>
-        <div className="nv-wrap hm3-give-grid">
-          <div className="hm3-give-copy">
-            <p className="hm-eyebrow hm-eyebrow-gold mo">TRY THE DONATION LINK</p>
-            <h2 className="hm-h2-56 mo" style={{ ['--d' as string]: '80ms' }}>
-              This is what your donors see.
-            </h2>
-            <p className="hm-lede mo" style={{ ['--d' as string]: '160ms' }}>
-              One simple link for reunions, the annual fund and booster drives. Pick an amount and watch exactly where
-              the money goes. Donors can cover the 5.5% + 30¢ fee so your school receives 100%.
-            </p>
-          </div>
-          <div className="mo" style={{ ['--d' as string]: '140ms' }}>
-            <DonateDemo />
-          </div>
-        </div>
-      </section>
-
       {/* Schools */}
       <section className="hm-schools hm3-schools" data-mo-self>
         <div className="nv-wrap">
@@ -410,18 +390,9 @@ export default function Home() {
                 Request a demo
               </Link>
             </div>
-            <div className="hm3-price hm3-price-fee mo" style={{ ['--d' as string]: '220ms' }}>
-              <p className="hm-eyebrow hm-eyebrow-sky">ON EVERY GIFT</p>
-              <p className="hm-price-n hm-price-fee">5.5% + 30¢</p>
-              <ul>
-                <li>The school keeps the rest</li>
-                <li>Your first semester is free</li>
-                <li>First 7 schools pay half price for life</li>
-              </ul>
-            </div>
           </div>
           <p className="hm-price-note">
-            Prices are per school, published, and the same for everyone in your plan.{' '}
+            Prices are per school, published, and the same for everyone in your plan. The first 7 schools pay half price for life.{' '}
             <Link href="/pricing">See pricing →</Link>
           </p>
         </div>

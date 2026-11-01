@@ -7,13 +7,13 @@ import './fundraising.css'
 export const metadata: Metadata = {
   title: 'Donation links for private and charter schools | Nivarro',
   description:
-    'A simple donation link for your school. Share it by email, text or print, and gifts are paid straight to your school. 5.5% + 30¢ per donation.',
+    'A simple donation link for your school. Share it by email, text or print. Gifts go straight to your school through its own giving page. Nivarro never touches the money.',
 }
 
 const ANATOMY = [
-  { k: 'A · ONE LINK', h: 'Your school gets its own donation link.', p: 'We set it up for you during onboarding.' },
+  { k: 'A · ONE LINK', h: 'Your school gets its own donation link.', p: "We set it up for you during onboarding. It links to your school's own giving page." },
   { k: 'B · SHARE ANYWHERE', h: 'Email, text, newsletter or print.', p: 'Alumni open the link on any phone and give.' },
-  { k: 'C · STRAIGHT TO YOU', h: 'Gifts are paid to your bank account.', p: 'Every gift is recorded in your ledger.' },
+  { k: 'C · STRAIGHT TO YOU', h: 'Gifts go straight to your school.', p: 'Through its own giving page. Nivarro never touches the money.' },
 ]
 
 function Dots() {
@@ -37,8 +37,8 @@ export default function FundraisingPage() {
             <h1 className="fr-h1">Donation links that go straight to your school.</h1>
           </div>
           <p className="fr-hero-lede">
-            Give alumni one simple link to give. Share it in an email, a text or a program, and every gift is paid to your school's
-            bank account.
+            Give alumni one simple link to give. Share it in an email, a text or a program. Gifts go straight to your school
+            through its own giving page. Nivarro never touches the money.
           </p>
         </div>
       </section>
@@ -69,8 +69,8 @@ export default function FundraisingPage() {
             <p className="nv-fine fr-eyebrow">The gift ledger</p>
             <h2 className="fr-h2">Every gift, recorded and accounted for.</h2>
             <p className="fr-lede">
-              Confirm checks, send donors a proof of gift for employer matching, and track match claims from one ledger. Gifts are
-              paid straight to the school&apos;s bank account.
+              Confirm checks, send donors a proof of gift for employer matching, and track match claims from one ledger. Gifts go
+              straight to your school through its own giving page. Nivarro never touches the money.
             </p>
           </div>
           <div className="fr-win fr-win-ledger">
@@ -91,16 +91,16 @@ export default function FundraisingPage() {
         </div>
       </section>
 
-      {/* Fee strip */}
+      {/* What we take */}
       <section className="fr-fee-wrap">
         <div className="nv-wrap">
           <div className="fr-fee">
             <div>
               <p className="nv-fine fr-amber">What we take</p>
-              <h2 className="fr-h2 fr-white">5.5% + 30¢ per donation.</h2>
+              <h2 className="fr-h2 fr-white">Nothing from your gifts.</h2>
             </div>
             <p>
-              The school keeps the rest. Donors can choose to cover the fee, so the school receives 100% of what they meant to give.
+              Gifts go straight to your school through its own giving page. Nivarro never touches the money.
             </p>
           </div>
         </div>
@@ -118,11 +118,6 @@ export default function FundraisingPage() {
             <p className="nv-fine">Advanced plan · Private &amp; charter</p>
             <p className="fr-big">$4,500</p>
             <p className="fr-price-copy">per semester · $100 to sign. Everything in base, plus verified alumni mentorship.</p>
-          </div>
-          <div className="fr-price fr-price-dark" style={{ borderTopColor: '#2F5BEA' }}>
-            <p className="nv-fine fr-amber">On every donation</p>
-            <p className="fr-big fr-big-sm">5.5% + 30¢</p>
-            <p className="fr-price-copy">The school keeps the rest. Donors can cover the fee so the school receives 100%.</p>
           </div>
         </div>
       </section>

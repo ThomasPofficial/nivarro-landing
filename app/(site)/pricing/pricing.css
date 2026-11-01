@@ -15,7 +15,7 @@
 .pr-hero-lede { width: 340px; flex-shrink: 0; padding-bottom: 10px; font-size: 18px; line-height: 28px; color: #0A2540; }
 
 /* Price tiles */
-.pr-tiles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.pr-tiles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .pr-tile {
   display: flex; flex-direction: column; justify-content: space-between; gap: 40px;
   min-height: 520px; padding: 36px; border-radius: 28px;
