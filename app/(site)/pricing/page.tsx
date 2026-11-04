@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Ribbon from '@/components/home/Ribbon'
 import CtaBand from '@/components/site/CtaBand'
-import { COMPARE, COMPETITION, FEATURES, MENTORSHIP_NOTE, PLANS, USES } from '@/lib/plans'
+import { COMPARE, FEATURES, MENTORSHIP_NOTE, PLANS, USES } from '@/lib/plans'
 import './pricing.css'
 
 export const metadata: Metadata = {
@@ -138,16 +138,6 @@ export default function PricingPage() {
             <p className="pr-eyebrow">PRIVATE · PUBLIC · CHARTER</p>
           </div>
           <Table caption="What each school uses it for" head={['Private', 'Public', 'Charter']} rows={USES} />
-        </div>
-      </section>
-
-      <section className="pr-section">
-        <div className="nv-wrap">
-          <div className="pr-head">
-            <h2 className="pr-h2">Against the competition.</h2>
-            <p className="pr-eyebrow">PUBLISHED, NOT BY QUOTE</p>
-          </div>
-          <Table caption="Nivarro against the competition" head={['Nivarro', 'Almabase', 'Blackbaud']} rows={COMPETITION} />
         </div>
       </section>
 

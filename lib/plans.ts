@@ -110,12 +110,3 @@ export const USES: [string, string, string, string][] = [
   ['Biggest pain it solves', 'Messy Blackbaud reports and outdated contacts', 'No alumni system at all', 'No alumni system and untapped donations'],
   ['Who usually signs', 'Head of School or Advancement', 'Booster club or education foundation', 'Charter board or executive director'],
 ]
-
-/** Against the competition. Columns: Nivarro, Almabase, Blackbaud. */
-export const COMPETITION: [string, string, string, string][] = [
-  ['Yearly price', '$7,800–9,000, published', '~$6,000–25,000, by quote', '~$10,000–150,000+, by quote'],
-  ['Setup', '$0', 'Varies', '~$5,000–75,000'],
-  ['AI contact-data update bot', Y, 'Limited', 'Limited'],
-  ['Safe mentorship for under-18s', Y, N, N],
-  ['Cancel anytime', Y, 'Contract', 'Multi-year contract, fees to leave early'],
-]

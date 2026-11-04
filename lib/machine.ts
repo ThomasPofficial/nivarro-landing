@@ -115,16 +115,6 @@ Published prices, per school, the same for everyone in a plan. Every feature is 
 | Biggest pain it solves | Messy Blackbaud reports and outdated contacts | No alumni system at all | No alumni system and untapped donations |
 | Who usually signs | Head of School or Advancement | Booster club or education foundation | Charter board or executive director |
 
-### Against the competition
-
-| | Nivarro | Almabase | Blackbaud |
-|---|---|---|---|
-| Yearly price | $7,800–9,000, published | ~$6,000–25,000, by quote | ~$10,000–150,000+, by quote |
-| Setup | $0 | Varies | ~$5,000–75,000 |
-| AI contact-data update bot | ✓ | Limited | Limited |
-| Safe mentorship for under-18s | ✓ | — | — |
-| Cancel anytime | ✓ | Contract | Multi-year contract, fees to leave early |
-
 ### Pricing Q&A
 
 - **Which plan is ours?** Private schools are on the $650 plan. Public and charter schools are on the $750 plan, which includes a database hosted by Nivarro and spreadsheet import by our agent. The first 7 private schools pay $325 a month for life.
