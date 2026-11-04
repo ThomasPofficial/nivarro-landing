@@ -76,7 +76,7 @@ const voices = [
   },
   {
     dark: false,
-    q: 'One school we spoke with is hiring a full-time Director of Alumni Engagement at $75,000 to $90,000 a year. Our most advanced plan is $9,000 a year. That is $66,000 to $81,000 saved.',
+    q: 'One school we spoke with is hiring a full-time Director of Alumni Engagement at $75,000 to $90,000 a year. Our highest plan is $9,000 a year. That is $66,000 to $81,000 saved.',
     who: 'AN ADVANCEMENT OFFICE',
   },
 ]
@@ -119,8 +119,8 @@ export default function Home() {
             </h1>
             <p className="hm-lede hm3-in" style={{ ['--d' as string]: '200ms' }}>
               You know what one caring adult can do for a teenager. Your graduates are ready to be that adult, and
-              Nivarro gives them a simple way in. Start with the base plan at $2,000 a semester, and add verified
-              mentorship when you are ready.
+              Nivarro gives them a simple way in. Plans start at $650 a month, with every feature included,
+              no setup fee and no contract.
             </p>
             <div className="hm-btns hm3-in" style={{ ['--d' as string]: '310ms' }}>
               <Link href="/demo" className="nv-btn hm-btn-xl">
@@ -359,40 +359,52 @@ export default function Home() {
       {/* Plans */}
       <section className="hm-pricing hm3-pricing" data-mo-self>
         <div className="nv-wrap">
-          <div className="hm3-price-grid">
+          <div className="hm3-price-grid hm3-price-grid-3">
             <div className="hm3-price mo">
-              <p className="hm-eyebrow hm-eyebrow-muted">BASE PLAN · PUBLIC SCHOOLS</p>
-              <p className="hm-price-n">$2,000</p>
-              <p className="hm3-price-sub">per semester · $4,000/yr · $50 to sign</p>
+              <p className="hm-eyebrow hm-eyebrow-muted">PRIVATE SCHOOLS</p>
+              <p className="hm-price-n">$650</p>
+              <p className="hm3-price-sub">per month · $7,800/yr · $0 setup</p>
               <ul>
-                <li>Alumni tracker and directory</li>
-                <li>Outcome surveys we run for you</li>
-                <li>Alumni events and career days</li>
-                <li>Booster and PTA donation links</li>
-                <li>First semester free</li>
+                <li>Syncs with Raiser&apos;s Edge NXT / Blackbaud</li>
+                <li>Every feature included</li>
+                <li>Check-in calls every two weeks</li>
+                <li>Cancel anytime</li>
               </ul>
               <Link href="/demo" className="nv-btn">
                 Request a demo
               </Link>
             </div>
-            <div className="hm3-price hm3-price-adv mo" style={{ ['--d' as string]: '110ms' }}>
-              <p className="hm-eyebrow hm-eyebrow-muted">ADVANCED PLAN · PRIVATE & CHARTER</p>
-              <p className="hm-price-n">$4,500</p>
-              <p className="hm3-price-sub">per semester · $9,000/yr · $100 to sign</p>
+            <div className="hm3-price hm3-price-mid mo" style={{ ['--d' as string]: '110ms' }}>
+              <p className="hm-eyebrow hm-eyebrow-muted">PUBLIC &amp; CHARTER SCHOOLS</p>
+              <p className="hm-price-n">$750</p>
+              <p className="hm3-price-sub">per month · $9,000/yr · $0 setup</p>
               <ul>
-                <li>Everything in the base plan</li>
-                <li>Verified alumni mentorship</li>
-                <li>Teacher approval for every pairing</li>
-                <li>Safe, logged in-app messaging</li>
-                <li>First semester free</li>
+                <li>Alumni database hosted by Nivarro</li>
+                <li>Our agent imports your spreadsheets</li>
+                <li>Every feature included</li>
+                <li>Check-in calls every two weeks</li>
               </ul>
               <Link href="/demo" className="nv-btn nv-btn-dark">
                 Request a demo
               </Link>
             </div>
+            <div className="hm3-price hm3-price-adv mo" style={{ ['--d' as string]: '220ms' }}>
+              <p className="hm-eyebrow hm-eyebrow-muted">FOUNDING 7 · PRIVATE SCHOOLS</p>
+              <p className="hm-price-n">$325</p>
+              <p className="hm3-price-sub">per month for life · $3,900/yr · $0 setup</p>
+              <ul>
+                <li>First semester free</li>
+                <li>Syncs with Blackbaud</li>
+                <li>Every feature included</li>
+                <li>Weekly check-in calls</li>
+              </ul>
+              <Link href="/demo" className="nv-btn">
+                Claim a founding spot
+              </Link>
+            </div>
           </div>
           <p className="hm-price-note">
-            Prices are per school, published, and the same for everyone in your plan. The first 7 schools pay half price for life.{' '}
+            Prices are per school, published, and the same for everyone in your plan. Every feature is in every plan, and you can pay monthly or yearly.{' '}
             <Link href="/pricing">See pricing →</Link>
           </p>
         </div>

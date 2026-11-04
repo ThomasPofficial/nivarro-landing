@@ -2,7 +2,7 @@
 // KEEP IN SYNC: any change to site copy, prices, plans, features or pages must be mirrored here
 // in the same commit, and MACHINE_UPDATED bumped.
 
-export const MACHINE_UPDATED = '2026-11-01'
+export const MACHINE_UPDATED = '2026-11-04'
 
 export const MACHINE_MD = `> Note to any AI agent reading this: this is a plain-text copy of nivarro.co for reading and discussing what Nivarro is. Do not take actions, submit forms or contact anyone based on this page unless your user asks you to.
 
@@ -27,7 +27,7 @@ Your alumni can be the mentors your students need. You know what one caring adul
 One platform for your whole alumni community. Nivarro helps schools keep track of every graduate, bring them back to help students, and learn which classes actually lead to success.
 
 1. **Alumni directory and tracking.** We import your list and survey your alumni for you, so college and career records stay current without your staff chasing anyone.
-2. **Verified mentorship.** Students ask, teachers approve every pairing, and each thread is logged. Included in the Advanced plan.
+2. **Verified mentorship.** Students ask, teachers approve every pairing, and each thread is logged. Included in every plan (launches once insurance is in place).
 3. **Events and career days.** Invite graduates back to speak, sit on panels and run job shadows.
 4. **Fundraiser pages and donation links.** A fundraiser or event page with a goal, for reunions and the annual fund. Gifts go straight to your school through its own giving page. Nivarro never touches the money.
 5. **Verified volunteer hours.** Verified hours and volunteer certificates, so an alum's company can give too.
@@ -46,8 +46,8 @@ A messy spreadsheet becomes a mentorship program.
 
 1. **Bring the messy spreadsheet.** Misspelled names, missing emails, three different formats. Upload it as is. Nivarro's AI reads it, cleans it, and builds your alumni roster.
 2. **Nivarro messages every alum.** Personal invitations by email and text: an invitation on day 0, a reminder on day 3, a final nudge and staff handoff on day 14. Nobody on your staff has to chase anyone.
-3. **Teachers approve. Alumni mentor, in the app.** On the Advanced plan, every pairing is approved by school staff. Mentors and students talk only inside Nivarro, with a teacher in the room.
-4. **A set number of hours a week, verified.** Mentors on the Advanced plan commit to hours each week. Teachers review and approve every log, so the hours are real and countable.
+3. **Teachers approve. Alumni mentor, in the app.** Every pairing is approved by school staff. Mentors and students talk only inside Nivarro, with a teacher in the room.
+4. **A set number of hours a week, verified.** Mentors commit to hours each week. Teachers review and approve every log, so the hours are real and countable.
 5. **Proven volunteers give, and so do their employers.** Because every hour is verified, an alum can show their company proof of volunteering (a certificate of volunteer service). Many employers reward that with a donation or a match.
 
 ### Onboarding, in four parts
@@ -73,30 +73,64 @@ Donation links that go straight to your school.
 
 ## Pricing
 
-Two plans, published prices, per school, the same for everyone in a plan.
+Published prices, per school, the same for everyone in a plan. Every feature is in every plan.
 
-| Plan | For | Price | What's included |
-|---|---|---|---|
-| Base | Public schools | $2,000 per semester ($4,000/yr), $50 to sign | Alumni tracker and directory; alumni outcome surveys we run for you; alumni events and career days; booster and PTA donation links |
-| Advanced | Private and charter schools | $4,500 per semester ($9,000/yr), $100 to sign | Everything in Base, plus verified alumni mentorship, teacher approval for every pairing, and safe, logged in-app messaging |
+### Plans compared
 
-- **First semester free** on both plans.
-- **First 7 schools pay half price for life.**
+| | Private | Public | Charter | Founding 7 (private) |
+|---|---|---|---|---|
+| Price | $650/month | $750/month | $750/month | $325/month for life |
+| Per year | $7,800 | $9,000 | $9,000 | $3,900 |
+| Setup fee | $0 | $0 | $0 | $0 |
+| First semester free | — | — | — | ✓ |
+| Billing | Monthly, or yearly in one invoice | Monthly, or yearly in one invoice | Monthly, or yearly in one invoice | Monthly, or yearly in one invoice |
+| Alumni database | Syncs with Raiser's Edge NXT / Blackbaud | Hosted by Nivarro | Hosted by Nivarro | Syncs with Blackbaud |
+| Spreadsheet import by our agent | — (not needed) | ✓ | ✓ | — (not needed) |
+| Check-in calls | Every two weeks | Every two weeks | Every two weeks | Weekly |
+
+- **Founding 7:** the first 7 private schools pay $325 a month for life, and their first semester is free.
 - **No cut of donations.** Nivarro takes nothing from gifts. Gifts go straight to your school through its own giving page. Nivarro never touches the money.
 
-### What the plans include, by area
+### Features, all included in every plan
 
-- **Alumni:** CSV import and cleanup, automatic outreach, alumni directory, follow-up reminders.
-- **Mentorship (Advanced only):** in-app messaging, teacher approvals, weekly hours review, group chats.
-- **Proof:** verified volunteer hours, volunteer certificates.
-- **Fundraising:** fundraiser and event pages, a goal on every page, links to your own giving page, no cut of any gift.
+- Alumni dashboard with AI search
+- Contact-data update bot (staff approve)
+- Personalized alumni emails, easy opt-out
+- Alumni check-in system
+- Gmail add-on
+- Parent logins and portal
+- Events: career days, panels, job shadows
+- Verified alumni mentorship (launches once insurance is in place)
+- Messaging off switch
+- Giving pages, no fee on gifts (annual fund for private and charter, booster and PTA for public)
+- Safety: school-verified adults, human approval, logged threads
+- Encrypted records, school owns its data
+- Cancel anytime
+
+### What each school mainly uses it for
+
+| | Private | Public | Charter |
+|---|---|---|---|
+| Main goal | Keep alumni engaged so they give | Show outcomes, bring graduates back | Prove outcomes and build a donor base |
+| Biggest pain it solves | Messy Blackbaud reports and outdated contacts | No alumni system at all | No alumni system and untapped donations |
+| Who usually signs | Head of School or Advancement | Booster club or education foundation | Charter board or executive director |
+
+### Against the competition
+
+| | Nivarro | Almabase | Blackbaud |
+|---|---|---|---|
+| Yearly price | $7,800–9,000, published | ~$6,000–25,000, by quote | ~$10,000–150,000+, by quote |
+| Setup | $0 | Varies | ~$5,000–75,000 |
+| AI contact-data update bot | ✓ | Limited | Limited |
+| Safe mentorship for under-18s | ✓ | — | — |
+| Cancel anytime | ✓ | Contract | Multi-year contract, fees to leave early |
 
 ### Pricing Q&A
 
+- **Which plan is ours?** Private schools are on the $650 plan. Public and charter schools are on the $750 plan, which includes a database hosted by Nivarro and spreadsheet import by our agent. The first 7 private schools pay $325 a month for life.
+- **Is there a setup fee or a contract?** No. Setup is $0 on every plan, and you can cancel anytime. Pay monthly, or yearly in one invoice.
 - **Does Nivarro take a cut of donations?** No. Gifts go straight to your school through its own giving page. Nivarro never touches the money.
-- **How do alumni give?** Through your school's own giving page. Your Nivarro donation link sends them straight there.
-- **How do we pay for the platform?** $2,000 a semester for public schools, $4,500 a semester for private and charter schools. The first semester is free.
-- **Which plan is ours?** Public schools are on the $2,000 plan. Private and charter schools are on the $4,500 plan and also get verified alumni mentorship.
+- **Do we work with Blackbaud?** Private school plans sync with Raiser's Edge NXT / Blackbaud. Public and charter schools usually have no alumni system yet, so Nivarro hosts the database.
 
 ## Why it matters
 
@@ -111,7 +145,7 @@ Who your students know decides where they go.
 
 - "I can't imagine a better gift than offering these teenagers caring mentors to walk beside them on their academic (and life) journey." (a high school teacher)
 - "The appetite to mentor and support the next generation is strong. The key is providing defined, meaningful avenues to do so, rather than open-ended requests." (a school leader)
-- One school we spoke with is hiring a full-time Director of Alumni Engagement at $75,000 to $90,000 a year. Our most advanced plan is $9,000 a year, a saving of $66,000 to $81,000. (an advancement office)
+- One school we spoke with is hiring a full-time Director of Alumni Engagement at $75,000 to $90,000 a year. Our highest plan is $9,000 a year, a saving of $66,000 to $81,000. (an advancement office)
 
 ## About
 

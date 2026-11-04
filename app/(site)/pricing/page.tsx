@@ -2,29 +2,32 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Ribbon from '@/components/home/Ribbon'
 import CtaBand from '@/components/site/CtaBand'
+import { COMPARE, COMPETITION, FEATURES, MENTORSHIP_NOTE, PLANS, USES } from '@/lib/plans'
 import './pricing.css'
 
 export const metadata: Metadata = {
   title: 'Pricing | Nivarro',
   description:
-    'Two published plans: $2,000 a semester for public schools and $4,500 a semester for private and charter schools. First semester free. Gifts go straight to your school through its own giving page. Nivarro never touches the money.',
+    'Published prices: $650 a month for private schools, $750 a month for public and charter schools, and $325 a month for life for the Founding 7. No setup fee, every feature in every plan, cancel anytime.',
 }
 
-const INCLUDED = [
-  { h: 'Alumni', items: ['CSV import and cleanup', 'Automatic outreach', 'Alumni directory', 'Follow-up reminders'] },
-  { h: 'Mentorship', items: ['In-app messaging', 'Teacher approvals', 'Weekly hours review', 'Group chats'] },
-  { h: 'Proof', items: ['Verified volunteer hours', 'Volunteer certificates'] },
-  { h: 'Fundraising', items: ['Fundraiser and event pages', 'A goal on every page', 'Links to your own giving page', 'No cut of any gift'] },
-]
+const TILE_STYLE: Record<string, { tile: string; eyebrow: string; price: string; note: string; pill: string; bul: string }> = {
+  private: { tile: 'pr-tile-blue', eyebrow: 'pr-c-cf', price: '', note: 'pr-c-e4', pill: 'pr-pill-white', bul: 'pr-c-e4' },
+  public: { tile: 'pr-tile-tint', eyebrow: 'pr-c-ink2', price: 'pr-c-navy', note: 'pr-c-ink2', pill: 'pr-pill-navy', bul: 'pr-c-ink2' },
+  charter: { tile: 'pr-tile-tint', eyebrow: 'pr-c-ink2', price: 'pr-c-navy', note: 'pr-c-ink2', pill: 'pr-pill-navy', bul: 'pr-c-ink2' },
+  founding: { tile: 'pr-tile-navy', eyebrow: 'pr-c-gold', price: 'pr-c-gold', note: 'pr-c-c6', pill: 'pr-pill-gold', bul: 'pr-c-c6' },
+}
+
+const PLAN_COLS = ['Private', 'Public', 'Charter', 'Founding 7']
 
 const FAQ = [
   [
-    { q: 'Does Nivarro take a cut of donations?', a: 'No. Gifts go straight to your school through its own giving page. Nivarro never touches the money.' },
-    { q: 'How do alumni give?', a: "Through your school's own giving page. Your Nivarro donation link sends them straight there." },
+    { q: 'Which plan is ours?', a: 'Private schools are on the $650 plan. Public and charter schools are on the $750 plan, which includes a database hosted by Nivarro and spreadsheet import by our agent. The first 7 private schools pay $325 a month for life.' },
+    { q: 'Is there a setup fee or a contract?', a: 'No. Setup is $0 on every plan, and you can cancel anytime. Pay monthly, or yearly in one invoice.' },
   ],
   [
-    { q: 'How do we pay for the platform?', a: '$2,000 a semester for public schools, $4,500 a semester for private and charter schools. The first semester is free.' },
-    { q: 'Which plan is ours?', a: 'Public schools are on the $2,000 plan. Private and charter schools are on the $4,500 plan and also get verified alumni mentorship.' },
+    { q: 'Does Nivarro take a cut of donations?', a: 'No. Gifts go straight to your school through its own giving page. Nivarro never touches the money.' },
+    { q: 'Do we work with Blackbaud?', a: "Private school plans sync with Raiser's Edge NXT / Blackbaud. Public and charter schools usually have no alumni system yet, so Nivarro hosts the database." },
   ],
 ]
 
@@ -35,6 +38,39 @@ const STEPS = [
   { n: '04', t: 'Corporations join in.', b: "Alumni show their employer verified volunteer hours and certificates, so an alum's company can donate or match through your school's own giving page." },
 ]
 
+function Table({ caption, head, rows, note }: { caption: string; head: string[]; rows: string[][]; note?: string }) {
+  return (
+    <div className="pr-table-wrap mo">
+      <table className="pr-table">
+        <caption className="pr-sr">{caption}</caption>
+        <thead>
+          <tr>
+            <th scope="col">
+              <span className="pr-sr">{caption}</span>
+            </th>
+            {head.map((h) => (
+              <th scope="col" key={h}>
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map(([label, ...cells]) => (
+            <tr key={label}>
+              <th scope="row">{label}</th>
+              {cells.map((c, i) => (
+                <td key={i}>{c}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {note ? <p className="pr-table-note">{note}</p> : null}
+    </div>
+  )
+}
+
 export default function PricingPage() {
   return (
     <>
@@ -42,67 +78,76 @@ export default function PricingPage() {
         <Ribbon className="nv-ribbon-hero" fade="#FFFFFF" />
         <div className="nv-wrap pr-hero-row">
           <div className="pr-hero-copy">
-            <h1 className="pr-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>Two plans. Published prices.</h1>
+            <h1 className="pr-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>Every feature. Published prices.</h1>
           </div>
           <p className="pr-hero-lede hm3-in" style={{ ['--d' as string]: '200ms' }}>
-            One plan for public schools, one for private and charter schools. Your first semester is free, and the first 7 schools pay half price for life.
+            Every feature in every plan, for private, public and charter schools. No setup fee. Cancel anytime.
           </p>
         </div>
       </section>
 
       <section className="pr-tiles">
-        <div className="nv-wrap pr-tiles-grid">
-          <article className="pr-tile pr-tile-blue mo mo-lift" style={{ ['--d' as string]: '0ms' }}>
-            <div className="pr-tile-top">
-              <p className="pr-eyebrow pr-c-cf">BASE PLAN · PUBLIC SCHOOLS</p>
-              <p className="pr-price">$2,000</p>
-              <p className="pr-tile-p pr-c-e4">per semester · $4,000/yr · $50 to sign</p>
-              <ul className="pr-bul">
-                <li>Alumni tracker and directory</li>
-                <li>Alumni outcome surveys we run for you</li>
-                <li>Alumni events and career days</li>
-                <li>Booster and PTA donation links</li>
-                <li>First semester free</li>
-              </ul>
-            </div>
-            <Link href="/demo" className="pr-pill pr-pill-white">Request a demo</Link>
-          </article>
-          <article className="pr-tile pr-tile-tint mo mo-lift" style={{ ['--d' as string]: '120ms' }}>
-            <div className="pr-tile-top">
-              <p className="pr-eyebrow pr-c-ink2">ADVANCED PLAN · PRIVATE & CHARTER</p>
-              <p className="pr-price pr-c-navy">$4,500</p>
-              <p className="pr-tile-p pr-c-ink2">per semester · $9,000/yr · $100 to sign</p>
-              <ul className="pr-bul">
-                <li>Everything in the base plan</li>
-                <li>Verified alumni mentorship</li>
-                <li>Teacher approval for every pairing</li>
-                <li>Safe, logged in-app messaging</li>
-                <li>First semester free</li>
-              </ul>
-            </div>
-            <Link href="/demo" className="pr-pill pr-pill-navy">Request a demo</Link>
-          </article>
+        <div className="nv-wrap pr-tiles-grid pr-tiles-4">
+          {PLANS.map((p, i) => {
+            const s = TILE_STYLE[p.key]
+            return (
+              <article className={`pr-tile ${s.tile} mo mo-lift`} key={p.key} style={{ ['--d' as string]: `${i * 100}ms` }}>
+                <div className="pr-tile-top">
+                  <p className={`pr-eyebrow ${s.eyebrow}`}>{p.eyebrow}</p>
+                  <p className={`pr-price ${s.price}`}>{p.price}</p>
+                  <p className={`pr-tile-p ${s.note}`}>{p.note}</p>
+                  <ul className={`pr-bul ${s.bul}`}>
+                    {p.bullets.map((b) => (
+                      <li key={b}>{b}</li>
+                    ))}
+                  </ul>
+                </div>
+                <Link href="/demo" className={`pr-pill ${s.pill}`}>
+                  Request a demo
+                </Link>
+              </article>
+            )
+          })}
         </div>
       </section>
 
       <section className="pr-section">
         <div className="nv-wrap">
           <div className="pr-head">
-            <h2 className="pr-h2">What each plan includes.</h2>
-            <p className="pr-eyebrow">MENTORSHIP: PRIVATE & CHARTER ONLY</p>
+            <h2 className="pr-h2">Nivarro school plans compared.</h2>
+            <p className="pr-eyebrow">$0 SETUP · CANCEL ANYTIME</p>
           </div>
-          <div className="pr-cols">
-            {INCLUDED.map((c) => (
-              <div className="pr-col mo" key={c.h} style={{ ['--d' as string]: `${INCLUDED.indexOf(c) * 100}ms` }}>
-                <p className="pr-eyebrow pr-c-blue">{c.h.toUpperCase()}</p>
-                <ul className="pr-list">
-                  {c.items.map((i) => (
-                    <li key={i}>{i}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <Table caption="Plans compared" head={PLAN_COLS} rows={COMPARE} />
+        </div>
+      </section>
+
+      <section className="pr-section">
+        <div className="nv-wrap">
+          <div className="pr-head">
+            <h2 className="pr-h2">Every feature, in every plan.</h2>
+            <p className="pr-eyebrow">ALL INCLUDED</p>
           </div>
+          <Table caption="Features in every plan" head={PLAN_COLS} rows={FEATURES} note={MENTORSHIP_NOTE} />
+        </div>
+      </section>
+
+      <section className="pr-section">
+        <div className="nv-wrap">
+          <div className="pr-head">
+            <h2 className="pr-h2">What each school mainly uses it for.</h2>
+            <p className="pr-eyebrow">PRIVATE · PUBLIC · CHARTER</p>
+          </div>
+          <Table caption="What each school uses it for" head={['Private', 'Public', 'Charter']} rows={USES} />
+        </div>
+      </section>
+
+      <section className="pr-section">
+        <div className="nv-wrap">
+          <div className="pr-head">
+            <h2 className="pr-h2">Against the competition.</h2>
+            <p className="pr-eyebrow">PUBLISHED, NOT BY QUOTE</p>
+          </div>
+          <Table caption="Nivarro against the competition" head={['Nivarro', 'Almabase', 'Blackbaud']} rows={COMPETITION} />
         </div>
       </section>
 
@@ -134,7 +179,7 @@ export default function PricingPage() {
               <p className="pr-eyebrow">THE PLAN</p>
               <h2 className="pr-h2 pr-h2-mt">We set it up. Your alumni sign up, mentor and give.</h2>
             </div>
-            <p className="pr-eyebrow">FOUR PARTS · TWO PLANS</p>
+            <p className="pr-eyebrow">FOUR PARTS · EVERY PLAN</p>
           </div>
           <div className="pr-steps">
             {STEPS.map((s, i) => (

@@ -7,7 +7,7 @@ import LoopVideo from '@/components/motion/LoopVideo'
 export const metadata: Metadata = {
   title: 'The Platform | Nivarro',
   description:
-    "Nivarro turns a public, charter or private school's messy alumni records into a living roster, course outcome data and, on the Advanced plan, verified mentorship with a path to giving.",
+    "Nivarro turns a public, charter or private school's messy alumni records into a living roster, course outcome data and verified mentorship with a path to giving.",
 }
 
 const CSV = `name,email,class,phone
@@ -89,7 +89,7 @@ export default function PlatformPage() {
             <h1 className="pl-h1 hm3-in" style={{ ['--d' as string]: '90ms' }}>A messy spreadsheet becomes a mentorship program.</h1>
           </div>
           <p className="pl-hero-lede hm3-in" style={{ ['--d' as string]: '200ms' }}>
-            Nivarro takes a school&apos;s messy alumni records and turns them into a living roster, outcome data for your courses and, on the Advanced plan, verified mentorship with a path to giving.
+            Nivarro takes a school&apos;s messy alumni records and turns them into a living roster, outcome data for your courses and verified mentorship with a path to giving.
           </p>
         </div>
       </section>
@@ -160,7 +160,7 @@ export default function PlatformPage() {
           n="03"
           color="#2F5BEA"
           title="Teachers approve. Alumni mentor, in the app."
-          body="On the Advanced plan, every pairing is approved by school staff. Mentors and students talk only inside Nivarro, with a teacher in the room."
+          body="Every pairing is approved by school staff. Mentors and students talk only inside Nivarro, with a teacher in the room."
         >
           <div className="pl-vis pl-shots">
             <div className="pl-win pl-win-1">
@@ -180,7 +180,7 @@ export default function PlatformPage() {
           n="04"
           color="#2F5BEA"
           title="A set number of hours a week, verified."
-          body="Mentors on the Advanced plan commit to hours each week. Teachers review and approve every log, so the hours are real and countable."
+          body="Mentors commit to hours each week. Teachers review and approve every log, so the hours are real and countable."
         >
           <div className="pl-paper pl-hours">
             <div className="pl-hours-head">

@@ -82,7 +82,7 @@ export default function ForSchoolsPage() {
             <h2 className="nv-h2 fs-h2">Know which classes lead to jobs and college.</h2>
             <p className="nv-lede fs-lede">
               Test scores show what students knew in May, not what happened next. Nivarro links every course to where
-              graduates end up, invites them back for career days, and shows families real outcomes. $2,000 a semester.
+              graduates end up, invites them back for career days, and shows families real outcomes. $750 a month.
             </p>
             <Points items={publicPoints} />
           </div>

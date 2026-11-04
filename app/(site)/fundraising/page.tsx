@@ -70,14 +70,14 @@ export default function FundraisingPage() {
       <section className="fr-pricing">
         <div className="nv-wrap fr-price-grid">
           <div className="fr-price" style={{ borderTopColor: '#2F5BEA' }}>
-            <p className="nv-fine">Base plan · Public</p>
-            <p className="fr-big">$2,000</p>
-            <p className="fr-price-copy">per semester · $50 to sign. Alumni tracker, outcome surveys and donation links.</p>
+            <p className="nv-fine">Private schools</p>
+            <p className="fr-big">$650</p>
+            <p className="fr-price-copy">per month · $0 setup. Syncs with Raiser&apos;s Edge NXT / Blackbaud. Every feature included.</p>
           </div>
           <div className="fr-price" style={{ borderTopColor: '#0A2540' }}>
-            <p className="nv-fine">Advanced plan · Private &amp; charter</p>
-            <p className="fr-big">$4,500</p>
-            <p className="fr-price-copy">per semester · $100 to sign. Everything in base, plus verified alumni mentorship.</p>
+            <p className="nv-fine">Public &amp; charter schools</p>
+            <p className="fr-big">$750</p>
+            <p className="fr-price-copy">per month · $0 setup. Alumni database hosted by Nivarro. Every feature included.</p>
           </div>
         </div>
       </section>

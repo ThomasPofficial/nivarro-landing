@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const steps = [
   { n: '01', t: 'We talk about your school.', d: 'Your alumni, your goals, how your program runs today.' },
   { n: '02', t: 'We show it working.', d: 'Import, outreach, approvals, hours and a donation link.' },
-  { n: '03', t: 'You decide.', d: '$900 a month or $4,500 a semester. No pressure.' },
+  { n: '03', t: 'You decide.', d: '$650 to $750 a month, $0 setup, cancel anytime. No pressure.' },
 ]
 
 export default function DemoPage() {
