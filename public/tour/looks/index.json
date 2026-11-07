@@ -1,0 +1,62 @@
+[
+  {
+    "id": "gallery-letterpress",
+    "name": "Gallery Letterpress",
+    "subject": "News from the alumni office"
+  },
+  {
+    "id": "invitation-card",
+    "name": "Invitation Card",
+    "subject": "Homecoming Weekend: will we see you?"
+  },
+  {
+    "id": "evening-crest",
+    "name": "Evening Crest",
+    "subject": "Homecoming Weekend: will we see you?"
+  },
+  {
+    "id": "broadsheet",
+    "name": "Broadsheet",
+    "subject": "Ridgeview this autumn"
+  },
+  {
+    "id": "quiet-letter",
+    "name": "Quiet Letter",
+    "subject": "Help us keep the class book current"
+  },
+  {
+    "id": "modern-minimal",
+    "name": "Modern Minimal",
+    "subject": "Three questions about Ridgeview"
+  },
+  {
+    "id": "yearbook-scrapbook",
+    "name": "Yearbook Scrapbook",
+    "subject": "Meet Priya Raman, Class of 2016"
+  },
+  {
+    "id": "archive-seal",
+    "name": "Archive & Seal",
+    "subject": "News from the alumni office"
+  },
+  {
+    "id": "poster",
+    "name": "Poster",
+    "subject": "Homecoming Weekend: will we see you?"
+  },
+  {
+    "id": "postcard",
+    "name": "Postcard",
+    "subject": "Homecoming is this Saturday"
+  },
+  {
+    "id": "cover-story",
+    "name": "Cover Story",
+    "subject": "Meet Priya Raman, Class of 2016"
+  },
+  {
+    "id": "ticket-stub",
+    "name": "Ticket Stub",
+    "subject": "Homecoming Weekend: will we see you?"
+  }
+]

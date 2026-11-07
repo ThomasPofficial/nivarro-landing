@@ -829,27 +829,12 @@ td { padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
   document.addEventListener("click", (e) => { const b = e.target.closest("[data-hr]"); if (b) { b.outerHTML = '<span class="done">✓ Verified</span>'; toast("Hours verified"); } });
 
   // ---- Announce ----
-  const looks = [
-    ["Modern minimal", "#FFFFFF", "#1C1A16", "#1E3A5F"], ["Evening crest", "#14213D", "#F5F1E6", "#C9A227"], ["Postcard", "#F3EBDD", "#2B2118", "#B5532A"],
-    ["Poster", "#111111", "#FFFFFF", "#E63946"], ["Quiet letter", "#FBFAF6", "#2A2A2A", "#5A6B5D"], ["Ticket stub", "#FFF7E6", "#1F2A44", "#D97706"],
-    ["Broadsheet", "#F6F4EF", "#151515", "#151515"], ["Cover story", "#0F2D3A", "#FFFFFF", "#7FD1C7"], ["Invitation card", "#FDF8F2", "#3B2E2A", "#8C6A4F"],
-    ["Archive seal", "#EFE9DD", "#2E2A24", "#7A1F1F"], ["Gallery letterpress", "#FFFFFF", "#202020", "#3D5A80"], ["Yearbook scrapbook", "#FFF9EC", "#30261C", "#2A9D8F"],
-  ];
-  let look = 1;
-  $("#looks").innerHTML = looks.map((l, i) => `<button type="button" data-look="${i}" aria-pressed="${i === look}">${esc(l[0])}</button>`).join("");
+  const looks = [{"id": "gallery-letterpress", "name": "Gallery Letterpress", "subject": "News from the alumni office"}, {"id": "invitation-card", "name": "Invitation Card", "subject": "Homecoming Weekend: will we see you?"}, {"id": "evening-crest", "name": "Evening Crest", "subject": "Homecoming Weekend: will we see you?"}, {"id": "broadsheet", "name": "Broadsheet", "subject": "Ridgeview this autumn"}, {"id": "quiet-letter", "name": "Quiet Letter", "subject": "Help us keep the class book current"}, {"id": "modern-minimal", "name": "Modern Minimal", "subject": "Three questions about Ridgeview"}, {"id": "yearbook-scrapbook", "name": "Yearbook Scrapbook", "subject": "Meet Priya Raman, Class of 2016"}, {"id": "archive-seal", "name": "Archive & Seal", "subject": "News from the alumni office"}, {"id": "poster", "name": "Poster", "subject": "Homecoming Weekend: will we see you?"}, {"id": "postcard", "name": "Postcard", "subject": "Homecoming is this Saturday"}, {"id": "cover-story", "name": "Cover Story", "subject": "Meet Priya Raman, Class of 2016"}, {"id": "ticket-stub", "name": "Ticket Stub", "subject": "Homecoming Weekend: will we see you?"}];
+  let look = looks.findIndex((l) => l.id === "poster"); if (look < 0) look = 0;
+  $("#looks").innerHTML = looks.map((l, i) => `<button type="button" data-look="${i}" aria-pressed="${i === look}">${esc(l.name)}</button>`).join("");
   function renderMail() {
-    const [, bg, fg, ac] = looks[look];
-    const onAc = lum(ac.match(/\w\w/g).map((h) => parseInt(h, 16))) > 0.6 ? "#1C1A16" : "#FFFFFF";
-    $("#anPrev").innerHTML = `
-      <div class="mp-hero" style="background:${bg};color:${fg}">
-        <div class="rb-k" style="color:${ac}">Ridgeview Hawks · Class of 2008</div>
-        <div class="rb-h" style="font-size:26px">Come back for Career Day</div>
-      </div>
-      <div class="mp-body" style="background:${bg};color:${fg}">
-        <p>Hi Tanya, on March 12 our juniors and seniors spend the morning hearing from Hawks about the work they do. We'd love the class of 2008 there, and we're looking for six speakers.</p>
-        <button class="mp-btn" style="background:${ac};color:${onAc}">I can speak</button>
-      </div>
-      <div class="mp-foot" style="background:${bg};color:${fg};opacity:.85">Ridgeview High School · 200 School Rd, Ridgeview · Unsubscribe</div>`;
+    const l = looks[look];
+    $("#anPrev").innerHTML = `<div class="frame-lab">Subject: ${esc(l.subject)}</div><iframe title="${esc(l.name)} email" src="/tour/looks/${l.id}.html" style="width:100%;height:720px;border:0;display:block;background:#fff"></iframe>`;
   }
   $("#looks").addEventListener("click", (e) => { const b = e.target.closest("[data-look]"); if (!b) return; look = Number(b.dataset.look); $$("#looks button").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); renderMail(); });
   $("#anForm").addEventListener("submit", (e) => { e.preventDefault(); renderMail(); toast("Written. Pick a look, then send for approval."); });
