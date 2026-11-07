@@ -457,3 +457,7 @@ em { font-style: normal; }
   .hp-email input { padding: 14px 20px; }
   .hp-email .hp-btn { width: 100%; }
 }
+
+/* Snappy clicks everywhere: no 300ms mobile tap delay */
+a, button, [role="button"], summary, label { touch-action: manipulation; }
+.hp-btn:active { opacity: 0.75; transition: opacity 0s; }

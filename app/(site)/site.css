@@ -51,7 +51,7 @@
   padding: 11px 22px; border: 0; border-radius: 999px; cursor: pointer;
   background: var(--blue); color: #fff; font: 500 14px/20px var(--font-inter), system-ui, sans-serif;
   white-space: nowrap;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s;
 }
 .nv a.nv-btn { color: #fff; }
 .nv-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px -8px rgba(47, 91, 234, 0.55); }
@@ -195,4 +195,15 @@ html:has(.nv), body:has(.nv) { background: #fff; }
 @media (prefers-reduced-motion: reduce) {
   .nv-live, .nv-orb-hero, .nv-hero::before { animation: none; }
   .nv-reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Snappy clicks: no mobile tap delay, instant pressed state on everything clickable */
+.nv :is(a, button, [role="button"], summary, label) { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.nv :is(.nv-btn, .dd-chip, .dd-copy, .dd-btn, .mo-arrow, .pt-tab, .hm-phone-btn):active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: 0.04s;
+}
+.nv :is(.nv-nav a, .nv-signin, .nv-brand, .nv-footer a):active { opacity: 0.6; transition: opacity 0s; }
+@media (prefers-reduced-motion: reduce) {
+  .nv :is(.nv-btn, .dd-chip, .dd-copy, .dd-btn, .mo-arrow, .pt-tab, .hm-phone-btn):active { transform: none; opacity: 0.85; }
 }

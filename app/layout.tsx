@@ -26,6 +26,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         {/* Relative href: resolves to the current page's own machine view (see middleware.ts). */}
         <link rel="alternate" type="text/markdown" href="?view=machine" title="This page as Markdown" />
+        {/* Warm up the connection so "Sign in" opens app.nivarro.co faster */}
+        <link rel="preconnect" href="https://app.nivarro.co" />
+        <link rel="dns-prefetch" href="https://app.nivarro.co" />
       </head>
       <body>{children}</body>
     </html>
