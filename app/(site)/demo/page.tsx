@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import DemoForm from '@/components/demo/DemoForm'
 import './demo.css'
+import '../tour/tour.css'
+import TourFrame from '../tour/TourFrame'
 
 export const metadata: Metadata = {
   title: 'Request a demo | Nivarro',
@@ -16,6 +18,7 @@ const steps = [
 
 export default function DemoPage() {
   return (
+    <>
     <section className="dm-section">
       <div className="nv-wrap dm-row">
         <div className="dm-left">
@@ -36,11 +39,24 @@ export default function DemoPage() {
             ))}
           </ol>
           <p className="dm-lede">
-            Prefer to look first? <a href="/tour">Click through the tour</a>, no sign-in needed.
+            Prefer to look first? <a href="#tour">Click through the tour below</a>, no sign-in needed.
           </p>
         </div>
         <DemoForm />
       </div>
     </section>
+    <section id="tour" className="tr-section" style={{ paddingTop: 0 }}>
+      <div className="nv-wrap tr-head">
+        <p className="tr-eyebrow">Tour · No sign-in needed</p>
+        <h2 className="tr-h1">Click through Nivarro.</h2>
+        <p className="tr-lede">
+          The staff side of Nivarro with an example school, Ridgeview, and its alumni: the Gmail add-on, email updates, check-ins, the thank-you agent, the AI analyst, Alumni Net, roster import, approvals, hours, fundraising pages, the email designer, mentoring and the Claude connection. Click anything. Nothing is saved or sent.
+        </p>
+      </div>
+      <div className="tr-frame-wrap" data-machine-skip>
+        <TourFrame />
+      </div>
+    </section>
+    </>
   )
 }

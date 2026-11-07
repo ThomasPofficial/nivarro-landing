@@ -185,6 +185,15 @@ td { padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
 .tile .sw { height: 70px; }
 .tile p { padding: 8px 10px; font-size: 12.5px; }
 
+.steps a.next { background: var(--on-navy); color: var(--navy); border-color: var(--on-navy); font-weight: 600; }
+.looks { display: flex; gap: 8px; flex-wrap: wrap; }
+.looks button { border: 1px solid var(--line); background: var(--surface); color: var(--text2); border-radius: var(--pill); padding: 6px 12px; font-size: 12.5px; }
+.looks button[aria-pressed="true"] { background: var(--navy); color: var(--on-navy); border-color: var(--navy); }
+.mailprev { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; max-width: 620px; }
+.mp-hero { padding: 26px 26px 18px; display: grid; gap: 6px; }
+.mp-body { padding: 4px 26px 22px; display: grid; gap: 10px; }
+.mp-foot { padding: 14px 26px; font-size: 12px; border-top: 1px solid rgba(127,127,127,.25); }
+.mp-btn { justify-self: start; border-radius: 6px; padding: 10px 18px; font-weight: 600; border: 0; }
 .toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%) translateY(20px); background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: var(--pill); font-weight: 600; opacity: 0; transition: opacity .2s, transform .2s; pointer-events: none; z-index: 20; }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .note { font-size: 12.5px; color: var(--muted); margin-top: 18px; }
@@ -210,14 +219,8 @@ td { padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
 
 <div class="tour">
   <div class="tour-in">
-    <div><b>Try it</b> <small>· Example school and alumni. Click anything; nothing is saved or sent.</small></div>
-    <nav class="steps" aria-label="Tour steps">
-      <a href="#gmail">1 · Gmail add-on</a>
-      <a href="#updates">2 · Email updates</a>
-      <a href="#thank-yous">3 · Thank-you agent</a>
-      <a href="#analyst">4 · AI Analyst</a>
-      <a href="#designs">5 · Your own designs</a>
-    </nav>
+    <div><b>Try it</b> <small>· Use the sidebar or Next. Example school and alumni; nothing is saved or sent.</small></div>
+    <div class="steps"><span class="mono" id="stepNo" style="align-self:center;font-size:12.5px;opacity:.85"></span><a href="#gmail" id="prevStep">← Back</a><a href="#updates" id="nextStep" class="next">Next →</a></div>
   </div>
 </div>
 
@@ -229,14 +232,20 @@ td { padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
         <div class="grp">Agents</div>
         <a href="#updates" data-view="updates">Email updates <span class="badge mono" id="navCount">5</span></a>
         <a href="#gmail" data-view="gmail">Gmail add-on</a>
+        <a href="#checkins" data-view="checkins">Check-ins</a>
         <a href="#thank-yous" data-view="thank-yous">Thank-yous</a>
         <a href="#analyst" data-view="analyst">AI Analyst</a>
         <div class="grp">People</div>
-        <a class="off">Alumni Net</a><a class="off">Roster</a><a class="off">Approvals</a>
+        <a href="#alumni" data-view="alumni">Alumni Net</a>
+        <a href="#roster" data-view="roster">Roster</a>
+        <a href="#approvals" data-view="approvals">Approvals <span class="badge mono" id="apCount">2</span></a>
+        <a href="#hours" data-view="hours">Hours review</a>
         <div class="grp">Outreach</div>
-        <a href="#designs" data-view="designs">Fundraise</a><a class="off">Announce</a><a class="off">Partnerships</a>
+        <a href="#designs" data-view="designs">Fundraise</a>
+        <a href="#announce" data-view="announce">Announce</a>
+        <a href="#partnerships" data-view="partnerships">Partnerships</a>
         <div class="grp">Admin</div>
-        <a class="off">Permissions</a><a class="off">Settings</a>
+        <a href="#settings" data-view="settings">Settings</a>
       </nav>
     </aside>
 
@@ -368,12 +377,169 @@ td { padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
         </div>
       </section>
 
+      <!-- Check-ins -->
+      <section data-panel="checkins" hidden>
+        <div class="head"><div>
+          <div class="eyebrow">Agents · Alumni check-ins</div>
+          <h1>Check-ins</h1>
+          <p class="lede">Each week Nivarro emails a small group of alumni a short, personal "how are you doing?" Their replies come back as record updates in Email updates, and anyone who can't be emailed lands on a call list.</p>
+        </div><label class="toggle"><input type="checkbox" id="ciOn" checked> <span id="ciState">On, sending</span></label></div>
+        <div class="tabs" role="tablist" id="ciTabs">
+          <button role="tab" aria-selected="true" data-ci="week">This week</button>
+          <button role="tab" aria-selected="false" data-ci="priority">Priority</button>
+          <button role="tab" aria-selected="false" data-ci="cant">Can't email</button>
+          <button role="tab" aria-selected="false" data-ci="results">Results</button>
+        </div>
+        <div id="ciBody"></div>
+      </section>
+
+      <!-- Alumni Net -->
+      <section data-panel="alumni" hidden>
+        <div class="head"><div>
+          <div class="eyebrow">People · Alumni Net</div>
+          <h1>Alumni Net</h1>
+          <p class="lede">Every alum, kept current by the agents. Search by name, class, city or field.</p>
+        </div></div>
+        <div class="toolbar">
+          <label style="flex:1 1 260px"><span class="lab" style="display:block;margin-bottom:4px">Search alumni</span>
+            <input class="search" id="alSearch" type="search" placeholder="Name, class, city or field" autocomplete="off"></label>
+          <span class="meta mono" id="alCount"></span>
+        </div>
+        <div class="tablewrap"><table>
+          <thead><tr><th>Name</th><th>Class</th><th>City</th><th>Works in</th><th></th></tr></thead>
+          <tbody id="alRows"></tbody>
+        </table></div>
+      </section>
+
+      <!-- Roster -->
+      <section data-panel="roster" hidden>
+        <div class="head"><div>
+          <div class="eyebrow">People · Roster</div>
+          <h1>Import any spreadsheet</h1>
+          <p class="lede">Drop in the export from Raiser's Edge, a Google Sheet, or the yearbook list. AI matches the columns, flags duplicates and shows you everything before a single record is added.</p>
+        </div></div>
+        <div class="drop" id="rosDrop" role="button" tabindex="0">
+          <b>Click to use the sample file: alumni_export_2026.csv</b>
+          <span class="meta">715 rows · 11 columns</span>
+        </div>
+        <div class="section" id="rosMap" hidden>
+          <h2>How the columns line up</h2>
+          <div class="tablewrap"><table>
+            <thead><tr><th>Your column</th><th>Example</th><th>Becomes</th><th>Check</th></tr></thead>
+            <tbody>
+              <tr><td>Full Name</td><td>Tanya A. Okafor</td><td>First + last name</td><td><span class="chip chip-good">Sure</span></td></tr>
+              <tr><td>Grad Yr</td><td>'08</td><td>Class year (2008)</td><td><span class="chip chip-good">Sure</span></td></tr>
+              <tr><td>Pref Email</td><td>tokafor@example.net</td><td>Email</td><td><span class="chip chip-good">Sure</span></td></tr>
+              <tr><td>Cell</td><td>617.555.0122</td><td>Phone</td><td><span class="chip chip-good">Sure</span></td></tr>
+              <tr><td>Home City/St</td><td>Boston MA</td><td>City</td><td><span class="chip chip-good">Sure</span></td></tr>
+              <tr><td>Employer</td><td>HubSpot</td><td>Employer</td><td><span class="chip chip-good">Sure</span></td></tr>
+              <tr><td>Code</td><td>AL</td><td>Constituent type (Alum)</td><td><span class="chip chip-warn">Check</span></td></tr>
+            </tbody>
+          </table></div>
+          <div class="grid2" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+            <div class="stat"><div class="lab">New alumni</div><div class="n mono">688</div></div>
+            <div class="stat"><div class="lab">Already here</div><div class="n mono">19</div></div>
+            <div class="stat"><div class="lab">Possible duplicates</div><div class="n mono">8</div></div>
+          </div>
+          <div class="actions"><button class="btn btn-primary" id="rosGo">Import 688 alumni</button><span class="meta">Duplicates wait for you to decide.</span></div>
+        </div>
+      </section>
+
+      <!-- Approvals -->
+      <section data-panel="approvals" hidden>
+        <div class="head"><div>
+          <div class="eyebrow">People · Approvals</div>
+          <h1>Approvals</h1>
+          <p class="lede">An alum who wants to mentor a student is checked by a parent and by the school before they are matched. Alumni never pick students; the school places them.</p>
+        </div></div>
+        <div class="cards" id="apCards"></div>
+      </section>
+
+      <!-- Hours -->
+      <section data-panel="hours" hidden>
+        <div class="head"><div>
+          <div class="eyebrow">People · Hours review</div>
+          <h1>Hours review</h1>
+          <p class="lede">Alumni log the time they give: mentoring, speaking, coaching. Staff verify it, and it counts toward their impact and their employer's volunteer-match programs.</p>
+        </div></div>
+        <div class="tablewrap"><table>
+          <thead><tr><th>Alum</th><th>What</th><th class="mono">Hours</th><th>Date</th><th></th></tr></thead>
+          <tbody id="hrRows"></tbody>
+        </table></div>
+      </section>
+
+      <!-- Announce -->
+      <section data-panel="announce" hidden>
+        <div class="head"><div>
+          <div class="eyebrow">Outreach · Announce</div>
+          <h1>Write an email with AI</h1>
+          <p class="lede">Say what you want to send. Nivarro writes it in your school's voice, lays it out in one of 12 looks, and checks the legal footer, contrast and wording before anyone can approve it.</p>
+        </div></div>
+        <form class="ask" id="anForm">
+          <input id="anIn" value="Invite the class of 2008 to Career Day on March 12 and ask for speakers" autocomplete="off" aria-label="What should the email say?">
+          <button class="btn btn-primary" type="submit">Write it</button>
+        </form>
+        <div class="section">
+          <div class="lab">Look</div>
+          <div class="looks" id="looks"></div>
+        </div>
+        <div class="section">
+          <div class="mailprev" id="anPrev"></div>
+          <div class="actions"><button class="btn btn-primary" id="anSend">Send for approval</button><span class="meta">Every email includes the school's address and an unsubscribe link.</span></div>
+        </div>
+      </section>
+
+      <!-- Partnerships / mentoring -->
+      <section data-panel="partnerships" hidden>
+        <div class="head"><div>
+          <div class="eyebrow">Outreach · Partnerships</div>
+          <h1>Mentoring</h1>
+          <p class="lede">Matched alumni and students talk in supervised rooms the school can see. Nivarro nudges mentors who go quiet and tells staff before a student is left waiting.</p>
+        </div></div>
+        <div class="grid2" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+          <div class="stat"><div class="lab">Active pairs</div><div class="n mono">14</div></div>
+          <div class="stat"><div class="lab">Replied within 72h</div><div class="n mono">92%</div></div>
+          <div class="stat"><div class="lab">Waiting on the school</div><div class="n mono">3</div></div>
+        </div>
+        <div class="section">
+          <div class="tablewrap"><table>
+            <thead><tr><th>Mentor</th><th>Student</th><th>Focus</th><th>Last message</th></tr></thead>
+            <tbody>
+              <tr><td>Rosa Vega '04</td><td>Maya, grade 11</td><td>Nursing programs</td><td>Today</td></tr>
+              <tr><td>Daniel Cho '11</td><td>Jordan, grade 12</td><td>Engineering applications</td><td>Yesterday</td></tr>
+              <tr><td>Tanya Okafor '08</td><td>Ava, grade 11</td><td>Product and tech careers</td><td>2 days ago</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </section>
+
+      <!-- Settings: Claude -->
+      <section data-panel="settings" hidden>
+        <div class="head"><div>
+          <div class="eyebrow">Admin · Settings · Connections</div>
+          <h1>Ask Claude about your alumni</h1>
+          <p class="lede">Connect Nivarro to Claude and staff can ask in plain English. Claude sees only what that staff member is allowed to see, and every connection signs in again every 30 days.</p>
+        </div><span class="chip chip-good">Connected</span></div>
+        <form class="ask" id="clForm">
+          <input id="clIn" value="Which alumni in healthcare could speak to our nursing club?" autocomplete="off" aria-label="Ask Claude">
+          <button class="btn btn-primary" type="submit">Ask</button>
+        </form>
+        <div class="answer" id="clOut" hidden></div>
+        <div class="section">
+          <h2>Other settings</h2>
+          <div class="grid2">
+            <div class="stat"><div class="lab">Email look and brand</div><p class="meta">Your crest, colors and which of the 12 looks staff may use.</p></div>
+            <div class="stat"><div class="lab">Permissions</div><p class="meta">Give each staff member only what they need: roster, fundraising, approvals, agents, results.</p></div>
+          </div>
+        </div>
+      </section>
+
       <!-- 5 · Designs -->
       <section data-panel="designs" hidden>
         <div class="head"><div>
-          <div class="eyebrow">Outreach · Fundraise and email designs</div>
-          <h1>Use your own designs</h1>
-          <p class="lede">Made a flyer in Canva or a design in Figma? Upload it and Nivarro rebuilds it as an editable fundraising page or email, with your colors, fonts and words. You approve it before anyone sees it.</p>
+          <div class="eyebrow">Outreach · Fundraise</div>
+          <h1>Fundraising pages</h1>
+          <p class="lede">Pick one of 51 designs or upload your own. Gifts go straight to your school's own giving page; Nivarro never touches the money. Made a flyer in Canva or Figma? Upload it and Nivarro rebuilds it as an editable page or email with your colors, fonts and words, and you approve it before anyone sees it.</p>
         </div></div>
         <label class="drop" id="drop" for="file">
           <b>Drop a PNG or JPG here, or click to choose</b>
@@ -574,12 +740,139 @@ td { padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
   $("#approve").addEventListener("click", () => toast("Approved. It's in Your designs."));
   $("#rebuild").addEventListener("click", () => { const img = $("#upImg"); if (img.src) rebuildFrom(img); });
 
+  // ---- Check-ins ----
+  const ci = {
+    week: `<div class="tablewrap"><table><thead><tr><th>Alum</th><th>Class</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Tanya Okafor</td><td class="mono">2008</td><td><span class="chip chip-good">Replied · 5 updates</span></td></tr>
+      <tr><td>Marcus Bell</td><td class="mono">1999</td><td><span class="chip chip-good">Replied · 1 update</span></td></tr>
+      <tr><td>Grace Liu</td><td class="mono">2017</td><td><span class="chip chip-navy">Sent Tuesday</span></td></tr>
+      <tr><td>Samuel Ortiz</td><td class="mono">2003</td><td><span class="chip chip-navy">Sent Tuesday</span></td></tr>
+      <tr><td>Hannah Weiss</td><td class="mono">2012</td><td><span class="chip chip-navy">Sends Thursday</span></td></tr>
+    </tbody></table></div><p class="note">25 alumni this week · Quiet hours respected · Each alum is asked at most twice a year.</p>`,
+    priority: `<p class="lede" style="margin-bottom:12px">Alumni the agent reaches first: mentors, recent donors, and anyone whose details are over two years old.</p>
+      <div class="tablewrap"><table><thead><tr><th>Alum</th><th>Why first</th></tr></thead><tbody>
+      <tr><td>Rosa Vega '04</td><td>Active mentor</td></tr><tr><td>Leo Park '96</td><td>Details last checked 2021</td></tr><tr><td>Imani Brooks '10</td><td>Gave at Giving Day</td></tr>
+      </tbody></table></div>`,
+    cant: `<p class="lede" style="margin-bottom:12px">No working email. A call or text reaches them instead.</p>
+      <div class="tablewrap"><table><thead><tr><th>Alum</th><th>Phone</th><th></th></tr></thead><tbody>
+      <tr><td>Arthur Kim '89</td><td class="mono">(555) 010-2231</td><td><button class="btn btn-ghost" data-reach>Mark reached</button></td></tr>
+      <tr><td>Lucia Moreno '01</td><td class="mono">(555) 010-7720</td><td><button class="btn btn-ghost" data-reach>Mark reached</button></td></tr>
+      </tbody></table></div>`,
+    results: `<div class="grid2" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+      <div class="stat"><div class="lab">Sent this term</div><div class="n mono">310</div></div>
+      <div class="stat"><div class="lab">Replied</div><div class="n mono">22%</div><div class="d mono">+4 pts</div></div>
+      <div class="stat"><div class="lab">Records updated</div><div class="n mono">146</div></div>
+      <div class="stat"><div class="lab">New mentors</div><div class="n mono">9</div></div></div>`,
+  };
+  function showCi(k) { $("#ciBody").innerHTML = ci[k]; $$("#ciTabs button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.ci === k))); }
+  $$("#ciTabs button").forEach((b) => b.addEventListener("click", () => showCi(b.dataset.ci)));
+  showCi("week");
+  $("#ciOn").addEventListener("change", (e) => { $("#ciState").textContent = e.target.checked ? "On, sending" : "Paused"; toast(e.target.checked ? "Check-ins resumed" : "Check-ins paused this week"); });
+  document.addEventListener("click", (e) => { const r = e.target.closest("[data-reach]"); if (r) { r.outerHTML = '<span class="done">✓ Reached</span>'; toast("Marked reached"); } });
+
+  // ---- Alumni Net ----
+  const alumni = [
+    ["Tanya Okafor", 2008, "Denver, CO", "Tech · Stripe", true], ["Rosa Vega", 2004, "Chicago, IL", "Healthcare · Nurse practitioner", true],
+    ["Daniel Cho", 2011, "Austin, TX", "Engineering · Tesla", true], ["Marcus Bell", 1999, "Ridgeview", "Trades · Bell Carpentry", false],
+    ["Priya Raman", 2015, "Seattle, WA", "Healthcare · UW Medicine", false], ["Imani Brooks", 2010, "Atlanta, GA", "Law · Public defender", true],
+    ["Leo Park", 1996, "Boston, MA", "Finance · Fidelity", false], ["Grace Liu", 2017, "New York, NY", "Media · NPR", false],
+    ["Samuel Ortiz", 2003, "Phoenix, AZ", "Education · Teacher", true], ["Hannah Weiss", 2012, "Denver, CO", "Healthcare · Physical therapist", false],
+  ];
+  function renderAlumni() {
+    const q = $("#alSearch").value.trim().toLowerCase();
+    const rows = alumni.filter((a) => !q || a.join(" ").toLowerCase().includes(q));
+    $("#alCount").textContent = rows.length + " of 715";
+    $("#alRows").innerHTML = rows.length ? rows.map((a) => `<tr><td>${esc(a[0])}</td><td class="mono">${a[1]}</td><td>${esc(a[2])}</td><td>${esc(a[3])}</td><td>${a[4] ? '<span class="chip chip-navy">Mentor</span>' : ""}</td></tr>`).join("")
+      : `<tr><td colspan="5" class="meta">No one matches. Try a class year or a city.</td></tr>`;
+  }
+  $("#alSearch").addEventListener("input", renderAlumni);
+  renderAlumni();
+
+  // ---- Roster ----
+  function openMap() { $("#rosMap").hidden = false; toast("Columns matched"); }
+  $("#rosDrop").addEventListener("click", openMap);
+  $("#rosDrop").addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openMap(); } });
+  $("#rosGo").addEventListener("click", (e) => { e.target.disabled = true; e.target.textContent = "Imported"; toast("688 alumni added. 8 possible duplicates wait for you."); });
+
+  // ---- Approvals ----
+  const approvals = [
+    { id: "a1", who: "Tanya Okafor '08", what: "Wants to mentor in product and tech careers", student: "Ava, grade 11", parent: true, state: "open" },
+    { id: "a2", who: "Daniel Cho '11", what: "Wants to mentor in engineering applications", student: "Jordan, grade 12", parent: true, state: "open" },
+    { id: "a3", who: "Leo Park '96", what: "Wants to mentor in finance", student: "Not placed yet", parent: false, state: "open" },
+  ];
+  function renderApprovals() {
+    const open = approvals.filter((a) => a.state === "open" && a.parent).length;
+    $("#apCount").textContent = open; $("#apCount").hidden = open === 0;
+    $("#apCards").innerHTML = approvals.map((a) => `
+      <article class="card">
+        <div class="card-top"><div class="who">${esc(a.who)}</div><div class="meta">${esc(a.student)}</div></div>
+        <p>${esc(a.what)}</p>
+        <div class="actions">
+          <span class="chip ${a.parent ? "chip-good" : "chip-warn"}">${a.parent ? "✓ Parent approved" : "Waiting on parent"}</span>
+          <span class="chip chip-good">✓ Background check on file</span>
+        </div>
+        ${a.state === "open"
+          ? (a.parent ? `<div class="actions"><button class="btn btn-primary" data-ap="${a.id}">Approve and place</button><button class="btn btn-ghost" data-apno="${a.id}">Not now</button></div>` : `<p class="meta">The school decides after the parent has reviewed.</p>`)
+          : `<div class="${a.state === "yes" ? "done" : "wrong"}">${a.state === "yes" ? "✓ Placed. The alum gets a welcome email." : "Declined. The alum is told kindly."}</div>`}
+      </article>`).join("");
+  }
+  document.addEventListener("click", (e) => {
+    const y = e.target.closest("[data-ap]"), n = e.target.closest("[data-apno]");
+    const id = (y || n) && (y || n).dataset[y ? "ap" : "apno"]; if (!id) return;
+    approvals.find((a) => a.id === id).state = y ? "yes" : "no"; renderApprovals(); toast(y ? "Approved and placed" : "Declined");
+  });
+  renderApprovals();
+
+  // ---- Hours ----
+  const hours = [["Rosa Vega '04", "Mentoring Maya", 6, "Oct"], ["Daniel Cho '11", "Robotics club coaching", 4.5, "Oct"], ["Samuel Ortiz '03", "Career Day panel", 2, "Sep"]];
+  $("#hrRows").innerHTML = hours.map((h, i) => `<tr><td>${esc(h[0])}</td><td>${esc(h[1])}</td><td class="mono">${h[2]}</td><td>${h[3]}</td><td><button class="btn btn-primary" data-hr="${i}">Verify</button></td></tr>`).join("");
+  document.addEventListener("click", (e) => { const b = e.target.closest("[data-hr]"); if (b) { b.outerHTML = '<span class="done">✓ Verified</span>'; toast("Hours verified"); } });
+
+  // ---- Announce ----
+  const looks = [
+    ["Modern minimal", "#FFFFFF", "#1C1A16", "#1E3A5F"], ["Evening crest", "#14213D", "#F5F1E6", "#C9A227"], ["Postcard", "#F3EBDD", "#2B2118", "#B5532A"],
+    ["Poster", "#111111", "#FFFFFF", "#E63946"], ["Quiet letter", "#FBFAF6", "#2A2A2A", "#5A6B5D"], ["Ticket stub", "#FFF7E6", "#1F2A44", "#D97706"],
+    ["Broadsheet", "#F6F4EF", "#151515", "#151515"], ["Cover story", "#0F2D3A", "#FFFFFF", "#7FD1C7"], ["Invitation card", "#FDF8F2", "#3B2E2A", "#8C6A4F"],
+    ["Archive seal", "#EFE9DD", "#2E2A24", "#7A1F1F"], ["Gallery letterpress", "#FFFFFF", "#202020", "#3D5A80"], ["Yearbook scrapbook", "#FFF9EC", "#30261C", "#2A9D8F"],
+  ];
+  let look = 1;
+  $("#looks").innerHTML = looks.map((l, i) => `<button type="button" data-look="${i}" aria-pressed="${i === look}">${esc(l[0])}</button>`).join("");
+  function renderMail() {
+    const [, bg, fg, ac] = looks[look];
+    const onAc = lum(ac.match(/\w\w/g).map((h) => parseInt(h, 16))) > 0.6 ? "#1C1A16" : "#FFFFFF";
+    $("#anPrev").innerHTML = `
+      <div class="mp-hero" style="background:${bg};color:${fg}">
+        <div class="rb-k" style="color:${ac}">Ridgeview Hawks · Class of 2008</div>
+        <div class="rb-h" style="font-size:26px">Come back for Career Day</div>
+      </div>
+      <div class="mp-body" style="background:${bg};color:${fg}">
+        <p>Hi Tanya, on March 12 our juniors and seniors spend the morning hearing from Hawks about the work they do. We'd love the class of 2008 there, and we're looking for six speakers.</p>
+        <button class="mp-btn" style="background:${ac};color:${onAc}">I can speak</button>
+      </div>
+      <div class="mp-foot" style="background:${bg};color:${fg};opacity:.85">Ridgeview High School · 200 School Rd, Ridgeview · Unsubscribe</div>`;
+  }
+  $("#looks").addEventListener("click", (e) => { const b = e.target.closest("[data-look]"); if (!b) return; look = Number(b.dataset.look); $$("#looks button").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); renderMail(); });
+  $("#anForm").addEventListener("submit", (e) => { e.preventDefault(); renderMail(); toast("Written. Pick a look, then send for approval."); });
+  $("#anSend").addEventListener("click", () => toast("Sent to Eleanor for approval"));
+  renderMail();
+
+  // ---- Claude ----
+  $("#clForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const out = $("#clOut"); out.hidden = false;
+    out.innerHTML = `<b>${esc($("#clIn").value || "Question")}</b><p style="margin-top:6px">Three good fits: <b>Rosa Vega '04</b>, nurse practitioner in Chicago and already a mentor; <b>Priya Raman '15</b> at UW Medicine; and <b>Hannah Weiss '12</b>, a physical therapist in Denver. Rosa has said yes to speaking before. Want me to draft an invite?</p>`;
+  });
+
   // ---- routing ----
-  const views = ["gmail", "updates", "thank-yous", "analyst", "designs"];
+  const views = ["gmail", "updates", "checkins", "thank-yous", "analyst", "alumni", "roster", "approvals", "hours", "designs", "announce", "partnerships", "settings"];
   function show() {
     const v = views.includes(location.hash.slice(1)) ? location.hash.slice(1) : "gmail";
     $$("[data-panel]").forEach((s) => { s.hidden = s.dataset.panel !== v; });
-    $$(".nav a[data-view], .steps a").forEach((a) => {
+    const i = views.indexOf(v);
+    $("#stepNo").textContent = (i + 1) + " of " + views.length;
+    $("#prevStep").href = "#" + views[(i - 1 + views.length) % views.length];
+    $("#nextStep").href = "#" + views[(i + 1) % views.length];
+    $$(".nav a[data-view]").forEach((a) => {
       const on = a.getAttribute("href") === "#" + v;
       if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
     });

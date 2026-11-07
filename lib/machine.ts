@@ -153,6 +153,13 @@ https://nivarro.co/tour is a clickable version of the staff app with an example 
 - **Thank-you agent.** Writes a short, personal thank-you when an alum updates details, RSVPs or mentors. Staff approve the wording once.
 - **AI Analyst.** A Monday briefing on what changed, what is working and what needs attention, with every number linked to its source.
 - **Your own designs.** Upload a flyer from Canva or Figma and Nivarro rebuilds it as an editable fundraising page or email.
+- **Check-ins.** Each week a small group of alumni get a short, personal email; replies become record updates, and anyone without a working email lands on a call list.
+- **Alumni Net and roster import.** Search every alum; import any spreadsheet and AI matches the columns and flags duplicates before anything is added.
+- **Approvals, mentoring and hours.** A parent and the school approve each alum before they mentor a student; mentoring happens in supervised rooms; staff verify the hours alumni log.
+- **Fundraising pages and the email designer.** 51 page designs, gifts go straight to the school's own giving page, and AI writes emails in 12 looks with the legal footer checked before approval.
+- **Claude connection.** Staff ask Claude about their alumni in plain English; Claude sees only what that staff member may see.
+
+The tour is also on https://nivarro.co/demo, below the demo request form.
 
 ## Pages
 
