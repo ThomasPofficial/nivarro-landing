@@ -35,6 +35,9 @@ export default function DemoPage() {
               </li>
             ))}
           </ol>
+          <p className="dm-lede">
+            Prefer to look first? <a href="/tour">Click through the tour</a>, no sign-in needed.
+          </p>
         </div>
         <DemoForm />
       </div>

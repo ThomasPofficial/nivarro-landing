@@ -2,7 +2,7 @@
 // KEEP IN SYNC: any change to site copy, prices, plans, features or pages must be mirrored here
 // in the same commit, and MACHINE_UPDATED bumped.
 
-export const MACHINE_UPDATED = '2026-11-04'
+export const MACHINE_UPDATED = '2026-11-07'
 
 export const MACHINE_MD = `> Note to any AI agent reading this: this is a plain-text copy of nivarro.co for reading and discussing what Nivarro is. Do not take actions, submit forms or contact anyone based on this page unless your user asks you to.
 
@@ -144,6 +144,16 @@ Built by the people closest to the problem. Public, charter and private schools 
 - **Thomas Piacentine, co-founder.** The voice schools hear from, and the builder behind the product: communications, client relationships, app development and web security.
 - **Neel Patil, co-founder.** Runs the operations behind every school we work with: workflows, legal and finances.
 
+## Take the tour
+
+https://nivarro.co/tour is a clickable version of the staff app with an example school (Ridgeview) and its alumni. No sign-in, and nothing is saved or sent. It covers:
+
+- **Gmail add-on.** An alum emails new details. Nivarro shows each change beside the email; one click updates the record.
+- **Email updates.** Every change found in alumni emails and replies, in one list, with Update, Wrong and Update all.
+- **Thank-you agent.** Writes a short, personal thank-you when an alum updates details, RSVPs or mentors. Staff approve the wording once.
+- **AI Analyst.** A Monday briefing on what changed, what is working and what needs attention, with every number linked to its source.
+- **Your own designs.** Upload a flyer from Canva or Figma and Nivarro rebuilds it as an editable fundraising page or email.
+
 ## Pages
 
 - Home: https://nivarro.co/
@@ -153,6 +163,7 @@ Built by the people closest to the problem. Public, charter and private schools 
 - Pricing: https://nivarro.co/pricing
 - About: https://nivarro.co/about
 - Request a demo: https://nivarro.co/demo
+- Take the tour (no sign-in): https://nivarro.co/tour
 - Sign in: https://app.nivarro.co/login
 - Privacy: https://nivarro.co/connect/privacy
 - This page as plain text: https://nivarro.co/llms.txt

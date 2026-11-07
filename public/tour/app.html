@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Nivarro tour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: the real Nivarro staff app (grouped sidebar + work area), with a guided tour strip on top.
+   Tokens mirror app.nivarro.co: white/warm-grey surfaces, one deep navy for every action. */
+:root {
+  --bg: #FFFFFF;
+  --bg2: #F7F6F2;
+  --surface: #FFFFFF;
+  --surface2: #F7F6F2;
+  --surface3: #EFEDE5;
+  --line: #E4E1D8;
+  --text: #1C1A16;
+  --text2: #6B6559;
+  --muted: #9C9585;
+  --navy: #1E3A5F;
+  --navy-lift: #2C4F7C;
+  --navy-wash: rgba(30,58,95,0.08);
+  --on-navy: #FFFFFF;
+  --good: #1E7B4A;
+  --good-wash: rgba(30,123,74,0.10);
+  --warn: #A15C00;
+  --warn-wash: rgba(161,92,0,0.10);
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --radius: 10px;
+  --pill: 999px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12161C; --bg2: #171C23; --surface: #1A2029; --surface2: #202733; --surface3: #29313E;
+    --line: #2E3644; --text: #ECEAE4; --text2: #B3AC9E; --muted: #857F72;
+    --navy: #6E9BD1; --navy-lift: #8FB3DE; --navy-wash: rgba(110,155,209,0.14); --on-navy: #0E1622;
+    --good: #5FBF8A; --good-wash: rgba(95,191,138,0.14); --warn: #E0A458; --warn-wash: rgba(224,164,88,0.14);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12161C; --bg2: #171C23; --surface: #1A2029; --surface2: #202733; --surface3: #29313E;
+  --line: #2E3644; --text: #ECEAE4; --text2: #B3AC9E; --muted: #857F72;
+  --navy: #6E9BD1; --navy-lift: #8FB3DE; --navy-wash: rgba(110,155,209,0.14); --on-navy: #0E1622;
+  --good: #5FBF8A; --good-wash: rgba(95,191,138,0.14); --warn: #E0A458; --warn-wash: rgba(224,164,88,0.14);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 14px; line-height: 1.5; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 500; text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+p { margin: 0; }
+button { font: inherit; cursor: pointer; }
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, label:focus-within { outline: 2px solid var(--navy); outline-offset: 2px; }
+.mono { font-variant-numeric: tabular-nums; }
+
+/* tour strip */
+.tour { background: var(--navy); color: var(--on-navy); }
+.tour-in { max-width: 1240px; margin: 0 auto; padding-block: 14px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: space-between; }
+.tour b { font-weight: 600; }
+.tour small { opacity: .8; font-size: 12.5px; }
+.steps { display: flex; gap: 6px; flex-wrap: wrap; }
+.steps a { color: var(--on-navy); text-decoration: none; font-size: 12.5px; padding: 5px 11px; border-radius: var(--pill); border: 1px solid color-mix(in srgb, var(--on-navy) 35%, transparent); }
+.steps a[aria-current="page"] { background: var(--on-navy); color: var(--navy); border-color: var(--on-navy); }
+
+/* app frame */
+.wrap { max-width: 1240px; margin: 0 auto; padding-block: 20px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.app { display: grid; grid-template-columns: 220px minmax(0, 1fr); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--surface); min-height: 640px; }
+.side { background: var(--bg2); padding: 16px 8px; border-right: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 9px; padding: 4px 12px 14px; font-weight: 700; letter-spacing: .12em; font-size: 13px; }
+.brand i { width: 18px; height: 18px; border-radius: 5px; background: var(--navy); display: inline-block; }
+.brand span { color: var(--navy); }
+.grp { padding: 14px 12px 4px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.nav a { display: flex; align-items: center; justify-content: space-between; gap: 8px; height: 36px; padding: 0 12px; border-radius: var(--pill); color: var(--text2); text-decoration: none; }
+.nav a:hover { background: var(--surface3); color: var(--text); }
+.nav a[aria-current="page"] { background: var(--navy-wash); color: var(--text); font-weight: 600; }
+.nav a.off { opacity: .55; pointer-events: none; }
+.badge { min-width: 20px; height: 20px; padding: 0 6px; border-radius: var(--pill); background: var(--navy); color: var(--on-navy); font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+.main { padding: 26px 28px 40px; min-width: 0; }
+.eyebrow { font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+.head h1 { font-size: 30px; margin-top: 4px; }
+.lede { color: var(--text2); max-width: 62ch; margin-top: 6px; }
+
+.btn { border: 0; border-radius: var(--pill); padding: 8px 16px; font-weight: 600; font-size: 13.5px; }
+.btn-primary { background: var(--navy); color: var(--on-navy); }
+.btn-primary:hover { background: var(--navy-lift); }
+.btn-ghost { background: transparent; color: var(--text2); border: 1px solid var(--line); }
+.btn-ghost:hover { background: var(--surface2); color: var(--text); }
+.btn:disabled { opacity: .5; cursor: default; }
+
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 14px; }
+.tabs button { background: none; border: 0; padding: 9px 12px; color: var(--text2); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tabs button[aria-selected="true"] { color: var(--text); border-color: var(--navy); font-weight: 600; }
+.search { width: 100%; max-width: 340px; padding: 9px 14px; border-radius: var(--pill); border: 1px solid var(--line); background: var(--surface2); color: var(--text); }
+.toolbar { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 14px; }
+
+.cards { display: grid; gap: 12px; }
+.card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 16px 18px; display: grid; gap: 10px; }
+.card-top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
+.who { font-weight: 600; }
+.who small { color: var(--muted); font-weight: 400; margin-left: 6px; }
+.field { font-family: var(--serif); font-size: 18px; color: var(--navy); }
+.meta { color: var(--muted); font-size: 12.5px; }
+.change { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.lab { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.old { color: var(--muted); text-decoration: line-through; }
+.new { font-weight: 600; }
+.quote { font-family: var(--serif); font-style: italic; color: var(--text2); border-left: 2px solid var(--line); padding-left: 12px; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.done { color: var(--good); font-weight: 600; }
+.wrong { color: var(--muted); }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: var(--pill); font-size: 12px; font-weight: 600; }
+.chip-good { background: var(--good-wash); color: var(--good); }
+.chip-warn { background: var(--warn-wash); color: var(--warn); }
+.chip-navy { background: var(--navy-wash); color: var(--navy); }
+.empty { color: var(--text2); padding: 28px; text-align: center; border: 1px dashed var(--line); border-radius: var(--radius); }
+
+/* gmail-style mock */
+.mail { display: grid; grid-template-columns: minmax(0, 1fr) 330px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.msg { padding: 22px 24px; display: grid; gap: 14px; align-content: start; background: var(--surface); min-width: 0; }
+.msg h2 { font-family: var(--sans); font-weight: 500; font-size: 20px; }
+.from { display: flex; gap: 10px; align-items: center; }
+.avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--surface3); display: grid; place-items: center; font-weight: 600; color: var(--text2); }
+.msg-body { color: var(--text); max-width: 62ch; display: grid; gap: 10px; }
+.panel { background: var(--bg2); border-left: 1px solid var(--line); display: flex; flex-direction: column; min-width: 0; }
+.panel-head { display: flex; gap: 10px; align-items: center; padding: 14px 16px; border-bottom: 1px solid var(--line); background: var(--surface); }
+.panel-head i { width: 28px; height: 28px; border-radius: 7px; background: var(--navy); display: inline-block; }
+.panel-head b { display: block; }
+.panel-head small { color: var(--muted); }
+.panel-scroll { padding: 12px; display: grid; gap: 10px; max-height: 560px; overflow-y: auto; }
+.pcard { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; display: grid; gap: 7px; }
+.pcard .field { font-family: var(--sans); font-size: 14px; font-weight: 600; }
+.panel-foot { padding: 12px; border-top: 1px solid var(--line); background: var(--surface); }
+.panel-foot .btn { width: 100%; }
+
+/* agents + analyst */
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.stat { border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; display: grid; gap: 4px; }
+.stat .n { font-family: var(--serif); font-size: 30px; line-height: 1.1; }
+.stat .d { font-size: 12.5px; color: var(--good); font-weight: 600; }
+.stat .d.down { color: var(--warn); }
+.toggle { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; }
+.toggle input { appearance: none; width: 36px; height: 20px; border-radius: var(--pill); background: var(--surface3); position: relative; transition: background .15s; margin: 0; }
+.toggle input::after { content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: var(--surface); box-shadow: 0 1px 2px rgba(0,0,0,.2); transition: transform .15s; }
+.toggle input:checked { background: var(--navy); }
+.toggle input:checked::after { transform: translateX(16px); }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+td { padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); }
+.section { display: grid; gap: 12px; margin-top: 26px; }
+.section h2 { font-size: 21px; }
+.brief { border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; display: grid; gap: 12px; background: var(--surface); }
+.brief h3 { font-size: 15px; font-family: var(--sans); font-weight: 600; }
+.brief ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+.cite { color: var(--navy); font-size: 12px; font-weight: 600; text-decoration: none; border-bottom: 1px dotted var(--navy); }
+.ask { display: flex; gap: 8px; flex-wrap: wrap; }
+.ask input { flex: 1 1 260px; min-width: 0; padding: 10px 14px; border-radius: var(--pill); border: 1px solid var(--line); background: var(--surface2); color: var(--text); }
+.answer { border-left: 3px solid var(--navy); padding: 10px 14px; background: var(--navy-wash); border-radius: 0 8px 8px 0; }
+
+/* designs */
+.drop { border: 1.5px dashed var(--line); border-radius: var(--radius); padding: 26px; text-align: center; display: grid; gap: 8px; justify-items: center; background: var(--surface2); }
+.drop.over { border-color: var(--navy); background: var(--navy-wash); }
+.compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.frame { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: grid; }
+.frame-lab { padding: 8px 12px; border-bottom: 1px solid var(--line); background: var(--surface2); font-size: 12px; color: var(--text2); font-weight: 600; }
+.frame img { width: 100%; display: block; max-height: 520px; object-fit: contain; background: var(--surface2); }
+.rebuilt { padding: 0; }
+.rb-hero { padding: 30px 24px; display: grid; gap: 8px; }
+.rb-k { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; }
+.rb-h { font-family: var(--serif); font-size: 30px; line-height: 1.1; }
+.rb-body { padding: 18px 24px 26px; display: grid; gap: 12px; }
+.rb-goal { font-family: var(--serif); font-size: 26px; }
+.rb-cta { justify-self: start; border: 0; border-radius: 6px; padding: 10px 18px; font-weight: 600; }
+.swatches { display: flex; gap: 6px; }
+.swatches span { width: 22px; height: 22px; border-radius: 6px; border: 1px solid var(--line); }
+.gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.tile { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.tile .sw { height: 70px; }
+.tile p { padding: 8px 10px; font-size: 12.5px; }
+
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%) translateY(20px); background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: var(--pill); font-weight: 600; opacity: 0; transition: opacity .2s, transform .2s; pointer-events: none; z-index: 20; }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.note { font-size: 12.5px; color: var(--muted); margin-top: 18px; }
+
+@media (max-width: 900px) {
+  .app { grid-template-columns: minmax(0, 1fr); }
+  .side { border-right: 0; border-bottom: 1px solid var(--line); }
+  .nav { display: flex; flex-wrap: wrap; gap: 2px; }
+  .grp { width: 100%; }
+  .mail { grid-template-columns: minmax(0, 1fr); }
+  .panel { border-left: 0; border-top: 1px solid var(--line); }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 620px) {
+  .main { padding: 20px 16px 32px; }
+  .change, .grid2, .compare { grid-template-columns: minmax(0, 1fr); }
+  .head h1 { font-size: 25px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="tour">
+  <div class="tour-in">
+    <div><b>Try it</b> <small>· Example school and alumni. Click anything; nothing is saved or sent.</small></div>
+    <nav class="steps" aria-label="Tour steps">
+      <a href="#gmail">1 · Gmail add-on</a>
+      <a href="#updates">2 · Email updates</a>
+      <a href="#thank-yous">3 · Thank-you agent</a>
+      <a href="#analyst">4 · AI Analyst</a>
+      <a href="#designs">5 · Your own designs</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="app">
+    <aside class="side" aria-label="Nivarro sidebar">
+      <div class="brand"><i aria-hidden="true"></i>NI<span>VARRO</span></div>
+      <nav class="nav">
+        <div class="grp">Agents</div>
+        <a href="#updates" data-view="updates">Email updates <span class="badge mono" id="navCount">5</span></a>
+        <a href="#gmail" data-view="gmail">Gmail add-on</a>
+        <a href="#thank-yous" data-view="thank-yous">Thank-yous</a>
+        <a href="#analyst" data-view="analyst">AI Analyst</a>
+        <div class="grp">People</div>
+        <a class="off">Alumni Net</a><a class="off">Roster</a><a class="off">Approvals</a>
+        <div class="grp">Outreach</div>
+        <a href="#designs" data-view="designs">Fundraise</a><a class="off">Announce</a><a class="off">Partnerships</a>
+        <div class="grp">Admin</div>
+        <a class="off">Permissions</a><a class="off">Settings</a>
+      </nav>
+    </aside>
+
+    <main class="main" id="main">
+
+      <!-- 1 · Gmail -->
+      <section data-panel="gmail" hidden>
+        <div class="head"><div>
+          <div class="eyebrow">Agents · Gmail add-on</div>
+          <h1>Alumni news, right inside your inbox</h1>
+          <p class="lede">When an alum writes in, Nivarro reads the email and shows each change it found beside it. One click updates their record. Nothing changes until a staff member says so.</p>
+        </div></div>
+
+        <div class="mail">
+          <article class="msg" aria-label="Example email">
+            <h2>Updated contact info · Tanya Okafor, class of 2008</h2>
+            <div class="from"><div class="avatar" aria-hidden="true">TO</div><div><b>Tanya Okafor</b><div class="meta">to alumni office · Nov 6</div></div></div>
+            <div class="msg-body">
+              <p>Hi Ridgeview alumni office!</p>
+              <p>Quick update from me. I moved from Boston to Denver this summer and started a new job as Director of Product at Stripe. My new email is tanya.okafor@example.com and my cell is (720) 555-0148.</p>
+              <p>New mailing address: 1450 Larimer St, Apt 9, Denver, CO 80202.</p>
+              <p>Also, I'd love to speak at Hawks Career Day this spring if you need alumni speakers.</p>
+              <p>Go Hawks,<br>Tanya</p>
+            </div>
+          </article>
+          <aside class="panel" aria-label="Nivarro add-on panel">
+            <div class="panel-head"><i aria-hidden="true"></i><div><b>Tanya Okafor</b><small>Class of 2008</small></div></div>
+            <div class="panel-scroll" id="gmailCards"></div>
+            <div class="panel-foot"><button class="btn btn-primary" id="gmailAll">Update all</button></div>
+          </aside>
+        </div>
+        <p class="note">Works in Gmail today and stays signed in to your school's Nivarro account. Outlook is next.</p>
+      </section>
+
+      <!-- 2 · Email updates -->
+      <section data-panel="updates" hidden>
+        <div class="head">
+          <div>
+            <div class="eyebrow">Agents · Email updates</div>
+            <h1>Email updates</h1>
+            <p class="lede">Every change Nivarro found in alumni emails and replies, in one place. The Gmail add-on's "Open in Nivarro" link lands here.</p>
+          </div>
+          <button class="btn btn-primary" id="updAll">Update all</button>
+        </div>
+        <div class="tabs" role="tablist">
+          <button role="tab" aria-selected="true" data-tab="open">Needs action <span class="mono" id="cOpen"></span></button>
+          <button role="tab" aria-selected="false" data-tab="done">Done <span class="mono" id="cDone"></span></button>
+        </div>
+        <div class="toolbar">
+          <label style="flex:1 1 260px"><span class="lab" style="display:block;margin-bottom:4px">Search by name</span>
+            <input class="search" id="updSearch" type="search" placeholder="e.g. Tanya" autocomplete="off"></label>
+        </div>
+        <div class="cards" id="updCards"></div>
+      </section>
+
+      <!-- 3 · Thank-yous -->
+      <section data-panel="thank-yous" hidden>
+        <div class="head"><div>
+          <div class="eyebrow">Agents · Thank-yous and event reminders</div>
+          <h1>Thank-you agent</h1>
+          <p class="lede">Writes a short, personal thank-you when an alum updates their details, RSVPs, signs up, or mentors a student. Staff approve the wording once; every email carries the school's address and an unsubscribe link.</p>
+        </div></div>
+        <div class="grid2">
+          <div class="stat">
+            <div class="lab">Thank-yous</div>
+            <label class="toggle"><input type="checkbox" id="tyOn" checked> <span id="tyState">On, sending</span></label>
+            <div class="meta">Daily limit <span class="mono">40</span> · Waiting <span class="mono">3</span></div>
+          </div>
+          <div class="stat">
+            <div class="lab">Event reminders</div>
+            <label class="toggle"><input type="checkbox" id="erOn"> <span id="erState">Off</span></label>
+            <div class="meta">Daily limit <span class="mono">100</span> · Hawks Career Day, Mar 12</div>
+          </div>
+        </div>
+        <div class="section">
+          <h2>Recent emails</h2>
+          <div class="tablewrap"><table>
+            <thead><tr><th>Alum</th><th>Why</th><th>Status</th><th>Sent</th></tr></thead>
+            <tbody id="tyRows"></tbody>
+          </table></div>
+        </div>
+        <div class="section">
+          <h2>Preview</h2>
+          <div class="brief" id="tyPreview">
+            <div class="meta">Subject</div>
+            <b>Thanks for keeping in touch, Tanya</b>
+            <p>Hi Tanya, thank you for sending your new details. Congratulations on the move to Denver and the new role at Stripe. Our students love hearing from Hawks who've built careers in tech, and we'd be glad to have you at Career Day on March 12.</p>
+            <p>Warmly,<br>Eleanor Whitcombe, Ridgeview Alumni Office</p>
+            <p class="meta">Ridgeview High School · 200 School Rd, Ridgeview · Unsubscribe</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 · Analyst -->
+      <section data-panel="analyst" hidden>
+        <div class="head"><div>
+          <div class="eyebrow">Agents · AI Analyst</div>
+          <h1>Monday briefing</h1>
+          <p class="lede">The analyst reads your alumni, mentoring and giving data every week and tells you what changed, what's working, and what needs attention. Every number links to where it came from.</p>
+        </div></div>
+        <div class="grid2" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
+          <div class="stat"><div class="lab">Alumni reachable</div><div class="n mono">1,284</div><div class="d mono">+46 this week</div></div>
+          <div class="stat"><div class="lab">Mentors active</div><div class="n mono">38</div><div class="d mono">+5</div></div>
+          <div class="stat"><div class="lab">Check-in replies</div><div class="n mono">22%</div><div class="d mono">+4 pts</div></div>
+          <div class="stat"><div class="lab">Bounced emails</div><div class="n mono">61</div><div class="d down mono">+12</div></div>
+        </div>
+        <div class="section">
+          <div class="brief">
+            <h3>What changed</h3>
+            <ul>
+              <li>46 alumni gave new contact details after the October check-in. <a class="cite" href="#analyst">Check-ins</a></li>
+              <li>Class of 2008 replies doubled since Tanya Okafor's Career Day offer. <a class="cite" href="#analyst">Email updates</a></li>
+            </ul>
+            <h3>Needs attention</h3>
+            <ul>
+              <li>61 emails bounced, mostly from the classes of 1998–2003. A call list would reach them. <a class="cite" href="#analyst">Sending log</a></li>
+            </ul>
+            <div class="actions"><button class="btn btn-primary" id="mkList">Make call list</button><button class="btn btn-ghost" id="mkGroup">Save as a group</button></div>
+          </div>
+        </div>
+        <div class="section">
+          <h2>Ask the analyst</h2>
+          <form class="ask" id="askForm">
+            <label class="sr" for="askIn" hidden>Question</label>
+            <input id="askIn" placeholder="Which classes are most engaged this fall?" autocomplete="off">
+            <button class="btn btn-primary" type="submit">Ask</button>
+          </form>
+          <div class="answer" id="askOut" hidden></div>
+        </div>
+      </section>
+
+      <!-- 5 · Designs -->
+      <section data-panel="designs" hidden>
+        <div class="head"><div>
+          <div class="eyebrow">Outreach · Fundraise and email designs</div>
+          <h1>Use your own designs</h1>
+          <p class="lede">Made a flyer in Canva or a design in Figma? Upload it and Nivarro rebuilds it as an editable fundraising page or email, with your colors, fonts and words. You approve it before anyone sees it.</p>
+        </div></div>
+        <label class="drop" id="drop" for="file">
+          <b>Drop a PNG or JPG here, or click to choose</b>
+          <span class="meta">Try any flyer or screenshot. In this tour the rebuild is a sample; in the app Claude reads your file.</span>
+          <input id="file" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+        </label>
+        <div class="section" id="cmp" hidden>
+          <div class="compare">
+            <div class="frame"><div class="frame-lab">Your upload</div><img id="upImg" alt="Your uploaded design"></div>
+            <div class="frame"><div class="frame-lab">Rebuilt by Nivarro · editable</div>
+              <div class="rebuilt" id="rebuilt"></div></div>
+          </div>
+          <div class="actions"><button class="btn btn-primary" id="approve">Approve design</button><button class="btn btn-ghost" id="rebuild">Rebuild</button>
+            <span class="meta">Colors picked from your file:</span><span class="swatches" id="sw"></span></div>
+        </div>
+        <div class="section">
+          <h2>Or start from a Nivarro design</h2>
+          <div class="gallery">
+            <div class="tile"><div class="sw" style="background:linear-gradient(135deg,#1E3A5F,#2C4F7C)"></div><p>Annual giving appeal</p></div>
+            <div class="tile"><div class="sw" style="background:linear-gradient(135deg,#7A1F1F,#C9A227)"></div><p>Giving day countdown</p></div>
+            <div class="tile"><div class="sw" style="background:linear-gradient(135deg,#1F5C3F,#E9E4D4)"></div><p>Senior trip fund</p></div>
+            <div class="tile"><div class="sw" style="background:linear-gradient(135deg,#222,#D35400)"></div><p>Wrestling dual night</p></div>
+          </div>
+          <p class="meta">51 page designs and 12 email looks are built in.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+  <p class="note">Ridgeview High School, its staff and its alumni are example data for this tour.</p>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  let tt;
+  function toast(msg) { const el = $("#toast"); el.textContent = msg; el.classList.add("show"); clearTimeout(tt); tt = setTimeout(() => el.classList.remove("show"), 2200); }
+
+  // ---- shared data: what the email said ----
+  const changes = [
+    { id: 1, who: "Tanya Okafor", yr: 2008, field: "City", before: "Boston, MA", after: "Denver, CO", quote: "I moved from Boston to Denver this summer", src: "Gmail", when: "Nov 6", status: "open" },
+    { id: 2, who: "Tanya Okafor", yr: 2008, field: "Job", before: "Product Manager, HubSpot", after: "Director of Product, Stripe", quote: "started a new job as Director of Product at Stripe", src: "Gmail", when: "Nov 6", status: "open" },
+    { id: 3, who: "Tanya Okafor", yr: 2008, field: "Email", before: "tokafor@example.net", after: "tanya.okafor@example.com", quote: "My new email is tanya.okafor@example.com", src: "Gmail", when: "Nov 6", status: "open" },
+    { id: 4, who: "Tanya Okafor", yr: 2008, field: "Phone", before: "(617) 555-0122", after: "(720) 555-0148", quote: "my cell is (720) 555-0148", src: "Gmail", when: "Nov 6", status: "open" },
+    { id: 5, who: "Tanya Okafor", yr: 2008, field: "Address", before: "88 Beacon St, Boston, MA", after: "1450 Larimer St, Apt 9, Denver, CO 80202", quote: "New mailing address: 1450 Larimer St, Apt 9", src: "Gmail", when: "Nov 6", status: "open" },
+    { id: 6, who: "Marcus Bell", yr: 1999, field: "Employer", before: "Ridgeview Bank", after: "Self-employed (Bell Carpentry)", quote: "I've gone out on my own, Bell Carpentry", src: "Check-in reply", when: "Nov 4", status: "open", review: true },
+    { id: 7, who: "Priya Raman", yr: 2015, field: "City", before: "Austin, TX", after: "Seattle, WA", quote: "We just moved up to Seattle", src: "Check-in reply", when: "Nov 2", status: "done" },
+  ];
+  const open = () => changes.filter((c) => c.status === "open");
+  function decide(id, status) {
+    const c = changes.find((x) => x.id === id); if (!c) return;
+    c.status = status; renderAll();
+    toast(status === "done" ? c.field + " updated" : "Marked wrong. Nothing changed.");
+  }
+  function updateAll(list) {
+    const n = list.filter((c) => !c.review).length;
+    list.forEach((c) => { if (!c.review) c.status = "done"; });
+    renderAll(); toast(n + (n === 1 ? " change" : " changes") + " updated");
+  }
+
+  // ---- Gmail panel ----
+  function renderGmail() {
+    const box = $("#gmailCards");
+    const tanya = changes.filter((c) => c.who === "Tanya Okafor");
+    box.innerHTML = tanya.map((c) => `
+      <div class="pcard">
+        <div class="field">${esc(c.field)}</div>
+        <div><div class="lab">On record</div><div class="old">${esc(c.before)}</div></div>
+        <div><div class="lab">From this email</div><div class="new">${esc(c.after)}</div></div>
+        ${c.status === "open"
+          ? `<div class="actions"><button class="btn btn-primary" data-up="${c.id}">Update</button><button class="btn btn-ghost" data-wr="${c.id}">Wrong</button></div>`
+          : c.status === "done" ? `<div class="done">✓ Updated</div>` : `<div class="wrong">Marked incorrect</div>`}
+      </div>`).join("") + `<div class="pcard"><div class="field">Also in this email</div><p class="meta">Offered to speak at Hawks Career Day. Added to the speaker list for Eleanor to follow up.</p></div>`;
+    const left = tanya.filter((c) => c.status === "open").length;
+    $("#gmailAll").disabled = left === 0;
+    $("#gmailAll").textContent = left ? `Update all ${left}` : "All done";
+  }
+  $("#gmailAll").addEventListener("click", () => updateAll(open().filter((c) => c.who === "Tanya Okafor")));
+
+  // ---- Email updates list ----
+  let tab = "open";
+  function renderUpdates() {
+    const q = $("#updSearch").value.trim().toLowerCase();
+    const list = changes.filter((c) => (tab === "open" ? c.status === "open" : c.status !== "open") && (!q || c.who.toLowerCase().includes(q)));
+    $("#cOpen").textContent = open().length;
+    $("#cDone").textContent = changes.length - open().length;
+    $("#navCount").textContent = open().length;
+    $("#navCount").hidden = open().length === 0;
+    $("#updAll").disabled = open().filter((c) => !c.review).length === 0;
+    $("#updCards").innerHTML = list.length ? list.map((c) => `
+      <article class="card">
+        <div class="card-top">
+          <div class="who">${esc(c.who)}<small>Class of ${c.yr}</small></div>
+          <div class="meta">${esc(c.src)} · ${esc(c.when)}</div>
+        </div>
+        <div class="field">${esc(c.field)}</div>
+        <div class="change">
+          <div><div class="lab">On record</div><div class="old">${esc(c.before)}</div></div>
+          <div><div class="lab">From the email</div><div class="new">${esc(c.after)}</div></div>
+        </div>
+        <p class="quote">“${esc(c.quote)}”</p>
+        ${c.review ? `<span class="chip chip-warn">Not certain. Check before updating.</span>` : ""}
+        ${c.status === "open"
+          ? `<div class="actions"><button class="btn btn-primary" data-up="${c.id}">Update</button><button class="btn btn-ghost" data-wr="${c.id}">Wrong</button></div>`
+          : c.status === "done" ? `<div class="done">✓ Updated in the record</div>` : `<div class="wrong">Marked incorrect. Nothing changed.</div>`}
+      </article>`).join("") : `<div class="empty">${tab === "open" ? "You're all caught up. New changes from alumni emails appear here." : "Nothing decided yet."}</div>`;
+  }
+  $("#updSearch").addEventListener("input", renderUpdates);
+  $$(".tabs button").forEach((b) => b.addEventListener("click", () => {
+    tab = b.dataset.tab; $$(".tabs button").forEach((x) => x.setAttribute("aria-selected", String(x === b))); renderUpdates();
+  }));
+  $("#updAll").addEventListener("click", () => updateAll(open()));
+
+  document.addEventListener("click", (e) => {
+    const up = e.target.closest("[data-up]"); if (up) return decide(Number(up.dataset.up), "done");
+    const wr = e.target.closest("[data-wr]"); if (wr) return decide(Number(wr.dataset.wr), "wrong");
+  });
+
+  // ---- Thank-yous ----
+  const sent = [
+    ["Priya Raman '15", "Updated her city", "Sent", "Nov 2"],
+    ["Daniel Cho '11", "RSVP'd to Homecoming", "Sent", "Nov 1"],
+    ["Rosa Vega '04", "Mentored a junior for 4 weeks", "Sent", "Oct 30"],
+    ["Tanya Okafor '08", "Updated her details", "Waiting for approval", "Today"],
+  ];
+  $("#tyRows").innerHTML = sent.map((r) => `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td><span class="chip ${r[2] === "Sent" ? "chip-good" : "chip-navy"}">${esc(r[2])}</span></td><td class="mono">${esc(r[3])}</td></tr>`).join("");
+  $("#tyOn").addEventListener("change", (e) => { $("#tyState").textContent = e.target.checked ? "On, sending" : "Off"; toast(e.target.checked ? "Thank-yous turned on" : "Thank-yous turned off"); });
+  $("#erOn").addEventListener("change", (e) => { $("#erState").textContent = e.target.checked ? "On, preview only" : "Off"; toast(e.target.checked ? "Event reminders on in preview mode" : "Event reminders off"); });
+
+  // ---- Analyst ----
+  $("#mkList").addEventListener("click", () => toast("Call list made: 61 alumni with phone numbers"));
+  $("#mkGroup").addEventListener("click", () => toast("Saved as a group: Bounced 1998–2003"));
+  $("#askForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const q = $("#askIn").value.trim() || $("#askIn").placeholder;
+    const out = $("#askOut");
+    out.hidden = false;
+    out.innerHTML = `<b>${esc(q)}</b><p style="margin-top:6px">The classes of 2008, 2011 and 2015 are most engaged this fall: together they sent 41% of check-in replies and hold 14 of 38 active mentors. 2008 jumped most, from 3 replies in September to 11 in October. <a class="cite" href="#analyst">Check-ins</a> <a class="cite" href="#analyst">Mentoring</a></p>`;
+  });
+
+  // ---- Designs ----
+  const drop = $("#drop"), file = $("#file");
+  ["dragenter", "dragover"].forEach((t) => drop.addEventListener(t, (e) => { e.preventDefault(); drop.classList.add("over"); }));
+  ["dragleave", "drop"].forEach((t) => drop.addEventListener(t, (e) => { e.preventDefault(); drop.classList.remove("over"); }));
+  drop.addEventListener("drop", (e) => { const f = e.dataTransfer && e.dataTransfer.files[0]; if (f) useFile(f); });
+  file.addEventListener("change", () => { if (file.files[0]) useFile(file.files[0]); });
+
+  function useFile(f) {
+    if (!/^image\/(png|jpeg|webp)$/.test(f.type)) { toast("Use a PNG, JPG or WEBP image"); return; }
+    const url = URL.createObjectURL(f);
+    const img = $("#upImg");
+    img.onload = () => rebuildFrom(img);
+    img.src = url;
+    $("#cmp").hidden = false;
+    $("#rebuilt").innerHTML = `<div class="rb-body"><p class="meta">Reading your design…</p></div>`;
+  }
+  function palette(img) {
+    try {
+      const c = document.createElement("canvas"), w = 40, h = Math.max(1, Math.round(40 * img.naturalHeight / img.naturalWidth));
+      c.width = w; c.height = h; const x = c.getContext("2d"); x.drawImage(img, 0, 0, w, h);
+      const d = x.getImageData(0, 0, w, h).data, buckets = {};
+      for (let i = 0; i < d.length; i += 4) {
+        const k = [d[i] >> 5, d[i + 1] >> 5, d[i + 2] >> 5].join(",");
+        (buckets[k] = buckets[k] || { n: 0, r: 0, g: 0, b: 0 }).n++;
+        buckets[k].r += d[i]; buckets[k].g += d[i + 1]; buckets[k].b += d[i + 2];
+      }
+      return Object.values(buckets).sort((a, b) => b.n - a.n).slice(0, 4).map((v) => [v.r / v.n, v.g / v.n, v.b / v.n].map(Math.round));
+    } catch (_) { return [[30, 58, 95], [247, 246, 242], [201, 162, 39], [28, 26, 22]]; }
+  }
+  const hex = (c) => "#" + c.map((v) => v.toString(16).padStart(2, "0")).join("");
+  const lum = (c) => (0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]) / 255;
+  function rebuildFrom(img) {
+    const p = palette(img);
+    while (p.length < 3) p.push([30, 58, 95]);
+    const sorted = p.slice().sort((a, b) => lum(a) - lum(b));
+    const dark = sorted[0], light = sorted[sorted.length - 1];
+    const accent = p.find((c) => { const mx = Math.max(...c), mn = Math.min(...c); return mx - mn > 60; }) || dark;
+    const onAccent = lum(accent) > 0.6 ? "#1C1A16" : "#FFFFFF";
+    $("#sw").innerHTML = p.map((c) => `<span style="background:${hex(c)}" title="${hex(c)}"></span>`).join("");
+    setTimeout(() => {
+      $("#rebuilt").innerHTML = `
+        <div class="rb-hero" style="background:${hex(dark)};color:${lum(dark) > 0.6 ? "#1C1A16" : "#FFFFFF"}">
+          <div class="rb-k">Ridgeview Hawks · Fundraiser</div>
+          <div class="rb-h">Help send the band to Nationals</div>
+          <div>Every dollar covers travel, uniforms and the bus.</div>
+        </div>
+        <div class="rb-body" style="background:${hex(light)};color:${lum(light) > 0.6 ? "#1C1A16" : "#FFFFFF"}">
+          <div><div class="lab" style="color:inherit;opacity:.7">Goal</div><div class="rb-goal mono">$12,000</div></div>
+          <p>Text, goal, dates and button are all editable after the rebuild.</p>
+          <button class="rb-cta" style="background:${hex(accent)};color:${onAccent}">Give to the band</button>
+        </div>`;
+      toast("Rebuilt. Compare, then approve.");
+    }, 700);
+  }
+  $("#approve").addEventListener("click", () => toast("Approved. It's in Your designs."));
+  $("#rebuild").addEventListener("click", () => { const img = $("#upImg"); if (img.src) rebuildFrom(img); });
+
+  // ---- routing ----
+  const views = ["gmail", "updates", "thank-yous", "analyst", "designs"];
+  function show() {
+    const v = views.includes(location.hash.slice(1)) ? location.hash.slice(1) : "gmail";
+    $$("[data-panel]").forEach((s) => { s.hidden = s.dataset.panel !== v; });
+    $$(".nav a[data-view], .steps a").forEach((a) => {
+      const on = a.getAttribute("href") === "#" + v;
+      if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    });
+  }
+  function renderAll() { renderGmail(); renderUpdates(); }
+  // Embedded on nivarro.co/tour: tell the parent page our height so it never scrolls inside a box.
+  function report() { try { parent.postMessage({ nivarroTourHeight: document.documentElement.scrollHeight }, location.origin); } catch (_) {} }
+  window.addEventListener("hashchange", () => { show(); report(); });
+  new ResizeObserver(report).observe(document.body);
+  renderAll(); show(); report();
+})();
+</script>
+
+</body>
+</html>
