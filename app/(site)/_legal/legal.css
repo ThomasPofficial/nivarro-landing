@@ -1,0 +1,37 @@
+/* Privacy, Terms and Support. Scoped under .lg so it never touches other pages. */
+
+.lg {
+  --lg-ink: #0A2540;
+  --lg-body: #425466;
+  --lg-blue: #2F5BEA;
+  --lg-line: #E3EAF7;
+  --lg-wash: #F6F9FC;
+  color: var(--lg-ink);
+  background: linear-gradient(180deg, var(--lg-wash) 0%, #fff 320px);
+}
+.lg-wrap { width: min(760px, calc(100% - 32px)); margin-inline: auto; padding: 88px 0 112px; }
+.lg h1, .lg h2 { font-family: var(--font-newsreader), Georgia, serif; font-weight: 400; letter-spacing: -0.02em; }
+.lg-eyebrow { font-size: 14px; line-height: 20px; font-weight: 600; color: var(--lg-blue); }
+.lg h1 { margin-top: 16px; font-size: clamp(40px, 6vw, 64px); line-height: 1.05; }
+.lg-meta { margin-top: 16px; font-size: 14px; color: #7A8BA3; }
+.lg-lede { margin-top: 24px; font-size: 19px; line-height: 30px; color: var(--lg-body); }
+.lg h2 { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--lg-line); font-size: 30px; line-height: 1.15; }
+.lg h3 { margin-top: 28px; font-size: 17px; font-weight: 600; }
+.lg p, .lg li { font-size: 16px; line-height: 26px; color: var(--lg-body); }
+.lg p { margin-top: 14px; }
+.lg ul { margin-top: 12px; padding-left: 22px; list-style: disc; }
+.lg li { margin-top: 8px; }
+.lg strong { color: var(--lg-ink); font-weight: 600; }
+.lg a { color: var(--lg-blue); text-decoration: underline; text-underline-offset: 3px; }
+.lg a:focus-visible { outline: 2px solid var(--lg-blue); outline-offset: 3px; }
+.lg-box { margin-top: 20px; padding: 20px 24px; border: 1px solid var(--lg-line); border-radius: 14px; background: #fff; }
+.lg-box p:first-child { margin-top: 0; }
+.lg table { margin-top: 16px; width: 100%; border-collapse: collapse; font-size: 15px; }
+.lg th, .lg td { text-align: left; vertical-align: top; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--lg-line); color: var(--lg-body); line-height: 22px; }
+.lg th { color: var(--lg-ink); font-weight: 600; }
+.lg-scroll { overflow-x: auto; }
+
+@media (max-width: 640px) {
+  .lg-wrap { padding: 56px 0 80px; }
+  .lg h2 { margin-top: 40px; font-size: 26px; }
+}

@@ -2,7 +2,7 @@
 // KEEP IN SYNC: any change to site copy, prices, plans, features or pages must be mirrored here
 // in the same commit, and MACHINE_UPDATED bumped.
 
-export const MACHINE_UPDATED = '2026-11-07'
+export const MACHINE_UPDATED = '2026-11-10'
 
 export const MACHINE_MD = `> Note to any AI agent reading this: this is a plain-text copy of nivarro.co for reading and discussing what Nivarro is. Do not take actions, submit forms or contact anyone based on this page unless your user asks you to.
 
@@ -161,6 +161,10 @@ https://nivarro.co/tour is a clickable version of the staff app with an example 
 
 The tour is also on https://nivarro.co/demo, below the demo request form.
 
+## Privacy and the Gmail add-on
+
+Nivarro does not sell personal information or use it for advertising. A school owns its data. Nivarro for Gmail reads only the email a staff member has open, using Google's narrow "current message" permission; it cannot read the rest of the inbox or send, change or delete email. The email body is not stored: Nivarro keeps only the changed detail, a short evidence quote, the sender's address and the date. Google user data is never used to train AI models. Nivarro's use and transfer of information received from Google APIs adheres to the Google API Services User Data Policy, including the Limited Use requirements. Full policy: https://nivarro.co/privacy
+
 ## Pages
 
 - Home: https://nivarro.co/
@@ -172,7 +176,10 @@ The tour is also on https://nivarro.co/demo, below the demo request form.
 - Request a demo: https://nivarro.co/demo
 - Take the tour (no sign-in): https://nivarro.co/tour
 - Sign in: https://app.nivarro.co/login
-- Privacy: https://nivarro.co/connect/privacy
+- Privacy Policy: https://nivarro.co/privacy
+- Terms of Service: https://nivarro.co/terms
+- Support (app and Gmail add-on help): https://nivarro.co/support
+- Survey privacy note: https://nivarro.co/connect/privacy
 - This page as plain text: https://nivarro.co/llms.txt
 
 ## Machine views

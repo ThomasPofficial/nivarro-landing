@@ -41,7 +41,9 @@ export default function SiteFooter() {
           <span className="nv-footer-links">
             <MachineViewButton label="View this page as machine" />
             <Link href="/machine">Whole site as text</Link>
-            <Link href="/connect/privacy">Privacy</Link>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
+            <Link href="/support">Support</Link>
           </span>
         </div>
       </div>
